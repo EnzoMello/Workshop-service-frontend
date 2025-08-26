@@ -7,10 +7,7 @@ import './RealtimeMonitor.css';
 import { data } from 'react-router-dom';
 
 function RealtimeMonitor({ initialOsList }) {
-  // Usa nosso hook para obter os dados em tempo real
-  // AQUI ESTÁ A CORREÇÃO:
-  // O hook 'useWebSocket' agora gerencia a lista 'activeOsList'.
-  // Ele começa com 'initialOsList' e se atualiza sozinho.
+ 
   const activeOsList = useWebSocket(initialOsList);
 
   return (

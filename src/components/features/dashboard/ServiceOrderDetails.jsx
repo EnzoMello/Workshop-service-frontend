@@ -23,6 +23,13 @@ const statusBadgeMap = {
 function ServiceOrderDetails({ selectedOsDetails, isLoading, technicians, boxes, onPauseOs, onLinkTechnicianAndBox }) {
   const [isPauseOpen, setIsPauseOpen] = useState(false);
   const [isLinkOpen, setIsLinkOpen] = useState(false);
+
+  const handleConfirmLinkAndClose = async (technicianId, boxId) => {
+    await onLinkTechnicianAndBox(technicianId, boxId);
+    setIsLinkOpen(false);
+  };
+
+  
   
   if (isLoading) {
     return (
@@ -89,7 +96,7 @@ function ServiceOrderDetails({ selectedOsDetails, isLoading, technicians, boxes,
       {isLinkOpen && technicians?.length > 0 && boxes?.length > 0 && (
         <LinkTechnicianModal 
           onClose={() => setIsLinkOpen(false)} 
-          onConfirm={onLinkTechnicianAndBox} 
+          onConfirm={handleConfirmLinkAndClose} 
           technicians={technicians}
           boxes={boxes}
         />

@@ -17,7 +17,7 @@ function PauseOsModal({ onClose, onConfirm }) {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header"><h2>Pausar Ordem de Serviço</h2><button className="close-btn" onClick={onClose}>&times;</button></div>
-        <form className="modal-form" onSubmit={(e) => { e.preventDefault(); onConfirm(reason); }}>
+        <form className="modal-form" onSubmit={(e) => { e.preventDefault(); onConfirm(reason); onClose(); }}>
           <div className="form-group">
             <label htmlFor="reason">Selecione o motivo da pausa:</label>
             <select id="reason" value={reason} onChange={(e) => setReason(e.target.value)} className="filter-select">

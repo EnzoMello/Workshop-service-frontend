@@ -1,54 +1,31 @@
 /* src/components/features/dashboard/RealtimeMonitorCard.css */
 
+/* --- Card Principal --- */
 .realtime-item {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-left-width: 4px;
-  border-radius: 6px;
-  padding: 12px;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0; 
+  border-radius: 8px;
+  overflow: hidden;
   flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
+/* --- Cabeçalho Colorido --- */
 .realtime-header {
+  padding: 10px 12px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
-}
-
-.realtime-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin-right: 8px;
 }
 
 .realtime-title {
   font-weight: 600;
-  color: #1e293b;
+  color: #ffffff;
   font-size: 1rem;
-  flex: 1;
 }
 
-.realtime-badge {
-  padding: 4px 12px;
-  border-radius: 16px;
-  font-weight: 600;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-}
-
-/* Cores dos Status */
-.realtime-item.status-green, .realtime-dot.status-green { border-left-color: #28a745; background-color: #28a745; }
-.realtime-badge.status-green { background: #dcfce7; color: #16a34a; }
-.realtime-item.status-yellow, .realtime-dot.status-yellow { border-left-color: #fd7e14; background-color: #fd7e14; }
-.realtime-badge.status-yellow { background-color: #fef3c7; color: #d97706; }
-.realtime-item.status-red, .realtime-dot.status-red { border-left-color: #dc3545; background-color: #dc3545; }
-.realtime-badge.status-red { background: #fee2e2; color: #dc2626; }
-.realtime-item.status-gray, .realtime-dot.status-gray { border-left-color: #6c757d; background-color: #6c757d; }
-.realtime-badge.status-gray { background: #e9ecef; color: #495057; }
-
+/* --- Corpo do Card --- */
 .realtime-body {
+  padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -65,3 +42,19 @@
   font-weight: 600;
   color: #1e293b;
 }
+
+/* --- Lógica das Cores de Status (Cabeçalho e Borda) --- */
+.realtime-item.status-green { border-color: #28a745; }
+.realtime-item.status-green .realtime-header { background-color: #28a745; }
+
+.realtime-item.status-yellow { border-color: #f59e0b; }
+.realtime-item.status-yellow .realtime-header { background-color: #f59e0b; }
+
+.realtime-item.status-red { border-color: #dc3545; }
+.realtime-item.status-red .realtime-header { background-color: #dc3545; }
+
+.realtime-item.status-gray { border-color: #6c757d; }
+.realtime-item.status-gray .realtime-header { background-color: #6c757d; }
+
+
+

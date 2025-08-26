@@ -9,11 +9,17 @@ import RealtimeMonitor from '../../components/features/dashboard/RealtimeMonitor
 import ServiceOrderList from '../../components/features/dashboard/ServiceOrderList';
 import ServiceOrderDetails from '../../components/features/dashboard/ServiceOrderDetails';
 import CreateOsModal from '../../components/features/dashboard/CreateOsModal';
+import ErrorToast from '../../components/features/dashboard/ErrorToast';
+import SuccessToast from '../../components/features/dashboard/SuccessToast';
+
 import './DashboardPage.css';
 
 function DashboardPage() {
   const [osList, setOsList] = useState([]);
   const [activeOsList, setActiveOsList] = useState([]); // Lista para a coluna 3
+  const [toastError, setToastError] = useState(null); // Adicione um estado para o erro do toast
+  const [successMessage, setSuccessMessage] = useState(null);
+
 
   const [taskCatalog, setTaskCatalog] = useState([]);
   const [technicians, setTechnicians] = useState([]);
@@ -61,7 +67,8 @@ function DashboardPage() {
     try {
       const details = await getOrderServiceById(osId);
       setSelectedOsDetails(details);
-    } catch (err) { console.error("Falha ao buscar detalhes da OS"); } 
+      
+    } catch (err) {setToastError("Não foi possível carregar os detalhes da OS."); } 
     finally { setIsDetailsLoading(false); }
   };
   
@@ -70,30 +77,72 @@ function DashboardPage() {
       await createOrderService(osData);
       setIsCreateOsModalOpen(false);
       fetchData();
-    } catch (error) { alert("Falha ao criar a Ordem de Serviço."); }
+      setSuccessMessage("Ordem de Serviço criada com sucesso!");
+    } catch (error) { setToastError("Falha ao criar a Ordem de Serviço."); }
   };
+
+  const refreshSelectedOsDetails = async () => {
+  // Se não houver OS selecionada, não faz nada
+  if (!selectedOsId) return;
+
+  setIsDetailsLoading(true);
+  try {
+    const details = await getOrderServiceById(selectedOsId);
+    setSelectedOsDetails(details); // Atualiza o estado com os novos dados
+  } catch (err) { 
+    console.error("Falha ao atualizar detalhes da OS", err);
+    setToastError("Não foi possível atualizar os detalhes da OS.");
+  } finally { 
+    setIsDetailsLoading(false); 
+  }
+};
 
   const handlePauseOs = async (reason) => {
-    if (!selectedOsId) return;
-    try {
-      await pauseOrderService(selectedOsId, reason);
-      handleOsSelect(selectedOsId);
-    } catch (error) { alert("Falha ao pausar a Ordem de Serviço."); }
-  };
+  if (!selectedOsId) return;
+  try {
+    await pauseOrderService(selectedOsId, reason);
+    fetchData(); // Mantemos para atualizar a lista da esquerda
+    await refreshSelectedOsDetails(); // 
+    setToastError(null);
+    setSuccessMessage("OS pausada com sucesso!");
+  } catch (error) { 
+    setToastError("Falha ao pausar a Ordem de Serviço."); 
+  }
+};
+
 
   const handleLinkTechnicianAndBox = async (technicianId, boxId) => {
-    if (!selectedOsId || !technicianId || !boxId) return;
-    try {
-      await assignTechnicianAndBox(selectedOsId, technicianId, boxId);
-      handleOsSelect(selectedOsId);
-    } catch (error) { alert("Falha ao vincular técnico e box."); }
-  };
+  if (!selectedOsId || !technicianId || !boxId) return;
+  try {
+    await assignTechnicianAndBox(selectedOsId, technicianId, boxId);
+    fetchData(); // Mantemos para atualizar a lista
+    await refreshSelectedOsDetails(); 
+    setToastError(null);
+    setSuccessMessage("Técnico e Box vinculados com sucesso!");
+  } catch (error) {
+    setToastError("Falha ao vincular técnico e box."); 
+  }
+};
 
   if (isLoading) return <p>Carregando dashboard...</p>;
   if (error) return <p style={{ color: 'red' }}>{error}</p>;
 
   return (
-    <div className="dashboard-grid">
+     <div className="dashboard-grid">
+      {toastError && (
+        <ErrorToast 
+          message={toastError}
+          onClose={() => setToastError(null)}
+        />
+      )}
+      
+      {successMessage && (
+        <SuccessToast
+          message={successMessage}
+          onClose={() => setSuccessMessage(null)}
+        />
+      )}
+
       {/* Coluna 1: Lista de Ordens de Serviço */}
       <div className="dashboard-column col-1">
         <ServiceOrderList 

@@ -12,21 +12,20 @@ const translateTimeStatus = (timeStatus) => {
   switch (timeStatus) {
     case "ON_TIME": return "Dentro do prazo";
     case "LATE": return "Atrasado";
-    default: return "N/A"; // Retorna 'Não Aplicável' se não houver status
+    default: return "N/A";
   }
 };
 
 function RealtimeMonitorCard({ os }) {
-  // A classe de cor é baseada no 'statusColor' enviado pelo back-end
   const statusColorClass = `status-${os.statusColor?.toLowerCase() || 'gray'}`;
   
   return (
     <div className={`realtime-item ${statusColorClass}`}>
+      {/* 👇 SEÇÃO DO CABEÇALHO CORRIGIDA 👇 */}
       <div className="realtime-header">
-        <div className={`realtime-dot ${statusColorClass}`}></div>
         <span className="realtime-title">OS-{os.orderServiceNumber}</span>
-        <span className={`realtime-badge ${statusColorClass}`}>{translateStatus(os.status)}</span>
       </div>
+      
       <div className="realtime-body">
         <div className="realtime-info-row">
           <span>Técnico:</span>
@@ -47,6 +46,10 @@ function RealtimeMonitorCard({ os }) {
         <div className="realtime-info-row">
           <span>Tempo Decorrido:</span>
           <span>{os.elapsedTimeMinutes ?? 0} min</span>
+        </div>
+        <div className="realtime-info-row">
+          <span>Status:</span>
+          <span className="status-badge-blue">{translateStatus(os.status)}</span>
         </div>
       </div>
     </div>

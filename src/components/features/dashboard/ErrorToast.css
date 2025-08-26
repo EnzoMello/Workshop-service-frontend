@@ -1,0 +1,63 @@
+/* src/components/common/ErrorToast.css */
+
+/* Animação de entrada */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -100%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.error-toast {
+  position: fixed; /* Fica fixo na tela, por cima de tudo */
+  top: 20px; /* Distância do topo */
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translateX(-50%); /* Ajuste fino para centralização */
+  
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  
+  min-width: 350px;
+  padding: 16px;
+  border-radius: 8px;
+  
+  background-color: #f8d7da; /* Fundo vermelho claro */
+  color: #721c24; /* Texto vermelho escuro */
+  border: 1px solid #f5c6cb; /* Borda vermelha */
+  
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000; /* Garante que fique na frente de outros elementos */
+
+  animation: fadeInDown 0.5s ease-in-out;
+}
+
+.error-icon {
+  font-size: 1.5rem; /* Tamanho do ícone */
+  color: #721c24;
+}
+
+.error-message {
+  margin: 0;
+  font-weight: 500;
+  flex-grow: 1; /* Faz a mensagem ocupar o espaço disponível */
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #721c24;
+  cursor: pointer;
+  opacity: 0.7;
+  padding: 0;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  opacity: 1;
+}
