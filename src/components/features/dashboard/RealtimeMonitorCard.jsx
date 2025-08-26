@@ -2,14 +2,15 @@
 import React from 'react';
 import './RealtimeMonitorCard.css';
 
-// Funções de ajuda para traduzir os status
+// Funções de ajuda para traduzir os status que vêm do back-end
 const translateStatus = (status) => {
   const map = { NOT_STARTED: "Pendente", IN_PROGRESS: "Em Andamento", PAUSED: "Pausado", COMPLETED: "Concluído" };
   return map[status] || status;
 };
 
 function RealtimeMonitorCard({ os }) {
-  const statusColorClass = `status-${os.statusColor?.toLowerCase() || 'white'}`;
+  // A classe de cor é baseada no 'statusColor' enviado pelo back-end
+  const statusColorClass = `status-${os.statusColor?.toLowerCase() || 'gray'}`;
   
   return (
     <div className={`realtime-item ${statusColorClass}`}>

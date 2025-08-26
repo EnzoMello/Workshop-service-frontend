@@ -58,3 +58,14 @@ export const assignTechnicianAndBox = async (osId, technicianId, boxId) => {
     throw error;
   }
 };
+
+export const getActiveDashboardOS = async () => {
+  try {
+    // Faz a chamada GET para /api/dashboard
+    const response = await api.get('/dashboard');
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao buscar dados do dashboard em tempo real:", error);
+    throw error;
+  }
+};

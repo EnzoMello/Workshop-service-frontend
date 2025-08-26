@@ -3,7 +3,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { getAllTasks } from '../../services/taskService';
 import { getAllTechnicians } from '../../services/technicianService';
 import { getAllBoxes } from '../../services/boxService';
-import { createOrderService, getAllOrderServices, getOrderServiceById, pauseOrderService, assignTechnicianAndBox } from '../../services/orderService';
+import { createOrderService, getAllOrderServices, getOrderServiceById, pauseOrderService, assignTechnicianAndBox, getActiveDashboardOS } from '../../services/orderService';
 
 import RealtimeMonitor from '../../components/features/dashboard/RealtimeMonitor';
 import ServiceOrderList from '../../components/features/dashboard/ServiceOrderList';
@@ -13,6 +13,8 @@ import './DashboardPage.css';
 
 function DashboardPage() {
   const [osList, setOsList] = useState([]);
+  const [activeOsList, setActiveOsList] = useState([]); // Lista para a coluna 3
+
   const [taskCatalog, setTaskCatalog] = useState([]);
   const [technicians, setTechnicians] = useState([]);
   const [boxes, setBoxes] = useState([]);
@@ -26,16 +28,19 @@ function DashboardPage() {
   const fetchData = async () => {
     try {
       setIsLoading(true);
-      const [osData, tasksData, techniciansData, boxesData] = await Promise.all([
+      const [osData, tasksData, techniciansData, boxesData, activeOsData] = await Promise.all([
         getAllOrderServices(),
         getAllTasks(),
         getAllTechnicians(),
-        getAllBoxes()
+        getAllBoxes(),
+        getActiveDashboardOS()
       ]);
       setOsList(osData || []);
       setTaskCatalog(tasksData || []);
       setTechnicians(techniciansData || []);
       setBoxes(boxesData || []);
+      setActiveOsList(activeOsData || []); // Salva os dados de monitoramento no estado
+
       if (osData && osData.length > 0 && !selectedOsId) {
         handleOsSelect(osData[0].id);
       }
@@ -84,12 +89,6 @@ function DashboardPage() {
     } catch (error) { alert("Falha ao vincular técnico e box."); }
   };
 
-   // Deriva a lista de OS ativas a partir da lista principal para a carga inicial
-  const activeOsList = useMemo(() => 
-    osList.filter(os => os.status === 'IN_PROGRESS' || os.status === 'PAUSED'),
-    [osList]
-  );
-  
   if (isLoading) return <p>Carregando dashboard...</p>;
   if (error) return <p style={{ color: 'red' }}>{error}</p>;
 
@@ -119,7 +118,7 @@ function DashboardPage() {
 
       {/* Coluna 3: Placeholder que existia antes */}
       <div className="dashboard-column col-3">
-        <RealtimeMonitor initialOsList={activeOsList} />
+        <RealtimeMonitor activeOsList={activeOsList} />
 
       </div>
 

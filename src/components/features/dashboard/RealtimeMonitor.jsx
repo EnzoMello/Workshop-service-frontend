@@ -1,13 +1,11 @@
 // src/components/features/dashboard/RealtimeMonitor.jsx
 import React from 'react';
 import { FaWaveSquare } from 'react-icons/fa';
-import { useWebSocket } from '../../../hooks/useWebSocket';
 import RealtimeMonitorCard from './RealtimeMonitorCard';
 import './RealtimeMonitor.css';
 
-function RealtimeMonitor({ initialOsList }) {
-  const activeOsList = useWebSocket(initialOsList);
-
+// Recebe a lista de OS ativas como prop
+function RealtimeMonitor({ activeOsList }) {
   return (
     <div className="dashboard-card">
       <div className="card-header">
@@ -16,6 +14,7 @@ function RealtimeMonitor({ initialOsList }) {
       <div className="card-content">
         <div className="realtime-list">
           {activeOsList && activeOsList.length > 0 ? (
+            // Usa 'orderServiceId' como chave, que é o ID único da OS no DTO do dashboard
             activeOsList.map(os => <RealtimeMonitorCard key={os.orderServiceId} os={os} />)
           ) : (
             <p className="no-active-os">Nenhuma Ordem de Serviço em andamento.</p>
