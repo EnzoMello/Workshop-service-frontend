@@ -15,7 +15,7 @@ function TasksPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   
-  // O estado 'isUploading' foi removido
+  // O isUploading, para adicionar a leitura de arquivos csv foi removida para usar depois 
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
   const [isBatchDeleteModalOpen, setIsBatchDeleteModalOpen] = useState(false);

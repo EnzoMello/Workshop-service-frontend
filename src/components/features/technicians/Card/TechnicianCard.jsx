@@ -2,7 +2,7 @@
 import React from 'react';
 import './TechnicianCard.css';
 
-// Remova a prop 'onDeleteClick'
+// Remov a prop 'onDeleteClick'
 function TechnicianCard({ technician }) {
   const cardClasses = `technician-card status-${technician.status}`;
   const headerClasses = `card-header status-${technician.status}`;

@@ -66,7 +66,6 @@ function UpdateTasksPage() {
       <div className="page-header"><h1>Atualizar Tarefas</h1></div>
       <div className="page-content">
         <div className="page-title-container">
-          {/* A única mudança é o caminho do navigate */}
           <button className="back-button" onClick={() => navigate('/tasks')}>
             <FaArrowLeft /> Voltar para a Lista
           </button>

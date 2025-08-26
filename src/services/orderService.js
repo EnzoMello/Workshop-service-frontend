@@ -43,11 +43,7 @@ export const pauseOrderService = async (osId, reason) => {
   } catch (error) { throw error; }
 };
 
-/**
- * (FUNÇÃO QUE ESTAVA FALTANDO)
- * Vincula um técnico a uma Ordem de Serviço.
- * Assumindo que o endpoint seja: POST /order-services/{osId}/assign-technician
- */
+
 export const assignTechnicianAndBox = async (osId, technicianId, boxId) => {
   try {
     // Faz a chamada POST para /api/order-services/assign

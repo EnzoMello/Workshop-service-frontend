@@ -1,11 +1,6 @@
 // src/services/technicianService.js
 import api from './api';
 
-const fallbackTechnicians = [
-    { id: 1, name: 'João Victor', rfidCode: 'RFID-0001', role: 'MECHANIC', status: 'red' },
-    { id: 2, name: 'Maria Oliveira', rfidCode: 'RFID-0002', role: 'MECHANIC_LEADER', status: 'red' },
-    { id: 3, name: 'Pedro Souza', rfidCode: 'RFID-0003', role: 'ELECTRICIAN', status: 'red' },
-];
 
 export const getAllTechnicians = async () => {
   try {

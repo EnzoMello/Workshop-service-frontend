@@ -75,7 +75,6 @@ function TechniciansPage() {
       
       {isAddModalOpen && (<AddTechnicianModal onClose={() => setIsAddModalOpen(false)} onAddTechnician={handleAddTechnician} />)}
       
-      {/* A CORREÇÃO PRINCIPAL ESTÁ AQUI: Passando a função onConfirm para o modal */}
       {isBatchDeleteModalOpen && (
         <BatchDeleteModal 
           technicians={technicians} 

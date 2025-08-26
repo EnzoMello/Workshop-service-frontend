@@ -1,9 +1,11 @@
 // src/pages/dashboard/DashboardPage.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { getAllTasks } from '../../services/taskService';
 import { getAllTechnicians } from '../../services/technicianService';
 import { getAllBoxes } from '../../services/boxService';
 import { createOrderService, getAllOrderServices, getOrderServiceById, pauseOrderService, assignTechnicianAndBox } from '../../services/orderService';
+
+import RealtimeMonitor from '../../components/features/dashboard/RealtimeMonitor';
 import ServiceOrderList from '../../components/features/dashboard/ServiceOrderList';
 import ServiceOrderDetails from '../../components/features/dashboard/ServiceOrderDetails';
 import CreateOsModal from '../../components/features/dashboard/CreateOsModal';
@@ -81,6 +83,12 @@ function DashboardPage() {
       handleOsSelect(selectedOsId);
     } catch (error) { alert("Falha ao vincular técnico e box."); }
   };
+
+   // Deriva a lista de OS ativas a partir da lista principal para a carga inicial
+  const activeOsList = useMemo(() => 
+    osList.filter(os => os.status === 'IN_PROGRESS' || os.status === 'PAUSED'),
+    [osList]
+  );
   
   if (isLoading) return <p>Carregando dashboard...</p>;
   if (error) return <p style={{ color: 'red' }}>{error}</p>;
@@ -111,7 +119,8 @@ function DashboardPage() {
 
       {/* Coluna 3: Placeholder que existia antes */}
       <div className="dashboard-column col-3">
-        <div className="dashboard-card"><h2 className="card-title">Monitoramento Individual</h2></div>
+        <RealtimeMonitor initialOsList={activeOsList} />
+
       </div>
 
       {/* Modal para criar OS */}

@@ -81,7 +81,6 @@ function LinkTechnicianModal({ onClose, onConfirm, technicians = [], boxes = [] 
               />
               <ul className="technician-list">
                 {filteredBoxes.map(box => (
-                  // A CORREÇÃO ESTÁ AQUI:
                   <li 
                     key={box.id} 
                     className={`technician-list-item selectable ${selectedBoxId === box.id ? 'selected' : ''}`}

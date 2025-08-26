@@ -19,7 +19,7 @@ const statusBadgeMap = {
     PAUSED: { text: 'PAUSADO', className: 'badge-in-progress' },
 };
 
-// ATUALIZADO: Recebe 'boxes' e a nova função 'onLinkTechnicianAndBox'
+// Recebe 'boxes' e a nova função 'onLinkTechnicianAndBox'
 function ServiceOrderDetails({ selectedOsDetails, isLoading, technicians, boxes, onPauseOs, onLinkTechnicianAndBox }) {
   const [isPauseOpen, setIsPauseOpen] = useState(false);
   const [isLinkOpen, setIsLinkOpen] = useState(false);
@@ -85,7 +85,7 @@ function ServiceOrderDetails({ selectedOsDetails, isLoading, technicians, boxes,
       {/* Modais */}
       {isPauseOpen && <PauseOsModal onClose={() => setIsPauseOpen(false)} onConfirm={onPauseOs} />}
       
-      {/* ATUALIZADO: Passa a lista de 'boxes' e a nova função 'onLinkTechnicianAndBox' para o modal */}
+      {/* Passa a lista de 'boxes' e a nova função 'onLinkTechnicianAndBox' para o modal */}
       {isLinkOpen && technicians?.length > 0 && boxes?.length > 0 && (
         <LinkTechnicianModal 
           onClose={() => setIsLinkOpen(false)} 
