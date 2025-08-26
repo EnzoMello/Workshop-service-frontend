@@ -1,0 +1,91 @@
+/* src/components/Navbar.css */
+
+.navbar {
+  /* NOVA COR DE FUNDO */
+  background-color: #ded7d7; 
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  /* Linha inferior para separar do conteúdo */
+  border-bottom: 1px solid #e2e2e2; 
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.nav-section {
+  flex: 1;
+  display: flex;
+  align-items: center; /* Garante alinhamento vertical */
+}
+
+.nav-links {
+  justify-content: center; 
+}
+
+/* A seção do logo agora deve ser alinhada à esquerda */
+.nav-logo {
+  justify-content: flex-start;
+}
+
+.nav-logo a {
+  /* NOVA COR DO TÍTULO */
+  color: #d92a2a; 
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Esta seção vazia garante que o logo fique perfeitamente centralizado */
+.nav-placeholder {
+  justify-content: flex-end;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 100%;
+}
+
+.nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  cursor: pointer;
+  height: 100%;
+  transition: background-color 0.2s;
+  color: #333; /* Cor do texto dos links */
+}
+
+
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* Alinha o dropdown exatamente abaixo da navbar */
+  left: 0;
+  background-color: #a9aaac;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  min-width: 200px;
+  z-index: 1000; /* Garante que o dropdown fique na frente de tudo */
+  padding: 10px 0;
+}
+
+.dropdown-item {
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  text-decoration: none;
+  display: block; /* Faz o link ocupar toda a largura */
+  transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: #4a5568; /* Cor de destaque no hover do item */
+}

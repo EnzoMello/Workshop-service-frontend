@@ -1,0 +1,15 @@
+/* src/components/features/dashboard/SubTaskCard.css */
+.sub-task-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+.sub-task-name {
+  color: #333;
+}

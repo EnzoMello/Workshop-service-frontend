@@ -1,0 +1,56 @@
+// src/components/features/dashboard/ServiceOrderList.jsx
+import React, { useMemo } from 'react';
+import { FaClipboardList, FaPlusCircle } from 'react-icons/fa';
+import ServiceOrderCard from './ServiceOrderCard';
+import './ServiceOrderList.css';
+
+// Recebe as props da DashboardPage
+function ServiceOrderList({ orderServices, selectedOsId, onOsSelect, onAddOsClick }) {
+
+  // Lógica para ordenar a lista de OS com base no status
+  const sortedOs = useMemo(() => {
+    // Define a prioridade de cada status
+    const order = {
+      IN_PROGRESS: 1,
+      PAUSED: 2,
+      NOT_STARTED: 3,
+      FINISHED: 4,
+    };
+    // Cria uma cópia do array e o ordena
+    return [...(orderServices || [])].sort((a, b) => {
+      const orderA = order[a.status] || 99; // Se o status for desconhecido, joga para o final
+      const orderB = order[b.status] || 99;
+      return orderA - orderB;
+    });
+  }, [orderServices]);
+
+  return (
+    <div className="dashboard-card">
+      {/* Cabeçalho escuro da coluna */}
+      <div className="card-header">
+        <h2 className="card-title"><FaClipboardList /> Ordens de Serviço</h2>
+        <button className="add-os-btn" onClick={onAddOsClick}>
+          <FaPlusCircle /> Adicionar OS
+        </button>
+      </div>
+
+      {/* Conteúdo com a lista de cartões */}
+      <div className="card-content os-list-content">
+        <div className="os-card-list">
+          {sortedOs.map(os => (
+            <ServiceOrderCard 
+              key={os.id} 
+              os={os}
+              isSelected={os.id === selectedOsId}
+              onClick={() => onOsSelect(os.id)}
+            />
+          ))}
+        </div>
+        {/* Mensagem exibida se a lista estiver vazia */}
+        {sortedOs.length === 0 && <p style={{textAlign: 'center', color: '#666', marginTop: '20px'}}>Nenhuma OS encontrada.</p>}
+      </div>
+    </div>
+  );
+}
+
+export default ServiceOrderList;

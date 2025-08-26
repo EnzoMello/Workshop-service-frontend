@@ -1,0 +1,57 @@
+/* src/components/features/technicians/Card/TechnicianCard.css */
+
+/* 1. DEFINIÇÃO DA ANIMAÇÃO DE ENTRADA */
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.technician-card {
+  width: 240px;
+  background-color: #ffffff;
+  border-radius: 12px; /* Cantos mais arredondados */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  border: 3px solid #dc3545; /* Mantém a borda vermelha */
+  
+  /* 2. APLICA A ANIMAÇÃO */
+  opacity: 0; /* Começa invisível */
+  animation: card-enter 0.5s ease-out forwards;
+
+  /* 3. ADICIONA TRANSIÇÃO PARA O EFEITO HOVER */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 4. EFEITO HOVER: O cartão levanta e a sombra aumenta */
+.technician-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* O resto dos estilos do cartão (header, body, etc.) continua o mesmo */
+.card-header {
+  padding: 12px 16px;
+  color: white;
+  background-color: #dc3545;
+}
+
+.card-name {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.card-body {
+  padding: 16px;
+}
+
+.card-info {
+  margin: 0 0 8px 0;
+  font-size: 0.9rem;
+  color: #333333;
+}

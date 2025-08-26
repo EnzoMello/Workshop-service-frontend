@@ -1,0 +1,170 @@
+/* src/pages/UpdateTechniciansPage.css */
+
+/* Novo container para alinhar título e botão */
+.page-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-title-text {
+  margin: 0; /* Remove a margem padrão do h1 */
+}
+
+/* Estilo do novo botão de voltar */
+.back-button {
+  background-color: transparent;
+  border: 1px solid #f05959;
+  color: #ea5454;
+  padding: 8px 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.back-button:hover {
+  background-color: #fff;
+  color: #d92a2a;
+}
+
+.update-page-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-filter-container {
+  display: flex;
+  gap: 15px;
+}
+
+.search-bar { /* Estilo para a barra de pesquisa */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 250px;
+}
+
+.filter-btn { /* Estilo para o botão de filtro */
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.update-action-btn { /* Botão verde que fica habilitado/desabilitado */
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 20px; /* Cantos arredondados */
+  padding: 10px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.update-action-btn:disabled {
+  background-color: #a3d3ab;
+  transform: scale(1);
+  cursor: not-allowed;
+}
+
+.update-action-btn:hover:not(:disabled) {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+/* Estilo da lista de atualização */
+.update-list {
+  list-style: none;
+  padding: 0;
+}
+
+.update-list-item {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.update-list-item input[type="radio"] {
+  margin-right: 15px;
+}
+
+.item-name {
+  width: 200px; /* Largura fixa para o nome na esquerda */
+  font-weight: bold;
+}
+
+.item-details {
+  flex-grow: 1; /* Ocupa o resto do espaço */
+  text-align: center; /* Centraliza as informações */
+  color: #bb0808;
+}
+
+.filter-container {
+  position: relative;
+}
+
+/* O menu dropdown */
+.filter-dropdown {
+  position: absolute;
+  top: 100%; /* Posiciona o menu logo abaixo do botão */
+  right: 0; /* Alinha o menu à direita do botão */
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100; /* Garante que fique na frente de outros elementos */
+  width: 200px; /* Largura do menu */
+  margin-top: 5px; /* Pequeno espaço entre o botão e o menu */
+}
+
+/* Cada opção dentro do menu */
+.filter-option {
+  padding: 12px 15px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.filter-option:hover {
+  background-color: #f4f4f5; /* Cor de fundo da página para o hover */
+}
+
+.filter-option:not(:last-child) {
+  border-bottom: 1px solid #eee; /* Linha separadora */
+}
+
+.filter-select {
+  /* Reset do estilo padrão do navegador */
+  -webkit-appearance: none;
+  appearance: none;
+
+  /* Estilo customizado */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1rem;
+  color: #333;
+  width: 100%;
+  cursor: pointer;
+
+  /* Seta customizada para o dropdown */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+}

@@ -1,0 +1,70 @@
+/* src/components/features/dashboard/LinkTechnicianModal.css */
+
+/* --- O QUADRO PARA A LISTA DE TÉCNICOS --- */
+.technician-list-container {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 8px;
+  margin-top: 10px;
+}
+
+.technician-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 250px; /* Altura máxima antes de mostrar o scroll */
+  overflow-y: auto;
+}
+
+/* --- LAYOUT DE CADA ITEM DA LISTA --- */
+.technician-list-item {
+  display: flex;
+  justify-content: space-between; /* Coloca nome na esquerda e função na direita */
+  align-items: center;
+  padding: 12px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.technician-list-item:hover {
+  background-color: #f1f5f9;
+}
+
+/* Estilo para o item SELECIONADO */
+.technician-list-item.selected {
+  background-color: #dbeafe; /* Azul claro */
+  font-weight: bold;
+}
+
+.technician-name {
+  color: #1e293b;
+}
+
+.technician-role {
+  font-size: 0.85rem;
+  color: #64748b;
+  font-style: italic;
+}
+
+/* --- MENSAGEM DE "NÃO ENCONTRADO" --- */
+.no-technician-found {
+  text-align: center;
+  padding: 40px 20px;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.modal-content.large {
+  max-width: 800px; /* Modal mais largo para duas colunas */
+}
+
+.link-container {
+  display: flex;
+  gap: 20px; /* Espaço entre as colunas */
+}
+
+.link-column {
+  flex: 1; /* Faz cada coluna ocupar metade do espaço */
+}

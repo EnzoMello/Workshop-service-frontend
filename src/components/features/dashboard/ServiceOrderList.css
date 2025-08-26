@@ -1,0 +1,74 @@
+/* src/components/features/dashboard/ServiceOrderList.css */
+
+/* 1. ADICIONADO DE VOLTA: Estilo para o cartão principal da coluna */
+.dashboard-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 0; /* O padding será controlado pelo header e content */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden; /* Garante que o header arredondado funcione */
+}
+
+/* Estilos do cabeçalho que já tínhamos */
+.card-header {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  color: white;
+  padding: 12px 15px;
+  flex-shrink: 0;
+  /* Removemos o border-radius daqui para aplicar no .dashboard-card */
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Conteúdo da lista */
+.os-list-content {
+  padding: 15px;
+  flex: 1; 
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.os-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  width: 100%;
+  padding-right: 5px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-os-btn {
+  background-color: #28a745; /* Verde */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.2s;
+}
+
+.add-os-btn:hover {
+  background-color: #218838;
+}

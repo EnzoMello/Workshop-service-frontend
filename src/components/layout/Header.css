@@ -1,0 +1,82 @@
+/* src/components/layout/Header.css */
+.app-header {
+  background-color: #d92a2a;
+  color: white;
+  padding: 0 25px;
+  height: 60px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+}
+
+.header-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* --- Lado Esquerdo --- */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Espaço entre ícone, logo e nome */
+}
+
+.menu-icon-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem; /* Tamanho do ícone de menu */
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.company-logo {
+  height: 35px; /* Ajuste a altura do seu logo conforme necessário */
+  width: auto;
+}
+
+.company-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* --- Lado Direito --- */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.current-time {
+  font-size: 0.9rem;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.header-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-header {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.btn-header:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}

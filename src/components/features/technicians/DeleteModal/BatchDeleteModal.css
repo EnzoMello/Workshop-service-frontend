@@ -1,0 +1,133 @@
+/* src/components/BatchDeleteModal.css */
+
+/* --- Barra de Pesquisa --- */
+.search-bar-container {
+  padding: 0 10px 20px 10px;
+}
+
+.search-bar-container input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* --- Lista de Técnicos --- */
+.technician-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px;
+  overflow-y: auto;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.technician-list-item label {
+  display: flex;
+  flex-direction: row; 
+  align-items: center; 
+  padding: 15px 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border-bottom: 1px solid #eee;
+}
+
+.technician-list-item:last-child label {
+  border-bottom: none;
+}
+
+.technician-list-item:hover {
+  background-color: #e9ecef;
+}
+
+.technician-list-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 15px; /* Espaço entre o checkbox e o nome */
+}
+
+.technician-list-item.selectable {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.technician-list-item.selectable.selected {
+    background-color: #dbeafe; /* Azul claro de seleção */
+    border-left: 4px solid #3b82f6;
+}
+
+.technician-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.technician-name {
+  font-weight: bold;
+  color: #333;
+}
+
+.technician-details {
+  font-size: 0.85rem;
+  color: #bb0808;
+}
+
+/* --- Botões de Ação --- */
+.cancel-btn, .confirm-delete-btn {
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cancel-btn { background-color: #dc3545; }
+.cancel-btn:hover { background-color: #c82333; }
+.confirm-delete-btn { background-color: #28a745; }
+.confirm-delete-btn:hover { background-color: #218838; }
+
+/* Desabilita o botão de confirmação se nada estiver selecionado */
+.confirm-delete-btn:disabled {
+  background-color: #a3d3ab;
+  cursor: not-allowed;
+}
+
+/* --- Modal de Confirmação Aninhado --- */
+.confirmation-overlay {
+  position: absolute; /* Relativo ao modal pai */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(244, 244, 245, 0.8); /* Fundo claro semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2001; /* Fica na frente do conteúdo do modal */
+}
+
+.confirmation-box {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.confirmation-box p {
+  margin: 0 0 20px 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.confirmation-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}

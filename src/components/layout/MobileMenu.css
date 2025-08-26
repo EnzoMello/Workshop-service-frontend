@@ -1,0 +1,121 @@
+/* src/components/layout/MobileMenu.css */
+
+/* --- O Contêiner Principal --- */
+.menu-container {
+  /* Este será nosso elemento de controle, em vez do <body> */
+}
+
+/* --- Estilos do Ícone Hamburger --- */
+.burger {
+  position: relative;
+  z-index: 3;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.burger-icon {
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #f9f9f9;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+.burger-icon::before,
+.burger-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #f9f9f9;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+.burger-icon::before { top: -8px; }
+.burger-icon::after { top: 8px; }
+
+/* --- Animação do Ícone para 'X' quando o menu está aberto --- */
+.menu-container.open .burger-icon {
+  background: transparent;
+}
+
+.menu-container.open .burger-icon::before {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+
+.menu-container.open .burger-icon::after {
+  transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* --- Estilos do Menu Overlay --- */
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 280px; /* <<< LARGURA AJUSTADA AQUI (de 300px para 280px) */
+  height: 100%;
+  background: rgba(10, 25, 47, 0.85);
+  backdrop-filter: blur(10px);
+  transform: translateX(-100%);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Quando o menu está aberto, ele entra na tela */
+.menu-container.open .menu {
+  transform: translateX(0);
+}
+
+.menu nav {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu a {
+  position: relative;
+  color: #f9f9f9;
+  font-size: 20px; /* <<< TAMANHO DA LETRA AJUSTADO AQUI (de 24px para 20px) */
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.4s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.menu-container.open .menu a {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu a:hover {
+  color: #dc143c;
+  letter-spacing: 1px;
+}
+
+/* --- Efeito de sublinhado no hover --- */
+.menu a::after {
+  content: "";
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #dc143c;
+  transition: all 0.4s ease-out;
+}
+
+.menu a:hover::after {
+  width: 50%;
+  left: 25%;
+}

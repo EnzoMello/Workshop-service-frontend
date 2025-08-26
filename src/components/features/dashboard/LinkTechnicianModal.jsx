@@ -1,0 +1,109 @@
+// src/components/features/dashboard/LinkTechnicianModal.jsx
+import React, { useState, useMemo } from 'react';
+import 'components/features/technicians/AddModal/AddTechnicianModal.css';
+import './LinkTechnicianModal.css';
+
+function LinkTechnicianModal({ onClose, onConfirm, technicians = [], boxes = [] }) {
+  // Estados para a busca e seleção de técnicos
+  const [techSearchTerm, setTechSearchTerm] = useState('');
+  const [selectedTechId, setSelectedTechId] = useState(null);
+
+  // Estados para a busca e seleção de boxes
+  const [boxSearchTerm, setBoxSearchTerm] = useState('');
+  const [selectedBoxId, setSelectedBoxId] = useState(null);
+
+  // Filtra a lista de técnicos
+  const filteredTechnicians = useMemo(() => 
+    technicians.filter(tech => 
+      tech.name.toLowerCase().includes(techSearchTerm.toLowerCase())
+    ), 
+    [technicians, techSearchTerm]
+  );
+
+  // Filtra a lista de boxes
+  const filteredBoxes = useMemo(() => 
+    boxes.filter(box => 
+      box.identifier.toLowerCase().includes(boxSearchTerm.toLowerCase())
+    ), 
+    [boxes, boxSearchTerm]
+  );
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (selectedTechId && selectedBoxId) {
+      onConfirm(selectedTechId, selectedBoxId);
+    }
+  };
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content large" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-header">
+          <h2>Vincular Técnico e Box</h2>
+          <button className="close-btn" onClick={onClose}>&times;</button>
+        </div>
+
+        <form className="modal-form" onSubmit={handleSubmit}>
+          <div className="link-container">
+            {/* Coluna de Técnicos */}
+            <div className="link-column">
+              <label htmlFor="search-technician">Selecionar Técnico</label>
+              <input
+                type="text"
+                id="search-technician"
+                placeholder="Pesquisar por nome..."
+                value={techSearchTerm}
+                onChange={(e) => setTechSearchTerm(e.target.value)}
+              />
+              <ul className="technician-list">
+                {filteredTechnicians.map(tech => (
+                  <li 
+                    key={tech.id} 
+                    className={`technician-list-item selectable ${selectedTechId === tech.id ? 'selected' : ''}`}
+                    onClick={() => setSelectedTechId(tech.id)}
+                  >
+                    <span className="technician-name">{tech.name}</span>
+                    <span className="technician-role">{tech.role}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Coluna de Boxes */}
+            <div className="link-column">
+              <label htmlFor="search-box">Selecionar Box</label>
+              <input
+                type="text"
+                id="search-box"
+                placeholder="Pesquisar por identificador..."
+                value={boxSearchTerm}
+                onChange={(e) => setBoxSearchTerm(e.target.value)}
+              />
+              <ul className="technician-list">
+                {filteredBoxes.map(box => (
+                  // A CORREÇÃO ESTÁ AQUI:
+                  <li 
+                    key={box.id} 
+                    className={`technician-list-item selectable ${selectedBoxId === box.id ? 'selected' : ''}`}
+                    onClick={() => setSelectedBoxId(box.id)}
+                  >
+                    <span className="technician-name">{box.identifier}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          
+          <div className="form-actions">
+            <button type="button" className="cancel-btn" onClick={onClose}>Cancelar</button>
+            <button type="submit" className="confirm-delete-btn" disabled={!selectedTechId || !selectedBoxId}>
+              Confirmar Vinculação
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+export default LinkTechnicianModal;

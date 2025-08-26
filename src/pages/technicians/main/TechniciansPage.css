@@ -1,0 +1,74 @@
+/* src/pages/technicians/main/TechniciansPage.css */
+
+/* Contêiner geral da página com espaçamento nas bordas */
+.page-container {
+  padding: 20px 40px;
+}
+
+/* Título principal da página */
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b; /* Cor de texto escura (azul-acinzentado) */
+  margin-bottom: 20px;
+}
+
+.page-content {
+  padding: 0;
+}
+
+.page-actions {
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap; /* Permite que os botões quebrem a linha em telas menores */
+  gap: 15px;
+}
+
+/* Estilos dos botões de ação */
+.add-technician-btn,
+.update-data-btn,
+.delete-technician-btn {
+  border: none;
+  border-radius: 20px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  color: white;
+}
+
+.add-technician-btn:hover,
+.update-data-btn:hover,
+.delete-technician-btn:hover {
+  transform: scale(1.05);
+}
+
+.add-technician-btn {
+  background-color: #d92a2a; /* Vermelho */
+}
+.add-technician-btn:hover {
+  background-color: #b92424;
+}
+
+.update-data-btn {
+  background-color: #d92a2a; /* Azul */
+}
+.update-data-btn:hover {
+  background-color: #b92424;
+}
+
+.delete-technician-btn {
+  background-color: #d92a2a; /* Cinza escuro */
+}
+.delete-technician-btn:hover {
+  background-color: #b92424;
+}
+
+/* Contêiner para a grade de cartões */
+.technicians-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: flex-start;
+}

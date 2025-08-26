@@ -1,0 +1,56 @@
+/* src/components/SearchTechnicianModal.css */
+
+.search-selection p {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #b92424;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.selection-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.select-btn {
+  background-color: #d92a2a; /* Vermelho Newland */
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.select-btn:hover {
+  background-color: #b92424;
+  transform: scale(1.05);
+}
+
+/* O .form-actions do modal de busca precisa de mais espaço */
+.modal-form .form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Estilo para o botão "Voltar" */
+.back-btn {
+  background-color: #6c757d; /* Cinza */
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.back-btn:hover {
+  background-color: #5a6268;
+}
