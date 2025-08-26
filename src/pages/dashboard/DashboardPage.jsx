@@ -118,7 +118,7 @@ function DashboardPage() {
 
       {/* Coluna 3: Placeholder que existia antes */}
       <div className="dashboard-column col-3">
-        <RealtimeMonitor activeOsList={activeOsList} />
+        <RealtimeMonitor initialOsList={activeOsList} />
 
       </div>
 

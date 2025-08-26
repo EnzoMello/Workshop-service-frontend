@@ -8,6 +8,14 @@ const translateStatus = (status) => {
   return map[status] || status;
 };
 
+const translateTimeStatus = (timeStatus) => {
+  switch (timeStatus) {
+    case "ON_TIME": return "Dentro do prazo";
+    case "LATE": return "Atrasado";
+    default: return "N/A"; // Retorna 'Não Aplicável' se não houver status
+  }
+};
+
 function RealtimeMonitorCard({ os }) {
   // A classe de cor é baseada no 'statusColor' enviado pelo back-end
   const statusColorClass = `status-${os.statusColor?.toLowerCase() || 'gray'}`;
@@ -27,6 +35,14 @@ function RealtimeMonitorCard({ os }) {
         <div className="realtime-info-row">
           <span>Box:</span>
           <span>{os.boxName || 'N/V'}</span>
+        </div>
+        <div className="realtime-info-row">
+          <span>Tempo estimado:</span>
+          <span>{os.estimatedTimeMinutes ?? 0} min</span>
+        </div>
+        <div className="realtime-info-row">
+          <span>Prazo:</span>
+          <span>{translateTimeStatus(os.timeStatus)}</span>
         </div>
         <div className="realtime-info-row">
           <span>Tempo Decorrido:</span>
