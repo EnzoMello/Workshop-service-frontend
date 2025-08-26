@@ -50,7 +50,7 @@ export const assignTechnicianAndBox = async (osId, technicianId, boxId) => {
     // O corpo da requisição precisa corresponder ao que o back-end espera
     const response = await api.post(`/order-services/${osId}/assign`, {
       technicianId: technicianId,
-      boxId: boxId,
+      boxId: boxId
     });
     return response.data;
   } catch (error) {
