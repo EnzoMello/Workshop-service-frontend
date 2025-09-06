@@ -58,6 +58,33 @@ function DashboardPage() {
   };
 
   useEffect(() => { fetchData(); }, []);
+
+  const boxStatuses = useMemo(() => {
+    // Cria um mapa para acesso rápido às OS ativas pelo nome do box
+    const activeOsMap = new Map(activeOsList.map(os => [os.boxName, os]));
+
+    // Mapeia sobre TODOS os boxes cadastrados
+    return boxes.map(box => {
+      const activeOs = activeOsMap.get(box.name);
+      if (activeOs) {
+        // Se encontrou uma OS para este box, retorna os dados da OS
+        return {
+          id: box.id,
+          name: box.name,
+          statusColor: activeOs.statusColor?.toLowerCase() || 'gray',
+          orderServiceNumber: activeOs.orderServiceNumber,
+        };
+      } else {
+        // Se não, o box está livre
+        return {
+          id: box.id,
+          name: box.name,
+          statusColor: 'available', // Uma cor padrão para box livre
+          orderServiceNumber: null,
+        };
+      }
+    });
+  }, [boxes, activeOsList]);
   
   const handleOsSelect = async (osId) => {
     if (!osId || selectedOsId === osId) return;
@@ -127,6 +154,8 @@ function DashboardPage() {
   if (isLoading) return <p>Carregando dashboard...</p>;
   if (error) return <p style={{ color: 'red' }}>{error}</p>;
 
+  console.log("DADOS ENVIADOS PARA O MONITOR:", { allBoxes: boxes, initialActiveOs: activeOsList });
+
   return (
      <div className="dashboard-grid">
       {toastError && (
@@ -167,7 +196,7 @@ function DashboardPage() {
 
       {/* Coluna 3: Placeholder que existia antes */}
       <div className="dashboard-column col-3">
-        <RealtimeMonitor initialOsList={activeOsList} />
+        <RealtimeMonitor allBoxes={boxes} initialActiveOs={activeOsList} />
 
       </div>
 
