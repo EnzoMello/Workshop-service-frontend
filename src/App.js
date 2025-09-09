@@ -10,6 +10,8 @@ import BoxesPage from './pages/boxes/BoxesPage';
 import UpdateBoxesPage from './pages/boxes/update/UpdateBoxesPage';
 import TasksPage from './pages/tasks/main/TasksPage';
 import UpdateTasksPage from './pages/tasks/update/UpdateTasksPage';
+import GeralPage from './pages/geral/GeralPage'; // <-- 1. IMPORTE A NOVA PÁGINA
+
 import './App.css';
 
 function App() {
@@ -20,6 +22,7 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<DashboardPage />} />
+            <Route path="/geral" element={<GeralPage />} />
             {/* Adicionamos de volta as rotas para as páginas de gerenciamento */}
             <Route path="/technicians" element={<TechniciansPage />} />
             <Route path="/update" element={<UpdateTechniciansPage />} />

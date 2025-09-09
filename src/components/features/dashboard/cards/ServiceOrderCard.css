@@ -1,14 +1,13 @@
-/* src/components/features/dashboard/ServiceOrderCard.css */
 .os-item-card {
-  background: #f8fafc; /* Fundo cinza claro */
-  border: 2px solid #e2e8f0; /* Borda/contorno */
+  background: #f8fafc; 
+  border: 2px solid #e2e8f0; 
   border-radius: 6px;
   padding: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
   width: 100%;
   text-align: left;
-  display: block; /* Garante que o botão ocupe toda a largura */
+  display: block;
 }
 
 .os-item-card:hover {
@@ -16,27 +15,27 @@
   border-color: #cbd5e1;
 }
 
-/* Estilo para o cartão SELECIONADO (ativo) */
+/* Estilo para o cartão SELECIONADO */
 .os-item-card.active {
-  background: #dbeafe; /* Fundo azul claro */
-  border-color: #3b82f6; /* Borda azul */
+  background: #dbeafe;
+  border-color: #3b82f6; 
   box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
 }
 
 .os-item-content {
   display: flex;
   align-items: center;
-  gap: 12px; /* Espaço entre ícone, texto e bolinha */
+  gap: 12px; 
 }
 
 .os-item-icon {
   font-size: 16px;
-  color: #64748b; /* Cor cinza azulado do ícone */
+  color: #64748b; 
   flex-shrink: 0;
 }
 
 .os-item-info {
-  flex: 1; /* Faz o bloco de texto ocupar o espaço do meio */
+  flex: 1; 
 }
 
 .os-item-name {

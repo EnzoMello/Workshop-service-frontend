@@ -1,0 +1,64 @@
+/* src/components/features/dashboard/OsDetailsView.css */
+
+.os-details-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.back-button-icon {
+  background-color: #f1f5f9;
+  color: #0f1e39;
+  border: 1px solid #e2e8f0;
+  border-radius: 50%; 
+  width: 40px;
+  height: 40px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  align-self: flex-start;
+  transition: all 0.2s ease-in-out;
+}
+
+.back-button-icon:hover {
+  background-color: #e2e8f0;
+  transform: scale(1.05);
+}
+
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #091320;
+  margin-bottom: 20px;
+}
+.details-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #1e293b;
+}
+.details-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+}
+.info-row .label {
+  color: #64748b;
+  font-weight: 500;
+}
+/* Estilos dos badges de status */
+.status-badge { padding: 4px 12px; border-radius: 16px; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; }
+.badge-in-progress { background-color: #dcfce7; color: #16a34a; }
+.badge-pending { background-color: #fef3c7; color: #d97706; }
+.badge-paused { background-color: #fee2e2; color: #dc2626; }
+.badge-finished { background-color: #e5e7eb; color: #4b5563; }

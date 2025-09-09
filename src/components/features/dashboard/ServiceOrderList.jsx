@@ -1,7 +1,7 @@
 // src/components/features/dashboard/ServiceOrderList.jsx
 import React, { useMemo } from 'react';
 import { FaClipboardList, FaPlusCircle } from 'react-icons/fa';
-import ServiceOrderCard from './ServiceOrderCard';
+import ServiceOrderCard from './cards/ServiceOrderCard';
 import './ServiceOrderList.css';
 
 // Recebe as props da DashboardPage

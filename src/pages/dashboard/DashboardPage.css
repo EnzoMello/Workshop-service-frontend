@@ -1,25 +1,5 @@
-/* src/pages/dashboard/DashboardPage.css */
-.dashboard-grid {
-  display: flex;
-  gap: 20px;
-  padding: 10px 20px;
-  height: calc(100vh - 80px);
-}
-
-.dashboard-column {
-  display: flex;
-  flex-direction: column;
-}
-
-/* As proporções originais das três colunas */
-.dashboard-column.col-1 {
-  flex: 0.5; 
-}
-
-.dashboard-column.col-2 {
-  flex: 0.7;
-}
-
-.dashboard-column.col-3 {
-  flex: 1;
+.dashboard-page-full {
+  padding: 24px;
+  height: calc(100vh - 60px);
+  overflow: hidden;
 }

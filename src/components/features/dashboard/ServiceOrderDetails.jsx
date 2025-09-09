@@ -1,9 +1,9 @@
 // src/components/features/dashboard/ServiceOrderDetails.jsx
 import React, { useState } from 'react';
 import { FaTachometerAlt, FaLink, FaPauseCircle } from 'react-icons/fa';
-import SubTaskCard from './SubTaskCard';
-import PauseOsModal from './PauseOsModal';
-import LinkTechnicianModal from './LinkTechnicianModal';
+import SubTaskCard from './cards/SubTaskCard';
+import PauseOsModal from './modals/PauseOsModal';
+import LinkTechnicianModal from './modals/LinkTechnicianModal';
 import './ServiceOrderDetails.css';
 
 const NoOrderSelected = () => (

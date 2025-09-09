@@ -1,0 +1,85 @@
+.summary-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.summary-card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 20px 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+/* Estilos para o Card de Resumo */
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.summary-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+.summary-label {
+  font-size: 0.8rem;
+  color: #64748b;
+  text-transform: uppercase;
+}
+.summary-icon {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+.summary-icon.green { color: #22c55e; }
+.summary-icon.yellow { color: #f59e0b; }
+.summary-icon.gray { color: #64748b; }
+
+
+/* Estilos para o Card de Técnicos */
+.tech-status-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.tech-status-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f5f9;
+}
+.tech-status-item:last-child {
+  border-bottom: none;
+}
+.tech-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+  text-transform: uppercase;
+}
+.tech-badge.free {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+.tech-badge.busy {
+  background-color: #fee2e2;
+  color: #dc2626;
+}

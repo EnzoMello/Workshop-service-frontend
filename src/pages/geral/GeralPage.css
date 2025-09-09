@@ -1,0 +1,19 @@
+/* src/pages/geral/GeralPage.css */
+.geral-page-grid {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 24px;
+  padding: 24px;
+  height: calc(100vh - 60px); 
+}
+
+.column-geral {
+  height: 100%;
+  overflow-y: auto; 
+}
+
+.right-column-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

@@ -20,6 +20,7 @@ function Navbar() {
       { label: 'Atualizar Boxes', path: '/boxes/update' },     
     ],
     tarefas: [
+      { label: 'Visão Geral', path: '/geral' },
       { label: 'Gerenciar Tarefas', path: '/tasks' },      
       { label: 'Atualizar Tarefa', path: '/tasks/update' },  
     ],

@@ -1,17 +1,24 @@
-/* src/components/features/dashboard/DashboardBoxCard.css */
+
 .dashboard-box-card {
-  border: 2px solid #d1d5db; /* Borda padrão para box livre */
+  border: 2px solid #d1d5db;
   border-radius: 6px;
-  padding: 12px 8px;
-  text-align: center;
-  background-color: #ffffff;
+  padding: 8px; 
+  background-color: #f0effb;
   transition: all 0.2s ease-in-out;
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+}
+
+.box-card-content {
+  flex-grow: 1; 
+  text-align: center;
 }
 
 .dashboard-box-name {
   font-weight: 700;
   font-size: 1rem;
-  color: #1f2937;
+  color: #0e172d;
   display: block;
 }
 
@@ -22,9 +29,47 @@
   margin-top: 2px;
 }
 
-/* --- Cores de Status --- */
+.traffic-light {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.light {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #dedede; 
+  transition: all 0.2s ease-in-out;
+}
+
+.light.red.active {
+  background-color: #ef4444;
+  box-shadow: 0 0 8px #ef4444;
+}
+
+.light.yellow.active {
+  background-color: #f59e0b;
+  box-shadow: 0 0 8px #f59e0b;
+}
+
+.light.green.active {
+  background-color: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+.dashboard-box-card.position-left {
+  flex-direction: row-reverse; 
+}
+
 .dashboard-box-card.status-green { border-color: #28a745; }
 .dashboard-box-card.status-yellow { border-color: #f59e0b; }
 .dashboard-box-card.status-red { border-color: #dc3545; }
 .dashboard-box-card.status-gray { border-color: #6c757d; }
 .dashboard-box-card.status-available { border-color: #d1d5db; }
+
+.dashboard-box-card.clickable:hover {
+  cursor: pointer;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}

@@ -6,6 +6,7 @@ import './MobileMenu.css';
 // ATUALIZADO: Lista de links de navegação com os caminhos corretos
 const menuLinks = [
   { label: 'Dashboard', path: '/' },
+  { label: 'Geral', path: '/geral' },
   { label: 'Gerenciar Técnicos', path: '/technicians' },
   { label: 'Gerenciar Boxes', path: '/boxes' },
   { label: 'Gerenciar Tarefas', path: '/tasks' },
