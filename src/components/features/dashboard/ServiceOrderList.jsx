@@ -1,24 +1,38 @@
-// src/components/features/dashboard/ServiceOrderList.jsx
+
+/**
+ * @file ServiceOrderList.jsx
+ * @brief Componente que exibe a lista de Ordens de Serviço na página Geral.
+ * @author Enzo Mello
+ *
+ * @param {object} props - Propriedades do componente.
+ * @param {Array<object>} props.orderServices - A lista de OS a ser exibida.
+ * @param {string|null} props.selectedOsId - O ID da OS atualmente selecionada, para destaque visual.
+ * @param {function} props.onOsSelect - Função de callback chamada quando uma OS é selecionada.
+ * @param {function} props.onAddOsClick - Função de callback para abrir o modal de criação de OS.
+ *
+ * @returns {JSX.Element} O card com a lista de Ordens de Serviço.
+ */
+
 import React, { useMemo } from 'react';
 import { FaClipboardList, FaPlusCircle } from 'react-icons/fa';
 import ServiceOrderCard from './cards/ServiceOrderCard';
 import './ServiceOrderList.css';
 
-// Recebe as props da DashboardPage
+/// Recebe as props da DashboardPage
 function ServiceOrderList({ orderServices, selectedOsId, onOsSelect, onAddOsClick }) {
 
-  // Lógica para ordenar a lista de OS com base no status
+  /// Lógica para ordenar a lista de OS com base no status
   const sortedOs = useMemo(() => {
-    // Define a prioridade de cada status
+    /// Define a prioridade de cada status
     const order = {
       IN_PROGRESS: 1,
       PAUSED: 2,
       NOT_STARTED: 3,
       FINISHED: 4,
     };
-    // Cria uma cópia do array e o ordena
+    /// Cria uma cópia do array e o ordena
     return [...(orderServices || [])].sort((a, b) => {
-      const orderA = order[a.status] || 99; // Se o status for desconhecido, joga para o final
+      const orderA = order[a.status] || 99; /// Se o status for desconhecido, joga para o final
       const orderB = order[b.status] || 99;
       return orderA - orderB;
     });

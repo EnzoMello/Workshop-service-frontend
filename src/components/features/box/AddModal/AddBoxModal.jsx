@@ -1,11 +1,29 @@
-// src/components/features/box/AddModal/AddBoxModal.jsx
+
+/**
+ * @file AddBoxModal.jsx
+ * @brief Componente de modal para adicionar um novo Box.
+ * @author Enzo Mello
+ *
+ * @description Este modal apresenta um formulário simples para o cadastro de um novo box,
+ * capturando seu identificador único.
+ *
+ * @param {object} props - Propriedades do componente.
+ * @param {function} props.onClose - Função de callback para fechar o modal.
+ * @param {function} props.onAddBox - Função de callback chamada com os dados do novo box ao submeter o formulário.
+ *
+ * @returns {JSX.Element} O modal de adição de box.
+ */
+
 import React, { useState } from 'react';
 import 'components/features/technicians/AddModal/AddTechnicianModal.css';
 
 function AddBoxModal({ onClose, onAddBox }) {
-  // O estado agora é apenas para o 'identifier'
   const [identifier, setIdentifier] = useState('');
 
+  /**
+   * @brief Manipula a submissão do formulário.
+   * @param {React.FormEvent} event - O evento de submissão do formulário.
+   */
   const handleSubmit = (event) => {
     event.preventDefault();
 

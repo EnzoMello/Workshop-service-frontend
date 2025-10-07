@@ -1,0 +1,73 @@
+\doxysection{src/components/layout/\+Header.jsx File Reference}
+\hypertarget{_header_8jsx}{}\label{_header_8jsx}\index{src/components/layout/Header.jsx@{src/components/layout/Header.jsx}}
+
+
+Componente que define o cabeçalho principal da aplicação.  
+
+
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_header_8jsx_a8e6a862a904cf8b07c69fae7c44a1a04}{React}}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} Mobile\+Menu from \mbox{\hyperlink{_header_8jsx_a803a774e62f112875e6de536e29048a5}{Mobile\+Menu}} \{ use\+State, use\+Effect \} from \textquotesingle{}\mbox{\hyperlink{_box_card_8jsx_aaed10feaf2dda4314d93c83408affea1}{react}}\textquotesingle{}
+\begin{DoxyCompactList}\small\item\em Componente funcional para o menu de navegação. @description Gerencia o estado de abertura/fechamento do menu e renderiza os links de navegação definidos em {\ttfamily menu\+Links}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_header_8jsx_aac9577478cc995dca61cfef13faca826}{Header}} \mbox{\hyperlink{_header_8jsx_afd9c5e45e6aad575605f0966bed42cca}{css}}
+\item 
+export default \mbox{\hyperlink{_header_8jsx_aac9577478cc995dca61cfef13faca826}{Header}} ()
+\begin{DoxyCompactList}\small\item\em Componente de cabeçalho da aplicação. @description Gerencia e exibe um relógio em tempo real e renderiza os elementos principais do cabeçalho, como logo e menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Componente que define o cabeçalho principal da aplicação. 
+
+\begin{DoxyAuthor}{Author}
+Enzo Mello
+\end{DoxyAuthor}
+@description Este componente renderiza a barra superior fixa da aplicação, que inclui o menu de navegação (Mobile\+Menu), o logo e nome da empresa, e um relógio que exibe a data e hora em tempo real. 
+
+\label{doc-var-members}
+\Hypertarget{_header_8jsx_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{_header_8jsx_afd9c5e45e6aad575605f0966bed42cca}\index{Header.jsx@{Header.jsx}!css@{css}}
+\index{css@{css}!Header.jsx@{Header.jsx}}
+\doxysubsubsection{\texorpdfstring{css}{css}}
+{\footnotesize\ttfamily \label{_header_8jsx_afd9c5e45e6aad575605f0966bed42cca} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_header_8jsx_aac9577478cc995dca61cfef13faca826}{Header}} css}
+
+\Hypertarget{_header_8jsx_aac9577478cc995dca61cfef13faca826}\index{Header.jsx@{Header.jsx}!Header@{Header}}
+\index{Header@{Header}!Header.jsx@{Header.jsx}}
+\doxysubsubsection{\texorpdfstring{Header}{Header}}
+{\footnotesize\ttfamily \label{_header_8jsx_aac9577478cc995dca61cfef13faca826} 
+function Header (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Componente de cabeçalho da aplicação. @description Gerencia e exibe um relógio em tempo real e renderiza os elementos principais do cabeçalho, como logo e menu. 
+
+\begin{DoxyReturn}{Returns}
+\{JSX.\+Element\} O elemento do cabeçalho da aplicação. 
+\end{DoxyReturn}
+Efeito para atualizar o relógio a cada segundo.
+
+Utiliza set\+Interval para atualizar o estado \textquotesingle{}current\+Time\textquotesingle{} e clear\+Interval na função de limpeza para evitar vazamentos de memória.\Hypertarget{_header_8jsx_a803a774e62f112875e6de536e29048a5}\index{Header.jsx@{Header.jsx}!MobileMenu@{MobileMenu}}
+\index{MobileMenu@{MobileMenu}!Header.jsx@{Header.jsx}}
+\doxysubsubsection{\texorpdfstring{MobileMenu}{MobileMenu}}
+{\footnotesize\ttfamily \label{_header_8jsx_a803a774e62f112875e6de536e29048a5} 
+function Mobile\+Menu \{ use\+State, use\+Effect \} from \textquotesingle{}\mbox{\hyperlink{_box_card_8jsx_aaed10feaf2dda4314d93c83408affea1}{react}}\textquotesingle{}}
+
+
+
+Componente funcional para o menu de navegação. @description Gerencia o estado de abertura/fechamento do menu e renderiza os links de navegação definidos em {\ttfamily menu\+Links}. 
+
+\begin{DoxyReturn}{Returns}
+\{JSX.\+Element\} O componente de menu renderizado. 
+\end{DoxyReturn}
+Alterna a visibilidade do menu.
+
+Fecha o menu ao clicar em um link\Hypertarget{_header_8jsx_a8e6a862a904cf8b07c69fae7c44a1a04}\index{Header.jsx@{Header.jsx}!React@{React}}
+\index{React@{React}!Header.jsx@{Header.jsx}}
+\doxysubsubsection{\texorpdfstring{React}{React}}
+{\footnotesize\ttfamily \label{_header_8jsx_a8e6a862a904cf8b07c69fae7c44a1a04} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} React}
+

@@ -1,4 +1,20 @@
-// src/components/BatchDeleteBoxModal.jsx
+
+/**
+ * @file BatchDeleteBoxModal.jsx
+ * @brief Modal para deletar múltiplos boxes em uma única operação.
+ * @author Enzo Mello
+ *
+ * @description Apresenta uma lista pesquisável de todos os boxes com checkboxes
+ * para seleção. Permite ao usuário selecionar um ou mais boxes e confirmar a exclusão.
+ *
+ * @param {object} props - Propriedades do componente.
+ * @param {Array<object>} props.boxes - A lista completa de boxes para exibição.
+ * @param {function} props.onClose - Callback para fechar o modal.
+ * @param {function} props.onConfirm - Callback executado com a lista de IDs a serem deletados.
+ *
+ * @returns {JSX.Element} O modal de deleção em lote.
+ */
+
 import React, { useState } from 'react';
 import 'components/features/technicians/AddModal/AddTechnicianModal.css';
 import 'components/features/technicians/DeleteModal/BatchDeleteModal.css';
@@ -7,6 +23,8 @@ function BatchDeleteBoxModal({ boxes, onClose, onConfirm }) {
   const [selectedIds, setSelectedIds] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [isConfirming, setIsConfirming] = useState(false);
+
+  /** @brief Filtra os boxes com base no termo de busca. */
 
   const filteredBoxes = boxes.filter(box => {
     const term = searchTerm.toLowerCase();
@@ -17,6 +35,7 @@ function BatchDeleteBoxModal({ boxes, onClose, onConfirm }) {
     );
   });
 
+  /** @brief Adiciona ou remove um ID da lista de seleção. */
   const handleCheckboxChange = (id) => {
     if (selectedIds.includes(id)) {
       setSelectedIds(selectedIds.filter(selectedId => selectedId !== id));
@@ -25,12 +44,14 @@ function BatchDeleteBoxModal({ boxes, onClose, onConfirm }) {
     }
   };
 
+  /** @brief Ativa a etapa final de confirmação. */
   const handleConfirmClick = () => {
     if (selectedIds.length > 0) {
       setIsConfirming(true);
     }
   };
 
+  /** @brief Executa a função de deleção passada via props. */
   const executeDelete = () => {
     onConfirm(selectedIds);
   };

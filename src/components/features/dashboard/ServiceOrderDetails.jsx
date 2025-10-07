@@ -1,4 +1,20 @@
-// src/components/features/dashboard/ServiceOrderDetails.jsx
+
+/**
+ * @file ServiceOrderDetails.jsx
+ * @brief Componente que exibe os detalhes completos de uma OS selecionada.
+ * @author Enzo Mello
+ *
+ * @param {object} props - Propriedades do componente.
+ * @param {object|null} props.selectedOsDetails - O objeto com os detalhes da OS.
+ * @param {boolean} props.isLoading - Flag para indicar se os detalhes estão carregando.
+ * @param {Array<object>} props.technicians - Lista de técnicos para o modal de vinculação.
+ * @param {Array<object>} props.boxes - Lista de boxes para o modal de vinculação.
+ * @param {function} props.onPauseOs - Callback para pausar a OS.
+ * @param {function} props.onLinkTechnicianAndBox - Callback para vincular técnico e box.
+ *
+ * @returns {JSX.Element} O card de detalhes da OS.
+ */
+
 import React, { useState } from 'react';
 import { FaTachometerAlt, FaLink, FaPauseCircle } from 'react-icons/fa';
 import SubTaskCard from './cards/SubTaskCard';
@@ -19,7 +35,7 @@ const statusBadgeMap = {
     PAUSED: { text: 'PAUSADO', className: 'badge-in-progress' },
 };
 
-// Recebe 'boxes' e a nova função 'onLinkTechnicianAndBox'
+/// Recebe 'boxes' e a nova função 'onLinkTechnicianAndBox'
 function ServiceOrderDetails({ selectedOsDetails, isLoading, technicians, boxes, onPauseOs, onLinkTechnicianAndBox }) {
   const [isPauseOpen, setIsPauseOpen] = useState(false);
   const [isLinkOpen, setIsLinkOpen] = useState(false);

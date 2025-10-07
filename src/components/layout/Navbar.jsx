@@ -1,15 +1,28 @@
-// src/components/Navbar.jsx
 
+/**
+ * @file Navbar.jsx
+ * @brief Componente de barra de navegação superior com menus dropdown.
+ * @author Enzo Mello
+ *
+ * @description Renderiza uma barra de navegação horizontal com o logo da empresa e
+ * menus que aparecem ao passar o mouse, contendo links para diferentes seções.
+ */
 import React, { useState } from 'react';
-// 1. Importa o componente 'Link' para a navegação
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
+/**
+ * @brief Componente da barra de navegação superior.
+ * @description Gerencia o estado do menu dropdown ativo e renderiza a estrutura de navegação.
+ * @returns {JSX.Element} O elemento da barra de navegação.
+ */
 function Navbar() {
-  // Estado para controlar qual menu dropdown está visível
   const [activeMenu, setActiveMenu] = useState(null);
 
-  // 2. Os caminhos ('path') foram atualizados para corresponder às nossas rotas
+  /**
+   * @brief Objeto que define os itens para cada menu dropdown.
+   * @type {object}
+   */
   const menuItems = {
     tecnicos: [
       { label: 'Gerenciar Técnicos', path: '/' },
@@ -26,27 +39,23 @@ function Navbar() {
     ],
   };
 
-  // Função para fechar qualquer menu que esteja aberto
+  /** @brief Fecha qualquer menu dropdown que esteja aberto. */
   const handleMouseLeave = () => {
     setActiveMenu(null);
   };
 
   return (
     <nav className="navbar">
-      {/* Seção do logo à esquerda */}
       <div className="nav-section nav-logo">
-        {/* 3. A tag <a> foi trocada por <Link> */}
         <Link to="/">Grupo New Toyota</Link>
       </div>
       
-      {/* Seção dos links no centro */}
       <div className="nav-section nav-links" onMouseLeave={handleMouseLeave}>
         <ul className="nav-list">
           <li className="nav-item" onMouseEnter={() => setActiveMenu('tecnicos')}>
             <span>Técnicos</span>
             {activeMenu === 'tecnicos' && (
               <div className="dropdown-menu">
-                {/* 4. As tags <a> dentro do menu também foram trocadas por <Link> */}
                 {menuItems.tecnicos.map((item) => (
                   <Link key={item.path} to={item.path} className="dropdown-item">
                     {item.label}

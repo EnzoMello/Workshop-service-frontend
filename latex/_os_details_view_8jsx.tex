@@ -1,0 +1,109 @@
+\doxysection{src/components/features/\+OS/\+Os\+Details\+View.jsx File Reference}
+\hypertarget{_os_details_view_8jsx}{}\label{_os_details_view_8jsx}\index{src/components/features/OS/OsDetailsView.jsx@{src/components/features/OS/OsDetailsView.jsx}}
+
+
+Componente que exibe uma visão detalhada de uma Ordem de Serviço.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+function \mbox{\hyperlink{_os_details_view_8jsx_a9e825a29beec7631c89832bdfdcf14f3}{Os\+Details\+View}} (\{ os\+Details, on\+Close \})
+\begin{DoxyCompactList}\small\item\em Painel de Visão de Detalhes da OS. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_add_box_modal_8jsx_a8e6a862a904cf8b07c69fae7c44a1a04}{React}} from \mbox{\hyperlink{_os_details_view_8jsx_aaed10feaf2dda4314d93c83408affea1}{react}}
+\item 
+\mbox{\hyperlink{_os_details_view_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \{ Fa\+Arrow\+Left \} from \textquotesingle{}\mbox{\hyperlink{_box_card_8jsx_aaed10feaf2dda4314d93c83408affea1}{react}}-\/icons/fa\textquotesingle{}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_realtime_monitor_8jsx_a97565bda0a816b4da094d0f9091a1831}{Os\+Details\+View}} \mbox{\hyperlink{_os_details_view_8jsx_ad88cc8f6d883b93b07f6e471b34788e3}{css}}
+\item 
+const \mbox{\hyperlink{_os_details_view_8jsx_af0c5d639d48c3c062fcd7640cb2a2280}{status\+Badge\+Map}}
+\begin{DoxyCompactList}\small\item\em Mapeamento de status da API para texto e classes de CSS para o badge. @type \{object\}. \end{DoxyCompactList}\item 
+export default \mbox{\hyperlink{_os_details_view_8jsx_a70e3965d4d5538852721528645c37340}{Os\+Details\+View}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Componente que exibe uma visão detalhada de uma Ordem de Serviço. 
+
+\begin{DoxyAuthor}{Author}
+Enzo Mello
+\end{DoxyAuthor}
+@description Este componente é usado como o painel lateral no Dashboard para mostrar informações completas de uma OS selecionada, como técnico, box, horários e status. 
+
+\label{doc-func-members}
+\Hypertarget{_os_details_view_8jsx_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_os_details_view_8jsx_a9e825a29beec7631c89832bdfdcf14f3}\index{OsDetailsView.jsx@{OsDetailsView.jsx}!OsDetailsView@{OsDetailsView}}
+\index{OsDetailsView@{OsDetailsView}!OsDetailsView.jsx@{OsDetailsView.jsx}}
+\doxysubsubsection{\texorpdfstring{OsDetailsView()}{OsDetailsView()}}
+{\footnotesize\ttfamily \label{_os_details_view_8jsx_a9e825a29beec7631c89832bdfdcf14f3} 
+function Os\+Details\+View (\begin{DoxyParamCaption}\item[{}]{\{ os\+Details, on\+Close \}}{}\end{DoxyParamCaption})}
+
+
+
+Painel de Visão de Detalhes da OS. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \{object\}} & props -\/ Propriedades do componente. \\
+\hline
+{\em \{object\}} & props.\+os\+Details -\/ Objeto contendo os detalhes completos da OS a ser exibida. \\
+\hline
+{\em \{function\}} & props.\+on\+Close -\/ Função de callback para fechar a visão de detalhes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{JSX.\+Element\} O painel de detalhes da OS renderizado. 
+\end{DoxyReturn}
+
+
+\label{doc-var-members}
+\Hypertarget{_os_details_view_8jsx_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{_os_details_view_8jsx_ad88cc8f6d883b93b07f6e471b34788e3}\index{OsDetailsView.jsx@{OsDetailsView.jsx}!css@{css}}
+\index{css@{css}!OsDetailsView.jsx@{OsDetailsView.jsx}}
+\doxysubsubsection{\texorpdfstring{css}{css}}
+{\footnotesize\ttfamily \label{_os_details_view_8jsx_ad88cc8f6d883b93b07f6e471b34788e3} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_realtime_monitor_8jsx_a97565bda0a816b4da094d0f9091a1831}{Os\+Details\+View}} css}
+
+\Hypertarget{_os_details_view_8jsx_a59be084da8908b7d77ff34b25cd84488}\index{OsDetailsView.jsx@{OsDetailsView.jsx}!import@{import}}
+\index{import@{import}!OsDetailsView.jsx@{OsDetailsView.jsx}}
+\doxysubsubsection{\texorpdfstring{import}{import}}
+{\footnotesize\ttfamily \label{_os_details_view_8jsx_a59be084da8908b7d77ff34b25cd84488} 
+import \{ Fa\+Arrow\+Left \} from \textquotesingle{}\mbox{\hyperlink{_box_card_8jsx_aaed10feaf2dda4314d93c83408affea1}{react}}-\/icons/fa\textquotesingle{}}
+
+\Hypertarget{_os_details_view_8jsx_a70e3965d4d5538852721528645c37340}\index{OsDetailsView.jsx@{OsDetailsView.jsx}!OsDetailsView@{OsDetailsView}}
+\index{OsDetailsView@{OsDetailsView}!OsDetailsView.jsx@{OsDetailsView.jsx}}
+\doxysubsubsection{\texorpdfstring{OsDetailsView}{OsDetailsView}}
+{\footnotesize\ttfamily \label{_os_details_view_8jsx_a70e3965d4d5538852721528645c37340} 
+export default Os\+Details\+View}
+
+\Hypertarget{_os_details_view_8jsx_aaed10feaf2dda4314d93c83408affea1}\index{OsDetailsView.jsx@{OsDetailsView.jsx}!react@{react}}
+\index{react@{react}!OsDetailsView.jsx@{OsDetailsView.jsx}}
+\doxysubsubsection{\texorpdfstring{react}{react}}
+{\footnotesize\ttfamily \label{_os_details_view_8jsx_aaed10feaf2dda4314d93c83408affea1} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_add_box_modal_8jsx_a8e6a862a904cf8b07c69fae7c44a1a04}{React}} from react}
+
+\Hypertarget{_os_details_view_8jsx_af0c5d639d48c3c062fcd7640cb2a2280}\index{OsDetailsView.jsx@{OsDetailsView.jsx}!statusBadgeMap@{statusBadgeMap}}
+\index{statusBadgeMap@{statusBadgeMap}!OsDetailsView.jsx@{OsDetailsView.jsx}}
+\doxysubsubsection{\texorpdfstring{statusBadgeMap}{statusBadgeMap}}
+{\footnotesize\ttfamily \label{_os_details_view_8jsx_af0c5d639d48c3c062fcd7640cb2a2280} 
+const status\+Badge\+Map}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ NOT\_STARTED:\ \{\ text:\ \textcolor{stringliteral}{'PENDENTE'},\ className:\ \textcolor{stringliteral}{'badge-\/pending'}\ \},}
+\DoxyCodeLine{\ \ IN\_PROGRESS:\ \{\ text:\ \textcolor{stringliteral}{'EM\ ANDAMENTO'},\ className:\ \textcolor{stringliteral}{'badge-\/in-\/progress'}\ \},}
+\DoxyCodeLine{\ \ FINISHED:\ \{\ text:\ \textcolor{stringliteral}{'CONCLUÍDO'},\ className:\ \textcolor{stringliteral}{'badge-\/finished'}\ \},}
+\DoxyCodeLine{\ \ PAUSED:\ \{\ text:\ \textcolor{stringliteral}{'PAUSADO'},\ className:\ \textcolor{stringliteral}{'badge-\/paused'}\ \},\ }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Mapeamento de status da API para texto e classes de CSS para o badge. @type \{object\}. 
+

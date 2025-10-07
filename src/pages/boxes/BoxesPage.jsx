@@ -1,4 +1,13 @@
-// src/pages/boxes/BoxesPage.jsx
+/**
+ * @file BoxesPage.jsx
+ * @brief Página principal para o gerenciamento de Boxes da oficina.
+ * @author Enzo Mello
+ *
+ * @description Esta página exibe todos os boxes cadastrados em um layout de cards.
+ * Permite ao usuário adicionar novos boxes, navegar para a página de atualização
+ * e deletar boxes em lote através de modais interativos.
+ */
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getAllBoxes, createBox, deleteBox } from '../../services/boxService';
@@ -8,6 +17,11 @@ import BatchDeleteBoxModal from '../../components/features/box/DeleteModal/Batch
 import SearchBoxModal from '../../components/features/box/SearchModal/SearchBoxModal';
 import '../technicians/main/TechniciansPage.css';
 
+/**
+ * @brief Componente principal da página de gerenciamento de boxes.
+ * @description Gerencia o estado da lista de boxes, o carregamento, os erros e a visibilidade dos modais de adição e deleção.
+ * @returns {JSX.Element} A página de gerenciamento de boxes renderizada.
+ */
 function BoxesPage() {
   const navigate = useNavigate();
   const [boxes, setBoxes] = useState([]);
@@ -17,6 +31,9 @@ function BoxesPage() {
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
   const [isBatchDeleteModalOpen, setIsBatchDeleteModalOpen] = useState(false);
 
+  /**
+   * @brief Busca a lista de todos os boxes da API e atualiza o estado do componente.
+   */
   const fetchData = async () => {
     try {
       setIsLoading(true);
@@ -30,10 +47,17 @@ function BoxesPage() {
     }
   };
 
+  /**
+   * @brief Efeito que chama a função fetchData uma vez quando o componente é montado.
+   */
   useEffect(() => {
     fetchData();
   }, []);
 
+   /**
+   * @brief Manipula a submissão do modal de adição de box.
+   * @param {object} boxData - Os dados do novo box a ser criado.
+   */
   const handleAddBox = async (boxData) => {
     try {
       await createBox(boxData);
@@ -45,6 +69,10 @@ function BoxesPage() {
     }
   };
 
+  /**
+   * @brief Manipula a confirmação de deleção em lote de boxes.
+   * @param {Array<string>} idsToDelete - Um array com os IDs dos boxes a serem deletados.
+   */
   const handleConfirmBatchDelete = async (idsToDelete) => {
     try {
       const deletePromises = idsToDelete.map(id => deleteBox(id));

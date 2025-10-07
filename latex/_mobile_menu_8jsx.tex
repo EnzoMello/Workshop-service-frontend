@@ -1,0 +1,83 @@
+\doxysection{src/components/layout/\+Mobile\+Menu.jsx File Reference}
+\hypertarget{_mobile_menu_8jsx}{}\label{_mobile_menu_8jsx}\index{src/components/layout/MobileMenu.jsx@{src/components/layout/MobileMenu.jsx}}
+
+
+Componente de menu de navegação lateral (sidebar/drawer).  
+
+
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_mobile_menu_8jsx_a8e6a862a904cf8b07c69fae7c44a1a04}{React}}
+\item 
+import \mbox{\hyperlink{_mobile_menu_8jsx_a953be46b94f595d839e88a6d3d270309}{import}} \{ Link \} from \textquotesingle{}\mbox{\hyperlink{_box_card_8jsx_aaed10feaf2dda4314d93c83408affea1}{react}}-\/router-\/dom\textquotesingle{}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_header_8jsx_a803a774e62f112875e6de536e29048a5}{Mobile\+Menu}} \mbox{\hyperlink{_mobile_menu_8jsx_adfd6e63b5e3c4b1bbc4ecfaa2a0c4571}{css}}
+\item 
+const \mbox{\hyperlink{_mobile_menu_8jsx_ae12814692378a84bad642a4f7d28b2d2}{menu\+Links}}
+\item 
+export default \mbox{\hyperlink{_mobile_menu_8jsx_a43ca5f735fb87f9a314d09c61d2bcd70}{Mobile\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Componente funcional para o menu de navegação. @description Gerencia o estado de abertura/fechamento do menu e renderiza os links de navegação definidos em {\ttfamily menu\+Links}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Componente de menu de navegação lateral (sidebar/drawer). 
+
+\begin{DoxyAuthor}{Author}
+Enzo Mello
+\end{DoxyAuthor}
+@description Renderiza o ícone de "{}hambúrguer"{} e o menu deslizante que serve como a principal forma de navegação entre as páginas da aplicação. 
+
+\label{doc-var-members}
+\Hypertarget{_mobile_menu_8jsx_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{_mobile_menu_8jsx_adfd6e63b5e3c4b1bbc4ecfaa2a0c4571}\index{MobileMenu.jsx@{MobileMenu.jsx}!css@{css}}
+\index{css@{css}!MobileMenu.jsx@{MobileMenu.jsx}}
+\doxysubsubsection{\texorpdfstring{css}{css}}
+{\footnotesize\ttfamily \label{_mobile_menu_8jsx_adfd6e63b5e3c4b1bbc4ecfaa2a0c4571} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_header_8jsx_a803a774e62f112875e6de536e29048a5}{Mobile\+Menu}} css}
+
+\Hypertarget{_mobile_menu_8jsx_a953be46b94f595d839e88a6d3d270309}\index{MobileMenu.jsx@{MobileMenu.jsx}!import@{import}}
+\index{import@{import}!MobileMenu.jsx@{MobileMenu.jsx}}
+\doxysubsubsection{\texorpdfstring{import}{import}}
+{\footnotesize\ttfamily \label{_mobile_menu_8jsx_a953be46b94f595d839e88a6d3d270309} 
+import import \{ Link \} from \textquotesingle{}\mbox{\hyperlink{_box_card_8jsx_aaed10feaf2dda4314d93c83408affea1}{react}}-\/router-\/dom\textquotesingle{}}
+
+\Hypertarget{_mobile_menu_8jsx_ae12814692378a84bad642a4f7d28b2d2}\index{MobileMenu.jsx@{MobileMenu.jsx}!menuLinks@{menuLinks}}
+\index{menuLinks@{menuLinks}!MobileMenu.jsx@{MobileMenu.jsx}}
+\doxysubsubsection{\texorpdfstring{menuLinks}{menuLinks}}
+{\footnotesize\ttfamily \label{_mobile_menu_8jsx_ae12814692378a84bad642a4f7d28b2d2} 
+const menu\+Links}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ [}
+\DoxyCodeLine{\ \ \{\ label:\ \textcolor{stringliteral}{'Dashboard'},\ path:\ \textcolor{charliteral}{'/'}\ \},}
+\DoxyCodeLine{\ \ \{\ label:\ \textcolor{stringliteral}{'Geral'},\ path:\ \textcolor{stringliteral}{'/geral'}\ \},}
+\DoxyCodeLine{\ \ \{\ label:\ \textcolor{stringliteral}{'Gerenciar\ Técnicos'},\ path:\ \textcolor{stringliteral}{'/technicians'}\ \},}
+\DoxyCodeLine{\ \ \{\ label:\ \textcolor{stringliteral}{'Gerenciar\ Boxes'},\ path:\ \textcolor{stringliteral}{'/boxes'}\ \},}
+\DoxyCodeLine{\ \ \{\ label:\ \textcolor{stringliteral}{'Gerenciar\ Tarefas'},\ path:\ \textcolor{stringliteral}{'/tasks'}\ \},}
+\DoxyCodeLine{]}
+
+\end{DoxyCode}
+\Hypertarget{_mobile_menu_8jsx_a43ca5f735fb87f9a314d09c61d2bcd70}\index{MobileMenu.jsx@{MobileMenu.jsx}!MobileMenu@{MobileMenu}}
+\index{MobileMenu@{MobileMenu}!MobileMenu.jsx@{MobileMenu.jsx}}
+\doxysubsubsection{\texorpdfstring{MobileMenu}{MobileMenu}}
+{\footnotesize\ttfamily \label{_mobile_menu_8jsx_a43ca5f735fb87f9a314d09c61d2bcd70} 
+export default Mobile\+Menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Componente funcional para o menu de navegação. @description Gerencia o estado de abertura/fechamento do menu e renderiza os links de navegação definidos em {\ttfamily menu\+Links}. 
+
+\begin{DoxyReturn}{Returns}
+\{JSX.\+Element\} O componente de menu renderizado. 
+\end{DoxyReturn}
+Alterna a visibilidade do menu.
+
+Fecha o menu ao clicar em um link\Hypertarget{_mobile_menu_8jsx_a8e6a862a904cf8b07c69fae7c44a1a04}\index{MobileMenu.jsx@{MobileMenu.jsx}!React@{React}}
+\index{React@{React}!MobileMenu.jsx@{MobileMenu.jsx}}
+\doxysubsubsection{\texorpdfstring{React}{React}}
+{\footnotesize\ttfamily \label{_mobile_menu_8jsx_a8e6a862a904cf8b07c69fae7c44a1a04} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} React}
+

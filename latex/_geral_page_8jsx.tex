@@ -1,0 +1,124 @@
+\doxysection{src/pages/geral/\+Geral\+Page.jsx File Reference}
+\hypertarget{_geral_page_8jsx}{}\label{_geral_page_8jsx}\index{src/pages/geral/GeralPage.jsx@{src/pages/geral/GeralPage.jsx}}
+
+
+Define a página "{}\+Geral"{}, o painel principal para gerenciamento de Ordens de Serviço (OS).  
+
+
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_geral_page_8jsx_a8e6a862a904cf8b07c69fae7c44a1a04}{React}}
+\item 
+import \mbox{\hyperlink{_geral_page_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \{ get\+All\+Tasks \} from \textquotesingle{}../../services/task\+Service\textquotesingle{}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} Service\+Order\+List from components features dashboard \mbox{\hyperlink{_geral_page_8jsx_ac90ca31e12a152983543a1adcb083c24}{Service\+Order\+List}}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} Service\+Order\+Details from components features dashboard \mbox{\hyperlink{_geral_page_8jsx_a682dd2b426e1790bdf831671b37ff110}{Service\+Order\+Details}}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} Create\+Os\+Modal from components features dashboard modals \mbox{\hyperlink{_geral_page_8jsx_ac645414315094c7e13d7175d496761d3}{Create\+Os\+Modal}}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} Success\+Toast from components features dashboard toasts \mbox{\hyperlink{_geral_page_8jsx_a5c76902ddc0181e164c4b52d21352514}{Success\+Toast}}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} Error\+Toast from components features dashboard toasts \mbox{\hyperlink{_geral_page_8jsx_a2aa30ea1904492f68cf4b28f6ead3781}{Error\+Toast}}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} Daily\+Summary\+Card from components features geral \mbox{\hyperlink{_geral_page_8jsx_a8807e27db080781c75ab41edf44c8341}{Daily\+Summary\+Card}}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} Technician\+Status\+Card from components features geral \mbox{\hyperlink{_geral_page_8jsx_ab5b194fb5e0240aeba80d9ebd18daf73}{Technician\+Status\+Card}}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_geral_page_8jsx_a0396a06c36b5dc143a7cdfe96a64a840}{Geral\+Page}} \mbox{\hyperlink{_geral_page_8jsx_aac5ced3538501b73dec9b3997492835f}{css}}
+\item 
+export default \mbox{\hyperlink{_geral_page_8jsx_a0396a06c36b5dc143a7cdfe96a64a840}{Geral\+Page}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Define a página "{}\+Geral"{}, o painel principal para gerenciamento de Ordens de Serviço (OS). 
+
+\begin{DoxyAuthor}{Author}
+Enzo Mello
+\end{DoxyAuthor}
+@description Esta página renderiza um layout de duas colunas. A coluna da esquerda contém a lista de todas as OS. A coluna da direita exibe, por padrão, cartões de resumo (KPIs e Status dos Técnicos) e, ao selecionar uma OS, exibe os detalhes completos daquela OS. Gerencia todo o estado e as chamadas de API para esta funcionalidade. 
+
+\label{doc-var-members}
+\Hypertarget{_geral_page_8jsx_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{_geral_page_8jsx_ac645414315094c7e13d7175d496761d3}\index{GeralPage.jsx@{GeralPage.jsx}!CreateOsModal@{CreateOsModal}}
+\index{CreateOsModal@{CreateOsModal}!GeralPage.jsx@{GeralPage.jsx}}
+\doxysubsubsection{\texorpdfstring{CreateOsModal}{CreateOsModal}}
+{\footnotesize\ttfamily \label{_geral_page_8jsx_ac645414315094c7e13d7175d496761d3} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} Create\+Os\+Modal from components features dashboard modals Create\+Os\+Modal}
+
+\Hypertarget{_geral_page_8jsx_aac5ced3538501b73dec9b3997492835f}\index{GeralPage.jsx@{GeralPage.jsx}!css@{css}}
+\index{css@{css}!GeralPage.jsx@{GeralPage.jsx}}
+\doxysubsubsection{\texorpdfstring{css}{css}}
+{\footnotesize\ttfamily \label{_geral_page_8jsx_aac5ced3538501b73dec9b3997492835f} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_geral_page_8jsx_a0396a06c36b5dc143a7cdfe96a64a840}{Geral\+Page}} css}
+
+\Hypertarget{_geral_page_8jsx_a8807e27db080781c75ab41edf44c8341}\index{GeralPage.jsx@{GeralPage.jsx}!DailySummaryCard@{DailySummaryCard}}
+\index{DailySummaryCard@{DailySummaryCard}!GeralPage.jsx@{GeralPage.jsx}}
+\doxysubsubsection{\texorpdfstring{DailySummaryCard}{DailySummaryCard}}
+{\footnotesize\ttfamily \label{_geral_page_8jsx_a8807e27db080781c75ab41edf44c8341} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} Daily\+Summary\+Card from components features geral Daily\+Summary\+Card}
+
+\Hypertarget{_geral_page_8jsx_a2aa30ea1904492f68cf4b28f6ead3781}\index{GeralPage.jsx@{GeralPage.jsx}!ErrorToast@{ErrorToast}}
+\index{ErrorToast@{ErrorToast}!GeralPage.jsx@{GeralPage.jsx}}
+\doxysubsubsection{\texorpdfstring{ErrorToast}{ErrorToast}}
+{\footnotesize\ttfamily \label{_geral_page_8jsx_a2aa30ea1904492f68cf4b28f6ead3781} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} Error\+Toast from components features dashboard toasts Error\+Toast}
+
+\Hypertarget{_geral_page_8jsx_a0396a06c36b5dc143a7cdfe96a64a840}\index{GeralPage.jsx@{GeralPage.jsx}!GeralPage@{GeralPage}}
+\index{GeralPage@{GeralPage}!GeralPage.jsx@{GeralPage.jsx}}
+\doxysubsubsection{\texorpdfstring{GeralPage}{GeralPage}}
+{\footnotesize\ttfamily \label{_geral_page_8jsx_a0396a06c36b5dc143a7cdfe96a64a840} 
+function Geral\+Page}
+
+Calcula os dados para o card de "{}\+Resumo do Dia"{}. @description Processa a lista \textquotesingle{}os\+List\textquotesingle{} para extrair KPIs como total de OS, em andamento, pausadas e concluídas hoje. @type \{object\}
+
+Calcula o status de \textquotesingle{}Livre\textquotesingle{} ou \textquotesingle{}Ocupado\textquotesingle{} para cada técnico. @description Compara a lista de técnicos com as OS ativas para determinar o status de cada um. @type \{Array$<$object$>$\}
+
+Busca os dados iniciais da página na API. @description Utiliza Promise.\+all para buscar OS, tarefas, técnicos e boxes em paralelo.
+
+if (os\+Data \&\& os\+Data.\+length \texorpdfstring{$>$}{>} 0 \&\& !selected\+Os\+Id) \{ handle\+Os\+Select(os\+Data\mbox{[}0\mbox{]}.id); \}
+
+Controla a seleção e desseleção de uma OS na lista. @description Se uma OS já selecionada for clicada novamente, ela é desselecionada para mostrar a visão de resumo. Caso contrário, busca e exibe os detalhes da nova OS selecionada. 
+\begin{DoxyParams}{Parameters}
+{\em \{string\}} & os\+Id -\/ O ID da OS que foi clicada.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{_geral_page_8jsx_a59be084da8908b7d77ff34b25cd84488}\index{GeralPage.jsx@{GeralPage.jsx}!import@{import}}
+\index{import@{import}!GeralPage.jsx@{GeralPage.jsx}}
+\doxysubsubsection{\texorpdfstring{import}{import}}
+{\footnotesize\ttfamily \label{_geral_page_8jsx_a59be084da8908b7d77ff34b25cd84488} 
+import \{ get\+All\+Tasks \} from \textquotesingle{}../../services/task\+Service\textquotesingle{}}
+
+\Hypertarget{_geral_page_8jsx_a8e6a862a904cf8b07c69fae7c44a1a04}\index{GeralPage.jsx@{GeralPage.jsx}!React@{React}}
+\index{React@{React}!GeralPage.jsx@{GeralPage.jsx}}
+\doxysubsubsection{\texorpdfstring{React}{React}}
+{\footnotesize\ttfamily \label{_geral_page_8jsx_a8e6a862a904cf8b07c69fae7c44a1a04} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} React}
+
+\Hypertarget{_geral_page_8jsx_a682dd2b426e1790bdf831671b37ff110}\index{GeralPage.jsx@{GeralPage.jsx}!ServiceOrderDetails@{ServiceOrderDetails}}
+\index{ServiceOrderDetails@{ServiceOrderDetails}!GeralPage.jsx@{GeralPage.jsx}}
+\doxysubsubsection{\texorpdfstring{ServiceOrderDetails}{ServiceOrderDetails}}
+{\footnotesize\ttfamily \label{_geral_page_8jsx_a682dd2b426e1790bdf831671b37ff110} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} Service\+Order\+Details from components features dashboard Service\+Order\+Details}
+
+\Hypertarget{_geral_page_8jsx_ac90ca31e12a152983543a1adcb083c24}\index{GeralPage.jsx@{GeralPage.jsx}!ServiceOrderList@{ServiceOrderList}}
+\index{ServiceOrderList@{ServiceOrderList}!GeralPage.jsx@{GeralPage.jsx}}
+\doxysubsubsection{\texorpdfstring{ServiceOrderList}{ServiceOrderList}}
+{\footnotesize\ttfamily \label{_geral_page_8jsx_ac90ca31e12a152983543a1adcb083c24} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} Service\+Order\+List from components features dashboard Service\+Order\+List}
+
+\Hypertarget{_geral_page_8jsx_a5c76902ddc0181e164c4b52d21352514}\index{GeralPage.jsx@{GeralPage.jsx}!SuccessToast@{SuccessToast}}
+\index{SuccessToast@{SuccessToast}!GeralPage.jsx@{GeralPage.jsx}}
+\doxysubsubsection{\texorpdfstring{SuccessToast}{SuccessToast}}
+{\footnotesize\ttfamily \label{_geral_page_8jsx_a5c76902ddc0181e164c4b52d21352514} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} Success\+Toast from components features dashboard toasts Success\+Toast}
+
+\Hypertarget{_geral_page_8jsx_ab5b194fb5e0240aeba80d9ebd18daf73}\index{GeralPage.jsx@{GeralPage.jsx}!TechnicianStatusCard@{TechnicianStatusCard}}
+\index{TechnicianStatusCard@{TechnicianStatusCard}!GeralPage.jsx@{GeralPage.jsx}}
+\doxysubsubsection{\texorpdfstring{TechnicianStatusCard}{TechnicianStatusCard}}
+{\footnotesize\ttfamily \label{_geral_page_8jsx_ab5b194fb5e0240aeba80d9ebd18daf73} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} Technician\+Status\+Card from components features geral Technician\+Status\+Card}
+

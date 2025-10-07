@@ -1,4 +1,20 @@
-// src/components/features/dashboard/CreateOsModal.jsx
+
+/**
+ * @file CreateOsModal.jsx
+ * @brief Componente de modal para a criação de uma nova Ordem de Serviço (OS).
+ * @author Enzo Mello
+ *
+ * @description Fornece um formulário para o usuário inserir o número da OS e selecionar
+ * uma ou mais tarefas de um catálogo pré-definido.
+ *
+ * @param {object} props - Propriedades do componente.
+ * @param {function} props.onClose - Callback para fechar o modal.
+ * @param {function} props.onConfirm - Callback executado com os dados da nova OS.
+ * @param {Array<object>} props.availableTasks - Lista de todas as tarefas disponíveis para seleção.
+ *
+ * @returns {JSX.Element} O modal de criação de Ordem de Serviço.
+ */
+
 import React, { useState } from 'react';
 import 'components/features/technicians/AddModal/AddTechnicianModal.css';
 import 'components/features/technicians/DeleteModal/BatchDeleteModal.css';
@@ -7,6 +23,10 @@ function CreateOsModal({ onClose, onConfirm, availableTasks }) {
   const [osNumber, setOsNumber] = useState('');
   const [selectedTaskIds, setSelectedTaskIds] = useState([]);
 
+  /**
+   * @brief Gerencia a seleção/desseleção de tarefas na lista.
+   * @param {string} taskId - O ID da tarefa que foi clicada.
+   */
   const handleCheckboxChange = (taskId) => {
     if (selectedTaskIds.includes(taskId)) {
       setSelectedTaskIds(selectedTaskIds.filter(id => id !== taskId));
@@ -15,14 +35,16 @@ function CreateOsModal({ onClose, onConfirm, availableTasks }) {
     }
   };
 
+  /**
+   * @brief Monta e envia os dados da nova OS ao submeter o formulário.
+   * @param {React.FormEvent} event - O evento de submissão.
+   */
    const handleSubmit = (event) => {
     event.preventDefault();
-    // Verificação extra de segurança
     if (!osNumber || selectedTaskIds.length === 0) {
       alert("Por favor, preencha o número da OS e selecione ao menos uma tarefa.");
       return;
     }
-    // Monta o objeto no formato que o back-end espera
     const osData = {
       osNumber,
       taskIds: selectedTaskIds

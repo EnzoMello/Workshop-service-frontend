@@ -1,8 +1,28 @@
+
+/**
+ * @file PauseOsModal.jsx
+ * @brief Componente de modal para pausar uma Ordem de Serviço.
+ * @author Enzo Mello
+ *
+ * @description Permite ao usuário selecionar um motivo pré-definido para a pausa
+ * de uma OS antes de confirmar a ação.
+ *
+ * @param {object} props - Propriedades do componente.
+ * @param {function} props.onClose - Callback para fechar o modal.
+ * @param {function} props.onConfirm - Callback executado com a string do motivo da pausa selecionado.
+ *
+ * @returns {JSX.Element} O modal de pausa de OS.
+ */
+
 import React, { useState } from 'react';
 import 'components/features/technicians/AddModal/AddTechnicianModal.css';
 import 'components/features/technicians/DeleteModal/BatchDeleteModal.css';
-import 'pages/technicians/update/UpdateTechniciansPage.css'; // Reutiliza estilo do <select>
+import 'pages/technicians/update/UpdateTechniciansPage.css'; 
 
+/**
+ * @brief Lista de motivos de pausa pré-definidos.
+ * @type {Array<string>}
+ */
 const pauseReasons = [
   'Aguardando Aprovação',
   'Aguardando Decisão',

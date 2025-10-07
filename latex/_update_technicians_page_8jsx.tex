@@ -1,0 +1,93 @@
+\doxysection{src/pages/technicians/update/\+Update\+Technicians\+Page.jsx File Reference}
+\hypertarget{_update_technicians_page_8jsx}{}\label{_update_technicians_page_8jsx}\index{src/pages/technicians/update/UpdateTechniciansPage.jsx@{src/pages/technicians/update/UpdateTechniciansPage.jsx}}
+
+
+Página para atualização de dados dos funcionários (técnicos).  
+
+
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_update_technicians_page_8jsx_a8e6a862a904cf8b07c69fae7c44a1a04}{React}}
+\item 
+import \mbox{\hyperlink{_update_technicians_page_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \{ use\+Navigate \} from \textquotesingle{}\mbox{\hyperlink{_box_card_8jsx_aaed10feaf2dda4314d93c83408affea1}{react}}-\/router-\/dom\textquotesingle{}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} Update\+Technician\+Modal from components features technicians Update\+Modal \mbox{\hyperlink{_update_technicians_page_8jsx_af95aa40785c5c0a6c633b92bbeed0846}{Update\+Technician\+Modal}}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_update_technicians_page_8jsx_ac7fcd1dd1eb566f34131ee2ab5eb9fa2}{Update\+Technicians\+Page}} \mbox{\hyperlink{_update_technicians_page_8jsx_a50332b6c63ab7cf60d1d41bcd200bd95}{css}}
+\item 
+const \mbox{\hyperlink{_update_technicians_page_8jsx_ab52d9dc9a973a02dedada0be040e3933}{LOCAL\+\_\+\+STORAGE\+\_\+\+KEY}} = \textquotesingle{}workshop\+\_\+technicians\textquotesingle{}
+\item 
+export default \mbox{\hyperlink{_update_technicians_page_8jsx_ac7fcd1dd1eb566f34131ee2ab5eb9fa2}{Update\+Technicians\+Page}} ()
+\begin{DoxyCompactList}\small\item\em Componente da página de atualização de técnicos. @description Gerencia o estado da lista de técnicos, filtros de busca/ordem e a seleção para atualização através de um modal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Página para atualização de dados dos funcionários (técnicos). 
+
+\begin{DoxyAuthor}{Author}
+Enzo Mello
+\end{DoxyAuthor}
+@description Esta página apresenta uma lista detalhada de todos os técnicos, com funcionalidades de busca por termo e ordenação alfabética. O usuário pode selecionar um técnico na lista para abrir um modal e atualizar suas informações. 
+
+\label{doc-var-members}
+\Hypertarget{_update_technicians_page_8jsx_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{_update_technicians_page_8jsx_a50332b6c63ab7cf60d1d41bcd200bd95}\index{UpdateTechniciansPage.jsx@{UpdateTechniciansPage.jsx}!css@{css}}
+\index{css@{css}!UpdateTechniciansPage.jsx@{UpdateTechniciansPage.jsx}}
+\doxysubsubsection{\texorpdfstring{css}{css}}
+{\footnotesize\ttfamily \label{_update_technicians_page_8jsx_a50332b6c63ab7cf60d1d41bcd200bd95} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_update_technicians_page_8jsx_ac7fcd1dd1eb566f34131ee2ab5eb9fa2}{Update\+Technicians\+Page}} css}
+
+\Hypertarget{_update_technicians_page_8jsx_a59be084da8908b7d77ff34b25cd84488}\index{UpdateTechniciansPage.jsx@{UpdateTechniciansPage.jsx}!import@{import}}
+\index{import@{import}!UpdateTechniciansPage.jsx@{UpdateTechniciansPage.jsx}}
+\doxysubsubsection{\texorpdfstring{import}{import}}
+{\footnotesize\ttfamily \label{_update_technicians_page_8jsx_a59be084da8908b7d77ff34b25cd84488} 
+import \{ use\+Navigate \} from \textquotesingle{}\mbox{\hyperlink{_box_card_8jsx_aaed10feaf2dda4314d93c83408affea1}{react}}-\/router-\/dom\textquotesingle{}}
+
+\Hypertarget{_update_technicians_page_8jsx_ab52d9dc9a973a02dedada0be040e3933}\index{UpdateTechniciansPage.jsx@{UpdateTechniciansPage.jsx}!LOCAL\_STORAGE\_KEY@{LOCAL\_STORAGE\_KEY}}
+\index{LOCAL\_STORAGE\_KEY@{LOCAL\_STORAGE\_KEY}!UpdateTechniciansPage.jsx@{UpdateTechniciansPage.jsx}}
+\doxysubsubsection{\texorpdfstring{LOCAL\_STORAGE\_KEY}{LOCAL\_STORAGE\_KEY}}
+{\footnotesize\ttfamily \label{_update_technicians_page_8jsx_ab52d9dc9a973a02dedada0be040e3933} 
+const LOCAL\+\_\+\+STORAGE\+\_\+\+KEY = \textquotesingle{}workshop\+\_\+technicians\textquotesingle{}}
+
+\Hypertarget{_update_technicians_page_8jsx_a8e6a862a904cf8b07c69fae7c44a1a04}\index{UpdateTechniciansPage.jsx@{UpdateTechniciansPage.jsx}!React@{React}}
+\index{React@{React}!UpdateTechniciansPage.jsx@{UpdateTechniciansPage.jsx}}
+\doxysubsubsection{\texorpdfstring{React}{React}}
+{\footnotesize\ttfamily \label{_update_technicians_page_8jsx_a8e6a862a904cf8b07c69fae7c44a1a04} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} React}
+
+\Hypertarget{_update_technicians_page_8jsx_af95aa40785c5c0a6c633b92bbeed0846}\index{UpdateTechniciansPage.jsx@{UpdateTechniciansPage.jsx}!UpdateTechnicianModal@{UpdateTechnicianModal}}
+\index{UpdateTechnicianModal@{UpdateTechnicianModal}!UpdateTechniciansPage.jsx@{UpdateTechniciansPage.jsx}}
+\doxysubsubsection{\texorpdfstring{UpdateTechnicianModal}{UpdateTechnicianModal}}
+{\footnotesize\ttfamily \label{_update_technicians_page_8jsx_af95aa40785c5c0a6c633b92bbeed0846} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} Update\+Technician\+Modal from components features technicians Update\+Modal Update\+Technician\+Modal}
+
+\Hypertarget{_update_technicians_page_8jsx_ac7fcd1dd1eb566f34131ee2ab5eb9fa2}\index{UpdateTechniciansPage.jsx@{UpdateTechniciansPage.jsx}!UpdateTechniciansPage@{UpdateTechniciansPage}}
+\index{UpdateTechniciansPage@{UpdateTechniciansPage}!UpdateTechniciansPage.jsx@{UpdateTechniciansPage.jsx}}
+\doxysubsubsection{\texorpdfstring{UpdateTechniciansPage}{UpdateTechniciansPage}}
+{\footnotesize\ttfamily \label{_update_technicians_page_8jsx_ac7fcd1dd1eb566f34131ee2ab5eb9fa2} 
+function Update\+Technicians\+Page (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Componente da página de atualização de técnicos. @description Gerencia o estado da lista de técnicos, filtros de busca/ordem e a seleção para atualização através de um modal. 
+
+\begin{DoxyReturn}{Returns}
+\{JSX.\+Element\} A página de atualização de técnicos renderizada. 
+\end{DoxyReturn}
+Efeito que busca os dados iniciais dos técnicos ao montar o componente.
+
+Manipula a mudança de ordenação da lista. 
+\begin{DoxyParams}{Parameters}
+{\em \{(\textquotesingle{}asc\textquotesingle{}\texorpdfstring{$\vert$}{|}\textquotesingle{}desc\textquotesingle{}\texorpdfstring{$\vert$}{|}\textquotesingle{}none\textquotesingle{})\}} & order\\
+\hline
+\end{DoxyParams}
+Memoiza o resultado da filtragem e ordenação da lista de técnicos. @description Esta função é recalculada apenas quando a lista original, o termo de busca ou a ordem mudam, otimizando a performance da aplicação. \begin{DoxyReturn}{Returns}
+\{Array$<$object$>$\} A lista de técnicos filtrada e ordenada.
+\end{DoxyReturn}
+Salva as informações atualizadas de um técnico no estado local e no local\+Storage. 
+\begin{DoxyParams}{Parameters}
+{\em \{object\}} & updated\+Technician -\/ O objeto do técnico com os dados atualizados.\\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,99 @@
+\doxysection{src/components/features/dashboard/modals/\+Pause\+Os\+Modal.jsx File Reference}
+\hypertarget{_pause_os_modal_8jsx}{}\label{_pause_os_modal_8jsx}\index{src/components/features/dashboard/modals/PauseOsModal.jsx@{src/components/features/dashboard/modals/PauseOsModal.jsx}}
+
+
+Componente de modal para pausar uma Ordem de Serviço.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+function \mbox{\hyperlink{_pause_os_modal_8jsx_a043cbf83d9ebc05d08a8c1e103f0f67d}{Pause\+Os\+Modal}} (\{ on\+Close, on\+Confirm \})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_pause_os_modal_8jsx_a8e6a862a904cf8b07c69fae7c44a1a04}{React}}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} components features technicians Add\+Modal \mbox{\hyperlink{_add_technician_modal_8jsx_a6cff98428abc67739c077d760ff58fbb}{Add\+Technician\+Modal}} \mbox{\hyperlink{_pause_os_modal_8jsx_a0fcc643615349fea0f67e4165093bd3e}{css}} \{ use\+State \} from \textquotesingle{}\mbox{\hyperlink{_box_card_8jsx_aaed10feaf2dda4314d93c83408affea1}{react}}\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_pause_os_modal_8jsx_a7f344eeba20a4bf883f5f100fd21ac46}{pause\+Reasons}}
+\begin{DoxyCompactList}\small\item\em Lista de motivos de pausa pré-\/definidos. @type \{Array$<$string$>$\}. \end{DoxyCompactList}\item 
+export default \mbox{\hyperlink{_pause_os_modal_8jsx_aa77fc1e5956efc3bb044ac141f3f2110}{Pause\+Os\+Modal}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Componente de modal para pausar uma Ordem de Serviço. 
+
+\begin{DoxyAuthor}{Author}
+Enzo Mello
+\end{DoxyAuthor}
+@description Permite ao usuário selecionar um motivo pré-\/definido para a pausa de uma OS antes de confirmar a ação.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \{object\}} & props -\/ Propriedades do componente. \\
+\hline
+{\em \{function\}} & props.\+on\+Close -\/ Callback para fechar o modal. \\
+\hline
+{\em \{function\}} & props.\+on\+Confirm -\/ Callback executado com a string do motivo da pausa selecionado.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{JSX.\+Element\} O modal de pausa de OS. 
+\end{DoxyReturn}
+
+
+\label{doc-func-members}
+\Hypertarget{_pause_os_modal_8jsx_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_pause_os_modal_8jsx_a043cbf83d9ebc05d08a8c1e103f0f67d}\index{PauseOsModal.jsx@{PauseOsModal.jsx}!PauseOsModal@{PauseOsModal}}
+\index{PauseOsModal@{PauseOsModal}!PauseOsModal.jsx@{PauseOsModal.jsx}}
+\doxysubsubsection{\texorpdfstring{PauseOsModal()}{PauseOsModal()}}
+{\footnotesize\ttfamily \label{_pause_os_modal_8jsx_a043cbf83d9ebc05d08a8c1e103f0f67d} 
+function Pause\+Os\+Modal (\begin{DoxyParamCaption}\item[{}]{\{ on\+Close, on\+Confirm \}}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-var-members}
+\Hypertarget{_pause_os_modal_8jsx_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{_pause_os_modal_8jsx_a0fcc643615349fea0f67e4165093bd3e}\index{PauseOsModal.jsx@{PauseOsModal.jsx}!css@{css}}
+\index{css@{css}!PauseOsModal.jsx@{PauseOsModal.jsx}}
+\doxysubsubsection{\texorpdfstring{css}{css}}
+{\footnotesize\ttfamily \label{_pause_os_modal_8jsx_a0fcc643615349fea0f67e4165093bd3e} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} pages technicians update \mbox{\hyperlink{_update_technicians_page_8jsx_ac7fcd1dd1eb566f34131ee2ab5eb9fa2}{Update\+Technicians\+Page}} css \{ use\+State \} from \textquotesingle{}\mbox{\hyperlink{_box_card_8jsx_aaed10feaf2dda4314d93c83408affea1}{react}}\textquotesingle{}}
+
+\Hypertarget{_pause_os_modal_8jsx_aa77fc1e5956efc3bb044ac141f3f2110}\index{PauseOsModal.jsx@{PauseOsModal.jsx}!PauseOsModal@{PauseOsModal}}
+\index{PauseOsModal@{PauseOsModal}!PauseOsModal.jsx@{PauseOsModal.jsx}}
+\doxysubsubsection{\texorpdfstring{PauseOsModal}{PauseOsModal}}
+{\footnotesize\ttfamily \label{_pause_os_modal_8jsx_aa77fc1e5956efc3bb044ac141f3f2110} 
+export default Pause\+Os\+Modal}
+
+\Hypertarget{_pause_os_modal_8jsx_a7f344eeba20a4bf883f5f100fd21ac46}\index{PauseOsModal.jsx@{PauseOsModal.jsx}!pauseReasons@{pauseReasons}}
+\index{pauseReasons@{pauseReasons}!PauseOsModal.jsx@{PauseOsModal.jsx}}
+\doxysubsubsection{\texorpdfstring{pauseReasons}{pauseReasons}}
+{\footnotesize\ttfamily \label{_pause_os_modal_8jsx_a7f344eeba20a4bf883f5f100fd21ac46} 
+const pause\+Reasons}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ [}
+\DoxyCodeLine{\ \ \textcolor{stringliteral}{'Aguardando\ Aprovação'},}
+\DoxyCodeLine{\ \ \textcolor{stringliteral}{'Aguardando\ Decisão'},}
+\DoxyCodeLine{\ \ \textcolor{stringliteral}{'Aguardando\ Peças'},}
+\DoxyCodeLine{\ \ \textcolor{stringliteral}{'Aguardando\ Serv.\ Terceiros'}}
+\DoxyCodeLine{]}
+
+\end{DoxyCode}
+
+
+Lista de motivos de pausa pré-\/definidos. @type \{Array$<$string$>$\}. 
+
+\Hypertarget{_pause_os_modal_8jsx_a8e6a862a904cf8b07c69fae7c44a1a04}\index{PauseOsModal.jsx@{PauseOsModal.jsx}!React@{React}}
+\index{React@{React}!PauseOsModal.jsx@{PauseOsModal.jsx}}
+\doxysubsubsection{\texorpdfstring{React}{React}}
+{\footnotesize\ttfamily \label{_pause_os_modal_8jsx_a8e6a862a904cf8b07c69fae7c44a1a04} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} React}
+

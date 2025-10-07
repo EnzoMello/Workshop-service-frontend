@@ -1,23 +1,43 @@
-// src/components/layout/MobileMenu.jsx
+/**
+ * @file MobileMenu.jsx
+ * @brief Componente de menu de navegação lateral (sidebar/drawer).
+ * @author Enzo Mello
+ *
+ * @description Renderiza o ícone de "hambúrguer" e o menu deslizante
+ * que serve como a principal forma de navegação entre as páginas da aplicação.
+ */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './MobileMenu.css';
 
-// ATUALIZADO: Lista de links de navegação com os caminhos corretos
+/**
+ * @brief Array de objetos que define os links de navegação do menu.
+ * @property {string} label - O texto a ser exibido para o link.
+ * @property {string} path - O caminho da URL para a navegação.
+ * @type {Array<object>}
+ */
 const menuLinks = [
   { label: 'Dashboard', path: '/' },
   { label: 'Geral', path: '/geral' },
   { label: 'Gerenciar Técnicos', path: '/technicians' },
   { label: 'Gerenciar Boxes', path: '/boxes' },
   { label: 'Gerenciar Tarefas', path: '/tasks' },
-  // A rota de "Atualizar" genérica foi removida para evitar confusão,
-  // pois cada página terá seu próprio botão de atualização.
+  { label: 'Página do técnico', path: '/meu-trabalho' }
 ];
 
+/**
+ * @brief Componente funcional para o menu de navegação.
+ * @description Gerencia o estado de abertura/fechamento do menu
+ * e renderiza os links de navegação definidos em `menuLinks`.
+ * @returns {JSX.Element} O componente de menu renderizado.
+ */
 function MobileMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  /** @brief Alterna a visibilidade do menu. */
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  /** @brief Fecha o menu ao clicar em um link */
   const handleLinkClick = () => setIsMenuOpen(false);
 
   return (

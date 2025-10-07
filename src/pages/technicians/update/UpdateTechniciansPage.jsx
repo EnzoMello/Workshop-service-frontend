@@ -1,4 +1,13 @@
-// src/pages/UpdateTechniciansPage.jsx
+/**
+ * @file UpdateTechniciansPage.jsx
+ * @brief Página para atualização de dados dos funcionários (técnicos).
+ * @author Enzo Mello
+ *
+ * @description Esta página apresenta uma lista detalhada de todos os técnicos,
+ * com funcionalidades de busca por termo e ordenação alfabética. O usuário pode
+ * selecionar um técnico na lista para abrir um modal e atualizar suas informações.
+ */
+
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
@@ -8,6 +17,12 @@ import './UpdateTechniciansPage.css';
 
 const LOCAL_STORAGE_KEY = 'workshop_technicians';
 
+/**
+ * @brief Componente da página de atualização de técnicos.
+ * @description Gerencia o estado da lista de técnicos, filtros de busca/ordem e a seleção
+ * para atualização através de um modal.
+ * @returns {JSX.Element} A página de atualização de técnicos renderizada.
+ */
 function UpdateTechniciansPage() {
   // Estados da Página
   const [allTechnicians, setAllTechnicians] = useState([]); // Lista original de técnicos
@@ -17,11 +32,12 @@ function UpdateTechniciansPage() {
   const [isModalOpen, setIsModalOpen] = useState(false); // Visibilidade do modal
   const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false);
 
-  const navigate = useNavigate(); // 3. Inicialize o hook de navegação
+  const navigate = useNavigate(); 
 
 
-  // Busca os dados iniciais uma vez
-  useEffect(() => {
+  /**
+   * @brief Efeito que busca os dados iniciais dos técnicos ao montar o componente.
+   */  useEffect(() => {
     const fetchData = async () => {
       const data = await getAllTechnicians();
       setAllTechnicians(data);
@@ -29,16 +45,25 @@ function UpdateTechniciansPage() {
     fetchData();
   }, []);
 
+  /**
+   * @brief Manipula a mudança de ordenação da lista.
+   * @param {('asc'|'desc'|'none')} order 
+   */
   const handleSortChange = (order) => {
-    setSortOrder(order); // Define a nova ordem (ex: 'asc', 'desc')
-    setIsFilterMenuOpen(false); // Fecha o menu de filtro
+    setSortOrder(order); 
+    setIsFilterMenuOpen(false); 
   };
 
-  // --- Lógica de Busca e Filtro ---
+  /**
+   * @brief Memoiza o resultado da filtragem e ordenação da lista de técnicos.
+   * @description Esta função é recalculada apenas quando a lista original, o termo de busca ou a ordem mudam,
+   * otimizando a performance da aplicação.
+   * @returns {Array<object>} A lista de técnicos filtrada e ordenada.
+   */
   const filteredAndSortedTechnicians = useMemo(() => {
     let result = [...allTechnicians];
 
-    // 1. Filtrar pela busca
+    // Filtrar pela busca
     if (searchTerm) {
       const term = searchTerm.toLowerCase();
       result = result.filter(tech =>
@@ -56,9 +81,12 @@ function UpdateTechniciansPage() {
     }
 
     return result;
-  }, [allTechnicians, searchTerm, sortOrder]); // Recalcula apenas quando uma dessas dependências mudar
+  }, [allTechnicians, searchTerm, sortOrder]); 
 
-  // --- Funções Handler ---
+  /**
+   * @brief Salva as informações atualizadas de um técnico no estado local e no localStorage.
+   * @param {object} updatedTechnician - O objeto do técnico com os dados atualizados.
+   */
   const handleSave = (updatedTechnician) => {
     // Encontra e atualiza o técnico na lista
     const updatedList = allTechnicians.map(tech =>
@@ -90,14 +118,11 @@ function UpdateTechniciansPage() {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
 
-            {/* NOVO: Container para o botão de filtro e seu dropdown */}
             <div className="filter-container">
-              {/* O botão agora abre e fecha o menu */}
               <button className="filter-btn" onClick={() => setIsFilterMenuOpen(!isFilterMenuOpen)}>
                 Aplicar Filtro ▾
               </button>
               
-              {/* O menu dropdown só aparece se isFilterMenuOpen for true */}
               {isFilterMenuOpen && (
                 <div className="filter-dropdown">
                   <div className="filter-option" onClick={() => handleSortChange('asc')}>
@@ -124,7 +149,6 @@ function UpdateTechniciansPage() {
 
       <ul className="update-list">
       {filteredAndSortedTechnicians.map(tech => (
-      // O onClick agora está no <li>, o que torna a linha inteira clicável
         <li 
         key={tech.id} 
         className="update-list-item"
@@ -134,7 +158,6 @@ function UpdateTechniciansPage() {
           type="radio"
           name="technician-select"
           checked={selectedTechnicianId === tech.id}
-          // O onChange agora apenas lê o estado, o onClick no <li> faz a mágica
           readOnly 
         />
         <span className="item-name">{tech.name}</span>

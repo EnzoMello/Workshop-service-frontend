@@ -1,0 +1,105 @@
+\doxysection{src/components/features/dashboard/\+Service\+Order\+List.jsx File Reference}
+\hypertarget{_service_order_list_8jsx}{}\label{_service_order_list_8jsx}\index{src/components/features/dashboard/ServiceOrderList.jsx@{src/components/features/dashboard/ServiceOrderList.jsx}}
+
+
+Componente que exibe a lista de Ordens de Serviço na página Geral.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+function \mbox{\hyperlink{_service_order_list_8jsx_a8e0c217fa8019aa0a30b51528a85a50e}{Service\+Order\+List}} (\{ order\+Services, selected\+Os\+Id, on\+Os\+Select, on\+Add\+Os\+Click \})
+\begin{DoxyCompactList}\small\item\em Recebe as props da Dashboard\+Page. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_service_order_list_8jsx_a8e6a862a904cf8b07c69fae7c44a1a04}{React}}
+\item 
+import \mbox{\hyperlink{_service_order_list_8jsx_a953be46b94f595d839e88a6d3d270309}{import}} \{ Fa\+Clipboard\+List, Fa\+Plus\+Circle \} from \textquotesingle{}\mbox{\hyperlink{_box_card_8jsx_aaed10feaf2dda4314d93c83408affea1}{react}}-\/icons/fa\textquotesingle{}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} Service\+Order\+Card from cards \mbox{\hyperlink{_service_order_list_8jsx_a828e3335a5d0ee16cf488fd427ec296a}{Service\+Order\+Card}}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_service_order_list_8jsx_a5c83c23f85e635c6148dd62e4bea4eed}{Service\+Order\+List}} \mbox{\hyperlink{_service_order_list_8jsx_a0bb7b47e22db509421069b358c5bb78e}{css}}
+\item 
+export default \mbox{\hyperlink{_service_order_list_8jsx_a5c83c23f85e635c6148dd62e4bea4eed}{Service\+Order\+List}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Componente que exibe a lista de Ordens de Serviço na página Geral. 
+
+\begin{DoxyAuthor}{Author}
+Enzo Mello
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em \{object\}} & props -\/ Propriedades do componente. \\
+\hline
+{\em \{\+Array$<$object$>$\}} & props.\+order\+Services -\/ A lista de OS a ser exibida. \\
+\hline
+{\em \{string\texorpdfstring{$\vert$}{|}null\}} & props.\+selected\+Os\+Id -\/ O ID da OS atualmente selecionada, para destaque visual. \\
+\hline
+{\em \{function\}} & props.\+on\+Os\+Select -\/ Função de callback chamada quando uma OS é selecionada. \\
+\hline
+{\em \{function\}} & props.\+on\+Add\+Os\+Click -\/ Função de callback para abrir o modal de criação de OS.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{JSX.\+Element\} O card com a lista de Ordens de Serviço. 
+\end{DoxyReturn}
+
+
+\label{doc-func-members}
+\Hypertarget{_service_order_list_8jsx_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_service_order_list_8jsx_a8e0c217fa8019aa0a30b51528a85a50e}\index{ServiceOrderList.jsx@{ServiceOrderList.jsx}!ServiceOrderList@{ServiceOrderList}}
+\index{ServiceOrderList@{ServiceOrderList}!ServiceOrderList.jsx@{ServiceOrderList.jsx}}
+\doxysubsubsection{\texorpdfstring{ServiceOrderList()}{ServiceOrderList()}}
+{\footnotesize\ttfamily \label{_service_order_list_8jsx_a8e0c217fa8019aa0a30b51528a85a50e} 
+function Service\+Order\+List (\begin{DoxyParamCaption}\item[{}]{\{ order\+Services, selected\+Os\+Id, on\+Os\+Select, on\+Add\+Os\+Click \}}{}\end{DoxyParamCaption})}
+
+
+
+Recebe as props da Dashboard\+Page. 
+
+Lógica para ordenar a lista de OS com base no status
+
+Define a prioridade de cada status
+
+Cria uma cópia do array e o ordena
+
+Se o status for desconhecido, joga para o final
+
+\label{doc-var-members}
+\Hypertarget{_service_order_list_8jsx_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{_service_order_list_8jsx_a0bb7b47e22db509421069b358c5bb78e}\index{ServiceOrderList.jsx@{ServiceOrderList.jsx}!css@{css}}
+\index{css@{css}!ServiceOrderList.jsx@{ServiceOrderList.jsx}}
+\doxysubsubsection{\texorpdfstring{css}{css}}
+{\footnotesize\ttfamily \label{_service_order_list_8jsx_a0bb7b47e22db509421069b358c5bb78e} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_service_order_list_8jsx_a5c83c23f85e635c6148dd62e4bea4eed}{Service\+Order\+List}} css}
+
+\Hypertarget{_service_order_list_8jsx_a953be46b94f595d839e88a6d3d270309}\index{ServiceOrderList.jsx@{ServiceOrderList.jsx}!import@{import}}
+\index{import@{import}!ServiceOrderList.jsx@{ServiceOrderList.jsx}}
+\doxysubsubsection{\texorpdfstring{import}{import}}
+{\footnotesize\ttfamily \label{_service_order_list_8jsx_a953be46b94f595d839e88a6d3d270309} 
+import import \{ Fa\+Clipboard\+List, Fa\+Plus\+Circle \} from \textquotesingle{}\mbox{\hyperlink{_box_card_8jsx_aaed10feaf2dda4314d93c83408affea1}{react}}-\/icons/fa\textquotesingle{}}
+
+\Hypertarget{_service_order_list_8jsx_a8e6a862a904cf8b07c69fae7c44a1a04}\index{ServiceOrderList.jsx@{ServiceOrderList.jsx}!React@{React}}
+\index{React@{React}!ServiceOrderList.jsx@{ServiceOrderList.jsx}}
+\doxysubsubsection{\texorpdfstring{React}{React}}
+{\footnotesize\ttfamily \label{_service_order_list_8jsx_a8e6a862a904cf8b07c69fae7c44a1a04} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} React}
+
+\Hypertarget{_service_order_list_8jsx_a828e3335a5d0ee16cf488fd427ec296a}\index{ServiceOrderList.jsx@{ServiceOrderList.jsx}!ServiceOrderCard@{ServiceOrderCard}}
+\index{ServiceOrderCard@{ServiceOrderCard}!ServiceOrderList.jsx@{ServiceOrderList.jsx}}
+\doxysubsubsection{\texorpdfstring{ServiceOrderCard}{ServiceOrderCard}}
+{\footnotesize\ttfamily \label{_service_order_list_8jsx_a828e3335a5d0ee16cf488fd427ec296a} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} Service\+Order\+Card from cards Service\+Order\+Card}
+
+\Hypertarget{_service_order_list_8jsx_a5c83c23f85e635c6148dd62e4bea4eed}\index{ServiceOrderList.jsx@{ServiceOrderList.jsx}!ServiceOrderList@{ServiceOrderList}}
+\index{ServiceOrderList@{ServiceOrderList}!ServiceOrderList.jsx@{ServiceOrderList.jsx}}
+\doxysubsubsection{\texorpdfstring{ServiceOrderList}{ServiceOrderList}}
+{\footnotesize\ttfamily \label{_service_order_list_8jsx_a5c83c23f85e635c6148dd62e4bea4eed} 
+export default Service\+Order\+List}
+

@@ -1,8 +1,24 @@
-// src/components/features/tasks/SearchModal/SearchTaskModal.jsx
+
+/**
+ * @file SearchTaskModal.jsx
+ * @brief Modal para buscar uma tarefa específica no catálogo.
+ * @author Enzo Mello
+ *
+ * @description Modal de duas etapas: primeiro o usuário seleciona o critério de
+ * busca (Nome ou ID), e depois insere o valor para encontrar a tarefa.
+ */
+
 import React, { useState } from 'react';
 import 'components/features/technicians/AddModal/AddTechnicianModal.css';
 import 'components/features/technicians/SearchModal/SearchTechnicianModal.css';
 
+/**
+ * @brief Modal de Busca de Tarefas.
+ * @param {object} props - Propriedades do componente.
+ * @param {function} props.onClose - Callback para fechar o modal.
+ * @param {Array<object>} props.tasks - A lista de tarefas na qual a busca será realizada.
+ * @returns {JSX.Element} O modal de busca.
+ */
 function SearchTaskModal({ onClose, tasks }) {
   const [searchType, setSearchType] = useState(null);
   const [searchValue, setSearchValue] = useState('');

@@ -1,15 +1,28 @@
-// src/pages/boxes/update/UpdateBoxesPage.jsx
+/**
+ * @file UpdateBoxesPage.jsx
+ * @brief Página para atualização de dados dos Boxes.
+ * @author Enzo Mello
+ *
+ * @description Apresenta uma lista detalhada de todos os boxes, com funcionalidades
+ * de busca e ordenação. Permite ao usuário selecionar um box na lista para abrir
+ * um modal e atualizar suas informações.
+ */
+
 
 import React, { useState, useEffect, useMemo } from 'react';
-// 1. IMPORTE O 'useNavigate' E O ÍCONE
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import { getAllBoxes, updateBox } from '../../../services/boxService';
 import UpdateBoxModal from '../../../components/features/box/UpdateModal/UpdateBoxModal';
-import 'pages/technicians/update/UpdateTechniciansPage.css'; // Reutiliza o CSS
+import 'pages/technicians/update/UpdateTechniciansPage.css'; 
 
+/**
+ * @brief Componente da página de atualização de boxes.
+ * @description Gerencia o estado da lista de boxes, filtros de busca/ordem e a seleção
+ * para atualização via modal.
+ * @returns {JSX.Element} A página de atualização de boxes renderizada.
+ */
 function UpdateBoxesPage() {
-  // 2. INICIALIZE O HOOK 'useNavigate'
   const navigate = useNavigate();
   
   const [allBoxes, setAllBoxes] = useState([]);
@@ -19,6 +32,9 @@ function UpdateBoxesPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false);
 
+  /**
+   * @brief Busca os dados iniciais de todos os boxes.
+   */
   const fetchData = async () => {
     try {
         const data = await getAllBoxes();
@@ -28,8 +44,15 @@ function UpdateBoxesPage() {
     }
   };
 
+  /**
+   * @brief Efeito que busca os dados ao montar o componente.
+   */
   useEffect(() => { fetchData(); }, []);
 
+  /**
+   * @brief Memoiza o resultado da filtragem e ordenação da lista de boxes para otimizar performance.
+   * @returns {Array<object>} A lista de boxes filtrada e ordenada.
+   */
   const filteredAndSortedBoxes = useMemo(() => {
     let result = [...allBoxes];
     if (searchTerm) {
@@ -46,6 +69,10 @@ function UpdateBoxesPage() {
     return result;
   }, [allBoxes, searchTerm, sortOrder]);
 
+  /**
+   * @brief Salva as informações atualizadas de um box via API.
+   * @param {object} updatedBox - O objeto do box com os dados atualizados.
+   */
   const handleSave = async (updatedBox) => {
     try {
       await updateBox(updatedBox);
@@ -57,6 +84,10 @@ function UpdateBoxesPage() {
     }
   };
   
+  /**
+   * @brief Manipula a mudança de ordenação da lista.
+   * @param {('asc'|'desc'|'none')} order - A ordem de sorteio selecionada.
+   */
   const handleSortChange = (order) => {
     setSortOrder(order);
     setIsFilterMenuOpen(false);

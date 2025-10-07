@@ -1,4 +1,3 @@
-// src/components/AddTechnicianModal.jsx
 
 import React, { useState } from 'react';
 import './AddTechnicianModal.css';

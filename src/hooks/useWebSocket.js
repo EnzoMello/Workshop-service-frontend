@@ -1,19 +1,42 @@
-// src/hooks/useWebSocket.js
+/**
+ * @file useWebSocket.js
+ * @brief Fornece um hook customizado do React para gerenciar a conexão WebSocket do dashboard.
+ * @author Enzo Mello
+ *
+ * @description Este hook abstrai toda a complexidade de conexão e gerenciamento de
+ * inscrições (subscriptions) com um servidor WebSocket usando StompJS sobre SockJS.
+ */
 import { useState, useEffect, useRef } from 'react';
 import { Client } from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
 
+/** @brief URL do endpoint do WebSocket no backend. */
 const WS_URL = "http://localhost:8080/ws";
 
+/**
+ * @brief Hook customizado que gerencia a conexão com o WebSocket e mantém o estado dos dados em tempo real.
+ * @description Este hook utiliza StompJS e SockJS para se conectar ao servidor.
+ * 
+ *
+ * @param {Array<object>} [initialData=[]] - A lista inicial de dados a ser exibida. Cada objeto deve conter 'orderServiceId' para a inscrição no tópico específico.
+ * @returns {Array<object>} A lista de dados (OS ativas) que é atualizada em tempo real pelo WebSocket.
+ */
 export const useWebSocket = (initialData = []) => {
   const [data, setData] = useState(initialData);
-  const subscriptionsRef = useRef(new Map()); // Guarda as inscrições ativas
+  const subscriptionsRef = useRef(new Map());
 
-  // Efeito para sincronizar o estado com os dados iniciais que chegam da página
+  /**
+   * @brief Efeito para sincronizar o estado interno do hook com os dados iniciais passados como prop.
+   * @details Garante que se a lista inicial de OS mudar (ex: após um refresh manual na página), o hook reflita essa mudança.
+   */
   useEffect(() => {
     setData(initialData);
   }, [initialData]);
 
+  /**
+   * @brief Efeito principal que gerencia o ciclo de vida da conexão WebSocket.
+   * @details É executado quando o componente monta e se reconecta se 'initialData' mudar. A função de limpeza garante que a conexão seja desativada quando o componente desmonta.
+   */
   useEffect(() => {
     const client = new Client({
       webSocketFactory: () => new SockJS(WS_URL),
@@ -21,25 +44,29 @@ export const useWebSocket = (initialData = []) => {
       debug: (str) => { console.log('WS Debug:', str); },
     });
 
-    // Função para atualizar um único card na lista
+    /**
+     * @brief Atualiza a lista de dados do estado, modificando um item existente ou adicionando um novo.
+     * @param {object} updatedDto - O objeto de dados (DTO) recebido do WebSocket.
+     */
     const updateCard = (updatedDto) => {
       setData(currentData => {
         const cardExists = currentData.some(item => item.orderServiceId === updatedDto.orderServiceId);
         if (cardExists) {
-          // Se o card já existe, atualiza
           return currentData.map(item =>
             item.orderServiceId === updatedDto.orderServiceId ? { ...item, ...updatedDto } : item
           );
         } else {
-          // Se é um card novo, adiciona à lista
           return [...currentData, updatedDto];
         }
       });
     };
     
-    // Função para se inscrever em um tópico de OS específico
+    /**
+     * @brief Inscreve-se em um tópico de uma OS específica para receber atualizações detalhadas.
+     * @details Utiliza a ref 'subscriptionsRef' para garantir que não haja múltiplas inscrições para o mesmo tópico.
+     * @param {string} osId - O ID da Ordem de Serviço para a qual se inscrever.
+     */
     const subscribeToOs = (osId) => {
-      // Evita se inscrever duas vezes no mesmo tópico
       if (client.active && !subscriptionsRef.current.has(osId)) {
         const subscription = client.subscribe(`/topic/dashboard/${osId}`, (message) => {
           try {
@@ -52,36 +79,39 @@ export const useWebSocket = (initialData = []) => {
       }
     };
 
+    /**
+     * @brief Callback executado quando a conexão com o WebSocket é estabelecida com sucesso.
+     */
     client.onConnect = () => {
       console.log('✅ Conectado ao WebSocket!');
 
-      // --- Inscrição no Canal Geral ---
-      // Escuta por novas OS ou atualizações de lista
+      
       client.subscribe('/topic/dashboard', (message) => {
         try {
           const dto = JSON.parse(message.body);
           console.log("📩 Broadcast recebido (nova OS/update geral):", dto);
-          // A função updateCard já sabe se deve criar um novo ou atualizar um existente
           updateCard(dto);
-          // Se for um item novo, nos inscrevemos no seu tópico específico
           subscribeToOs(dto.orderServiceId);
         } catch (e) { console.error("Erro no broadcast:", e); }
       });
 
-      // --- Inscrição inicial nos Canais Específicos ---
+
       initialData.forEach(os => subscribeToOs(os.orderServiceId));
     };
 
     client.activate();
 
-    // Função de limpeza
+    /**
+     * @brief Função de limpeza do useEffect.
+     * @details É executada quando o componente que usa o hook é desmontado. Garante que a conexão WebSocket seja fechada para evitar vazamentos de memória.
+     */
     return () => {
       if (client.active) {
         client.deactivate();
+        console.log('🔌 WebSocket desconectado.');
       }
       subscriptionsRef.current.clear();
     };
-  }, [initialData]); // A dependência na lista inicial é crucial
-
+  }, [initialData]); 
   return data;
 };

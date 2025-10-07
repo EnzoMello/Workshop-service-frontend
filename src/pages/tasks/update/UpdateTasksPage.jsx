@@ -1,11 +1,27 @@
+/**
+ * @file UpdateTasksPage.jsx
+ * @brief Página para atualização de dados das Tarefas do catálogo.
+ * @author Enzo Mello
+ *
+ * @description Apresenta uma lista detalhada de todas as tarefas, com funcionalidades
+ * de busca e ordenação. Permite ao usuário selecionar uma tarefa na lista para abrir
+ * um modal e atualizar suas informações.
+ */
+
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 
 import { getAllTasks, updateTask } from 'services/taskService';
 import UpdateTaskModal from 'components/features/tasks/UpdateModal/UpdateTaskModal';
-import 'pages/technicians/update/UpdateTechniciansPage.css'; // Reutiliza o CSS
+import 'pages/technicians/update/UpdateTechniciansPage.css'; 
 
+/**
+ * @brief Componente da página de atualização de tarefas.
+ * @description Gerencia o estado da lista de tarefas, filtros de busca/ordem e a seleção
+ * para atualização via modal.
+ * @returns {JSX.Element} A página de atualização de tarefas renderizada.
+ */
 function UpdateTasksPage() {
   const [allTasks, setAllTasks] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -17,6 +33,9 @@ function UpdateTasksPage() {
   const navigate = useNavigate();
 
 
+  /**
+   * @brief Busca os dados iniciais de todas as tarefas.
+   */
   const fetchData = async () => {
     const data = await getAllTasks();
     setAllTasks(data);
@@ -26,6 +45,10 @@ function UpdateTasksPage() {
     fetchData();
   }, []);
 
+  /**
+   * @brief Memoiza o resultado da filtragem e ordenação da lista de tarefas.
+   * @returns {Array<object>} A lista de tarefas filtrada e ordenada.
+   */
   const filteredAndSortedTasks = useMemo(() => {
     let result = [...allTasks];
     if (searchTerm) {
@@ -43,6 +66,10 @@ function UpdateTasksPage() {
     return result;
   }, [allTasks, searchTerm, sortOrder]);
 
+  /**
+   * @brief Salva as informações atualizadas de uma tarefa via API.
+   * @param {object} updatedTask - O objeto da tarefa com os dados atualizados.
+   */
   const handleSave = async (updatedTask) => {
     try {
       await updateTask(updatedTask);
@@ -54,6 +81,10 @@ function UpdateTasksPage() {
     }
   };
   
+  /**
+   * @brief Manipula a mudança de ordenação da lista.
+   * @param {('asc'|'desc'|'none')} order - A ordem de sorteio selecionada.
+   */
   const handleSortChange = (order) => {
     setSortOrder(order);
     setIsFilterMenuOpen(false);

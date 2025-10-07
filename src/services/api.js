@@ -1,8 +1,8 @@
-// Centralizar a configuração do Axios
+/// Centralizar a configuração do Axios
 
 import axios from 'axios';
 
-// Substituir pela URL verdadeira
+/// Substituir pela URL verdadeira
 const API_BASE_URL = 'http://localhost:8080/api'; 
 
 const api = axios.create({

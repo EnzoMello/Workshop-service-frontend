@@ -1,8 +1,14 @@
-// src/services/orderService.js
+
+/**
+ * @file orderService.js
+ * @brief Módulo de serviço para todas as operações de API relacionadas a Ordens de Serviço.
+ * @author Enzo Mello
+ */
 import api from './api';
 
 /**
- * Busca todas as Ordens de Serviço do back-end.
+ * @brief Busca todas as Ordens de Serviço.
+ * @returns {Promise<Array<object>>} Uma promessa que resolve para uma lista de OS.
  */
 export const getAllOrderServices = async () => {
   try {
@@ -11,9 +17,7 @@ export const getAllOrderServices = async () => {
   } catch (error) { throw error; }
 };
 
-/**
- * Cria uma nova Ordem de Serviço.
- */
+
 export const createOrderService = async (osData) => {
   try {
     const response = await api.post('/order-services', osData);
@@ -22,7 +26,9 @@ export const createOrderService = async (osData) => {
 };
 
 /**
- * Busca uma Ordem de Serviço específica pelo seu ID.
+ * @brief Busca uma Ordem de Serviço específica pelo seu ID.
+ * @param {string} id - O ID da OS a ser buscada.
+ * @returns {Promise<object>} Uma promessa que resolve para o objeto de detalhes da OS.
  */
 export const getOrderServiceById = async (osId) => {
   try {
@@ -31,9 +37,7 @@ export const getOrderServiceById = async (osId) => {
   } catch (error) { throw error; }
 };
 
-/**
- * Envia uma requisição para pausar uma Ordem de Serviço.
- */
+/// Envia requisição para pausar ordem de serviço
 export const pauseOrderService = async (osId, reason) => {
   try {
     const response = await api.post(`/order-services/${osId}/pause`, {
@@ -46,8 +50,8 @@ export const pauseOrderService = async (osId, reason) => {
 
 export const assignTechnicianAndBox = async (osId, technicianId, boxId) => {
   try {
-    // Faz a chamada POST para /api/order-services/assign
-    // O corpo da requisição precisa corresponder ao que o back-end espera
+    /// Faz a chamada POST para /api/order-services/assign
+    /// O corpo da requisição precisa corresponder ao que o back-end espera
     const response = await api.post(`/order-services/${osId}/assign`, {
       technicianId: technicianId,
       boxId: boxId
@@ -61,7 +65,7 @@ export const assignTechnicianAndBox = async (osId, technicianId, boxId) => {
 
 export const getActiveDashboardOS = async () => {
   try {
-    // Faz a chamada GET para /api/dashboard
+    /// Faz a chamada GET para /api/dashboard
     const response = await api.get('/dashboard');
     return response.data;
   } catch (error) {

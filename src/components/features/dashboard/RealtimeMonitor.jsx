@@ -1,9 +1,27 @@
-// src/components/features/dashboard/RealtimeMonitor.jsx
+
+
+/**
+ * @file RealtimeMonitor.jsx
+ * @brief Componente principal que renderiza o layout visual e interativo da oficina.
+ * @author Enzo Mello
+ *
+ * @description Este componente recebe a lista de todos os boxes e as OS ativas,
+ * combina esses dados para determinar o status de cada box, e os renderiza em um layout de 4 colunas.
+ * Utiliza um hook WebSocket para atualizações em tempo real. Gerencia a lógica para alternar entre a visão de grid 
+ * e a visão de detalhes de uma OS em um painel lateral animado.
+ *
+ * @param {object} props - Propriedades do componente.
+ * @param {Array<object>} props.allBoxes - A lista completa de todos os objetos de box vindos da API.
+ * @param {Array<object>} props.initialActiveOs - A lista inicial de OS ativas para o hook WebSocket.
+ * @param {function} props.onFetchOsDetails - Função para buscar os detalhes completos de uma OS.
+ *
+ * @returns {JSX.Element} O componente do layout da oficina.
+ */
 
 import React, { useMemo, useState, useCallback } from 'react';
 import { FaCar, FaSpinner } from 'react-icons/fa';
 import { useWebSocket } from '../../../hooks/useWebSocket';
-import DashboardBoxCard from '../dashboardBoxCard/DashboardBoxCard';
+import DashboardBoxCard from './cards/DashboardBoxCard';
 import OsDetailsView from '../OS/OsDetailsView';
 import './RealtimeMonitor.css';
 
@@ -11,8 +29,14 @@ function RealtimeMonitor({ allBoxes = [], initialActiveOs = [], onFetchOsDetails
   const [selectedOsData, setSelectedOsData] = useState(null);
   const [isDetailsLoading, setIsDetailsLoading] = useState(false);
   
+  /** @brief Mantém a lista de OS ativas atualizada via WebSocket. */
+
   const activeOsList = useWebSocket(initialActiveOs);
 
+  /**
+   * @brief Um mapa para acesso rápido aos detalhes resumidos da OS pelo seu número.
+   * @type {Map<string, object>}
+   */
   const activeOsMap = useMemo(() => 
     new Map(activeOsList.map(os => [os.orderServiceNumber, os])), 
     [activeOsList]
@@ -32,25 +56,30 @@ function RealtimeMonitor({ allBoxes = [], initialActiveOs = [], onFetchOsDetails
       });
   }, [allBoxes, activeOsList]);
 
+  /**
+   * @brief Função chamada ao clicar em um card de box.
+   * @description Se o box tiver uma OS, busca os detalhes completos e ativa o painel lateral.
+   * @param {object} box - O objeto de status do box que foi clicado.
+   */
   const handleBoxClick = useCallback(async (box) => {
-    // A função só continua se o box tiver uma OS e a função de busca existir.
+    /// A função só continua se o box tiver uma OS e a função de busca existir.
     if (!box.orderServiceNumber || !onFetchOsDetails) {
       return;
     }
 
-    // Busca o resumo da OS no mapa para encontrar o ID real (UUID)
+    /// Busca o resumo da OS no mapa para encontrar o ID real (UUID)
     const osSummary = activeOsMap.get(box.orderServiceNumber);
     if (!osSummary || !osSummary.orderServiceId) {
       console.error("ID da OS não encontrado para o número:", box.orderServiceNumber);
       return;
     }
     
-    // Inicia o loading e chama a API para buscar os detalhes completos
+    /// Inicia o loading e chama a API para buscar os detalhes completos
     setIsDetailsLoading(true);
     setSelectedOsData(null); // Limpa dados antigos
     try {
       const details = await onFetchOsDetails(osSummary.orderServiceId);
-      //  Com os detalhes em mãos, atualiza o estado para mostrar o painel
+      ///  Com os detalhes em mãos, atualiza o estado para mostrar o painel
       setSelectedOsData(details);
     } catch (error) {
       console.error("Erro ao buscar detalhes da OS:", error);
@@ -59,6 +88,11 @@ function RealtimeMonitor({ allBoxes = [], initialActiveOs = [], onFetchOsDetails
     }
   }, [activeOsMap, onFetchOsDetails]); 
 
+  /**
+   * @brief Extrai o valor numérico do nome de um box para ordenação e filtragem.
+   * @param {string} name - O nome do box (ex: "BOX-01").
+   * @returns {number} O número do box.
+   */
   const getBoxNumber = (name) => {
     if (!name || typeof name !== 'string') return 0;
     const justNumbers = name.replace(/\D/g, '');

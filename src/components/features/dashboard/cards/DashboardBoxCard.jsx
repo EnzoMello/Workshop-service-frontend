@@ -1,9 +1,28 @@
-// src/components/features/dashboard/DashboardBoxCard.jsx
+
+/**
+ * @file DashboardBoxCard.jsx
+ * @brief Componente de card que representa um único box no layout da oficina.
+ * @author Enzo Mello
+ *
+ * @description Exibe o nome do box, o número da OS (se ocupado), uma borda colorida
+ * e um semáforo que indicam o status da OS vinculada. É interativo e pode
+ * acionar eventos de clique.
+ */
+
 import React from 'react';
 import './DashboardBoxCard.css';
 
+/**
+ * @brief Componente de card para um box do dashboard.
+ * @param {object} props - Propriedades do componente.
+ * @param {object} props.box - O objeto de status do box, contendo nome, statusColor, etc.
+ * @param {function} [props.onBoxClick] - Função de callback opcional para o evento de clique.
+ * @param {'left'|'right'} [props.trafficLightPosition='right'] - Define o lado em que o semáforo é renderizado.
+ * @returns {JSX.Element} O card interativo do box.
+ */
+
 function DashboardBoxCard({ box, onBoxClick, trafficLightPosition = 'right' }) {
-  const statusColor = box.statusColor; // 'green', 'yellow', 'red', 'available'
+  const statusColor = box.statusColor; 
   
   // Define a classe de posicionamento e a de cor para a borda
   const positionClass = `position-${trafficLightPosition}`;

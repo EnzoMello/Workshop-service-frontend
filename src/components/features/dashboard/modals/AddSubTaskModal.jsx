@@ -1,3 +1,18 @@
+
+/**
+ * @file AddSubTaskModal.jsx
+ * @brief Componente de modal para adicionar uma nova sub-tarefa a uma Ordem de Serviço.
+ * @author Enzo Mello
+ *
+ * @description Apresenta um formulário simples com um campo de texto para o nome da nova sub-tarefa.
+ *
+ * @param {object} props - Propriedades do componente.
+ * @param {function} props.onClose - Função de callback para fechar o modal.
+ * @param {function} props.onConfirm - Função de callback chamada com o nome da nova sub-tarefa.
+ *
+ * @returns {JSX.Element} O modal de adição de sub-tarefa.
+ */
+
 import React, { useState } from 'react';
 import 'components/features/technicians/AddModal/AddTechnicianModal.css';
 import 'components/features/technicians/DeleteModal/BatchDeleteModal.css';

@@ -1,8 +1,6 @@
-// src/components/TechnicianCard.jsx
 import React from 'react';
 import './TechnicianCard.css';
 
-// Remov a prop 'onDeleteClick'
 function TechnicianCard({ technician }) {
   const cardClasses = `technician-card status-${technician.status}`;
   const headerClasses = `card-header status-${technician.status}`;
@@ -16,7 +14,6 @@ function TechnicianCard({ technician }) {
         <p className="card-info"><strong>RFID:</strong> {technician.rfidCode}</p>
         <p className="card-info"><strong>Função:</strong> {technician.role}</p>
       </div>
-      {/* O card-footer foi removido */}
     </div>
   );
 }

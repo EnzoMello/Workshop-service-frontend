@@ -5,12 +5,10 @@ import 'components/features/technicians/AddModal/AddTechnicianModal.css';
 import './BatchDeleteModal.css';
 
 function BatchDeleteModal({ technicians, onClose, onConfirm }) {
-  // --- Estados do Componente ---
   const [selectedIds, setSelectedIds] = useState([]); // Guarda IDs selecionados
   const [searchTerm, setSearchTerm] = useState(''); // Guarda o termo da busca
   const [isConfirming, setIsConfirming] = useState(false); // Controla o modal de confirmação aninhado
 
-  // --- Lógica de Filtragem ---
   // Filtra os técnicos com base no termo de busca
   const filteredTechnicians = technicians.filter(tech => {
     const term = searchTerm.toLowerCase();
@@ -21,7 +19,7 @@ function BatchDeleteModal({ technicians, onClose, onConfirm }) {
     );
   });
 
-  // --- Funções Handler ---
+  //  Funções Handler 
   const handleCheckboxChange = (id) => {
     if (selectedIds.includes(id)) {
       setSelectedIds(selectedIds.filter(selectedId => selectedId !== id));

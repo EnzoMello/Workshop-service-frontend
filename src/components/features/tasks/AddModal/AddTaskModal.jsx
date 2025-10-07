@@ -1,15 +1,33 @@
-// src/components/features/tasks/AddModal/AddTaskModal.jsx
+/**
+ * @file AddTaskModal.jsx
+ * @brief Componente de modal para adicionar uma nova Tarefa ao catálogo.
+ * @author Enzo Mello
+ *
+ * @description Apresenta um formulário para o usuário preencher o nome,
+ * a descrição e o tempo estimado de uma nova tarefa padrão.
+ */
 import React, { useState } from 'react';
 import 'components/features/technicians/AddModal/AddTechnicianModal.css';
 
+/**
+ * @brief Modal de Adição de Tarefa.
+ * @param {object} props - Propriedades do componente.
+ * @param {function} props.onClose - Função de callback para fechar o modal.
+ * @param {function} props.onAddTask - Callback que recebe o objeto com os dados da nova tarefa.
+ * @returns {JSX.Element} O modal renderizado.
+ */
 function AddTaskModal({ onClose, onAddTask }) {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [estimatedTimeMinutes, setEstimatedTimeMinutes] = useState('');
 
+  /**
+   * @brief Manipula a submissão do formulário.
+   * @description Constrói o objeto de dados da tarefa e chama a função onAddTask.
+   * @param {React.FormEvent} event - O evento de submissão do formulário.
+   */
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Monta o objeto EXATAMENTE como o back-end espera
     const taskData = {
       name,
       description,

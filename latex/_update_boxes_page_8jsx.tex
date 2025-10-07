@@ -1,0 +1,87 @@
+\doxysection{src/pages/boxes/update/\+Update\+Boxes\+Page.jsx File Reference}
+\hypertarget{_update_boxes_page_8jsx}{}\label{_update_boxes_page_8jsx}\index{src/pages/boxes/update/UpdateBoxesPage.jsx@{src/pages/boxes/update/UpdateBoxesPage.jsx}}
+
+
+Página para atualização de dados dos Boxes.  
+
+
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_update_boxes_page_8jsx_a8e6a862a904cf8b07c69fae7c44a1a04}{React}}
+\item 
+import \mbox{\hyperlink{_update_boxes_page_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \{ use\+Navigate \} from \textquotesingle{}\mbox{\hyperlink{_box_card_8jsx_aaed10feaf2dda4314d93c83408affea1}{react}}-\/router-\/dom\textquotesingle{}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} Update\+Box\+Modal from components features box Update\+Modal \mbox{\hyperlink{_update_boxes_page_8jsx_ad10bfc109d82509ebc92e755b6186788}{Update\+Box\+Modal}}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} pages technicians update \mbox{\hyperlink{_update_technicians_page_8jsx_ac7fcd1dd1eb566f34131ee2ab5eb9fa2}{Update\+Technicians\+Page}} \mbox{\hyperlink{_update_boxes_page_8jsx_a0fcc643615349fea0f67e4165093bd3e}{css}}
+\item 
+export default \mbox{\hyperlink{_update_boxes_page_8jsx_a816645bc0af9b24589b4688b0be935c4}{Update\+Boxes\+Page}} ()
+\begin{DoxyCompactList}\small\item\em Componente da página de atualização de boxes. @description Gerencia o estado da lista de boxes, filtros de busca/ordem e a seleção para atualização via modal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Página para atualização de dados dos Boxes. 
+
+\begin{DoxyAuthor}{Author}
+Enzo Mello
+\end{DoxyAuthor}
+@description Apresenta uma lista detalhada de todos os boxes, com funcionalidades de busca e ordenação. Permite ao usuário selecionar um box na lista para abrir um modal e atualizar suas informações. 
+
+\label{doc-var-members}
+\Hypertarget{_update_boxes_page_8jsx_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{_update_boxes_page_8jsx_a0fcc643615349fea0f67e4165093bd3e}\index{UpdateBoxesPage.jsx@{UpdateBoxesPage.jsx}!css@{css}}
+\index{css@{css}!UpdateBoxesPage.jsx@{UpdateBoxesPage.jsx}}
+\doxysubsubsection{\texorpdfstring{css}{css}}
+{\footnotesize\ttfamily \label{_update_boxes_page_8jsx_a0fcc643615349fea0f67e4165093bd3e} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} pages technicians update \mbox{\hyperlink{_update_technicians_page_8jsx_ac7fcd1dd1eb566f34131ee2ab5eb9fa2}{Update\+Technicians\+Page}} css}
+
+\Hypertarget{_update_boxes_page_8jsx_a59be084da8908b7d77ff34b25cd84488}\index{UpdateBoxesPage.jsx@{UpdateBoxesPage.jsx}!import@{import}}
+\index{import@{import}!UpdateBoxesPage.jsx@{UpdateBoxesPage.jsx}}
+\doxysubsubsection{\texorpdfstring{import}{import}}
+{\footnotesize\ttfamily \label{_update_boxes_page_8jsx_a59be084da8908b7d77ff34b25cd84488} 
+import \{ use\+Navigate \} from \textquotesingle{}\mbox{\hyperlink{_box_card_8jsx_aaed10feaf2dda4314d93c83408affea1}{react}}-\/router-\/dom\textquotesingle{}}
+
+\Hypertarget{_update_boxes_page_8jsx_a8e6a862a904cf8b07c69fae7c44a1a04}\index{UpdateBoxesPage.jsx@{UpdateBoxesPage.jsx}!React@{React}}
+\index{React@{React}!UpdateBoxesPage.jsx@{UpdateBoxesPage.jsx}}
+\doxysubsubsection{\texorpdfstring{React}{React}}
+{\footnotesize\ttfamily \label{_update_boxes_page_8jsx_a8e6a862a904cf8b07c69fae7c44a1a04} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} React}
+
+\Hypertarget{_update_boxes_page_8jsx_a816645bc0af9b24589b4688b0be935c4}\index{UpdateBoxesPage.jsx@{UpdateBoxesPage.jsx}!UpdateBoxesPage@{UpdateBoxesPage}}
+\index{UpdateBoxesPage@{UpdateBoxesPage}!UpdateBoxesPage.jsx@{UpdateBoxesPage.jsx}}
+\doxysubsubsection{\texorpdfstring{UpdateBoxesPage}{UpdateBoxesPage}}
+{\footnotesize\ttfamily \label{_update_boxes_page_8jsx_a816645bc0af9b24589b4688b0be935c4} 
+function Update\+Boxes\+Page (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Componente da página de atualização de boxes. @description Gerencia o estado da lista de boxes, filtros de busca/ordem e a seleção para atualização via modal. 
+
+\begin{DoxyReturn}{Returns}
+\{JSX.\+Element\} A página de atualização de boxes renderizada. 
+\end{DoxyReturn}
+Busca os dados iniciais de todos os boxes.
+
+Efeito que busca os dados ao montar o componente.
+
+Memoiza o resultado da filtragem e ordenação da lista de boxes para otimizar performance. \begin{DoxyReturn}{Returns}
+\{Array$<$object$>$\} A lista de boxes filtrada e ordenada.
+\end{DoxyReturn}
+Salva as informações atualizadas de um box via API. 
+\begin{DoxyParams}{Parameters}
+{\em \{object\}} & updated\+Box -\/ O objeto do box com os dados atualizados.\\
+\hline
+\end{DoxyParams}
+Manipula a mudança de ordenação da lista. 
+\begin{DoxyParams}{Parameters}
+{\em \{(\textquotesingle{}asc\textquotesingle{}\texorpdfstring{$\vert$}{|}\textquotesingle{}desc\textquotesingle{}\texorpdfstring{$\vert$}{|}\textquotesingle{}none\textquotesingle{})\}} & order -\/ A ordem de sorteio selecionada.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{_update_boxes_page_8jsx_ad10bfc109d82509ebc92e755b6186788}\index{UpdateBoxesPage.jsx@{UpdateBoxesPage.jsx}!UpdateBoxModal@{UpdateBoxModal}}
+\index{UpdateBoxModal@{UpdateBoxModal}!UpdateBoxesPage.jsx@{UpdateBoxesPage.jsx}}
+\doxysubsubsection{\texorpdfstring{UpdateBoxModal}{UpdateBoxModal}}
+{\footnotesize\ttfamily \label{_update_boxes_page_8jsx_ad10bfc109d82509ebc92e755b6186788} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} Update\+Box\+Modal from components features box Update\+Modal Update\+Box\+Modal}
+

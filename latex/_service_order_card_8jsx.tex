@@ -1,0 +1,111 @@
+\doxysection{src/components/features/dashboard/cards/\+Service\+Order\+Card.jsx File Reference}
+\hypertarget{_service_order_card_8jsx}{}\label{_service_order_card_8jsx}\index{src/components/features/dashboard/cards/ServiceOrderCard.jsx@{src/components/features/dashboard/cards/ServiceOrderCard.jsx}}
+
+
+Componente de card para exibir um resumo de uma Ordem de Serviço em uma lista.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+function \mbox{\hyperlink{_service_order_card_8jsx_aa98dbc376828c5fb0774212f91e49be2}{Service\+Order\+Card}} (\{ os, is\+Selected, on\+Click \})
+\begin{DoxyCompactList}\small\item\em Componente de card para uma Ordem de Serviço. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_add_box_modal_8jsx_a8e6a862a904cf8b07c69fae7c44a1a04}{React}} from \mbox{\hyperlink{_service_order_card_8jsx_aaed10feaf2dda4314d93c83408affea1}{react}}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \{ Fa\+Cog \} from \textquotesingle{}\mbox{\hyperlink{_box_card_8jsx_aaed10feaf2dda4314d93c83408affea1}{react}}-\/icons/fa\textquotesingle{}
+\item 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_service_order_card_8jsx_a903e3889992df87aa73b822e27f57623}{Service\+Order\+Card}} \mbox{\hyperlink{_service_order_card_8jsx_ad13f1a88d710e1453d0b478b9eb83555}{css}}
+\item 
+const \mbox{\hyperlink{_service_order_card_8jsx_aad284f58dbd8eb9aa43fa1615011dd25}{status\+Map}}
+\begin{DoxyCompactList}\small\item\em Mapeamento de status da API para texto e classes de CSS para estilização. @type \{object\}. \end{DoxyCompactList}\item 
+export default \mbox{\hyperlink{_service_order_card_8jsx_a903e3889992df87aa73b822e27f57623}{Service\+Order\+Card}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Componente de card para exibir um resumo de uma Ordem de Serviço em uma lista. 
+
+\begin{DoxyAuthor}{Author}
+Enzo Mello
+\end{DoxyAuthor}
+@description Este é um card clicável que mostra informações essenciais de uma OS, como seu número, status e tempo estimado. Ele muda de aparência quando está selecionado. 
+
+\label{doc-func-members}
+\Hypertarget{_service_order_card_8jsx_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_service_order_card_8jsx_aa98dbc376828c5fb0774212f91e49be2}\index{ServiceOrderCard.jsx@{ServiceOrderCard.jsx}!ServiceOrderCard@{ServiceOrderCard}}
+\index{ServiceOrderCard@{ServiceOrderCard}!ServiceOrderCard.jsx@{ServiceOrderCard.jsx}}
+\doxysubsubsection{\texorpdfstring{ServiceOrderCard()}{ServiceOrderCard()}}
+{\footnotesize\ttfamily \label{_service_order_card_8jsx_aa98dbc376828c5fb0774212f91e49be2} 
+function Service\+Order\+Card (\begin{DoxyParamCaption}\item[{}]{\{ os, is\+Selected, on\+Click \}}{}\end{DoxyParamCaption})}
+
+
+
+Componente de card para uma Ordem de Serviço. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \{object\}} & props -\/ Propriedades do componente. \\
+\hline
+{\em \{object\}} & props.\+os -\/ O objeto da Ordem de Serviço com os dados a serem exibidos. \\
+\hline
+{\em \{boolean\}} & props.\+is\+Selected -\/ Flag que indica se o card está atualmente selecionado. \\
+\hline
+{\em \{function\}} & props.\+on\+Click -\/ Função de callback a ser executada quando o card é clicado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{JSX.\+Element \texorpdfstring{$\vert$}{|} null\} O card da OS renderizado, ou nulo se não houver dados. 
+\end{DoxyReturn}
+
+
+\label{doc-var-members}
+\Hypertarget{_service_order_card_8jsx_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{_service_order_card_8jsx_ad13f1a88d710e1453d0b478b9eb83555}\index{ServiceOrderCard.jsx@{ServiceOrderCard.jsx}!css@{css}}
+\index{css@{css}!ServiceOrderCard.jsx@{ServiceOrderCard.jsx}}
+\doxysubsubsection{\texorpdfstring{css}{css}}
+{\footnotesize\ttfamily \label{_service_order_card_8jsx_ad13f1a88d710e1453d0b478b9eb83555} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_service_order_card_8jsx_a903e3889992df87aa73b822e27f57623}{Service\+Order\+Card}} css}
+
+\Hypertarget{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}\index{ServiceOrderCard.jsx@{ServiceOrderCard.jsx}!import@{import}}
+\index{import@{import}!ServiceOrderCard.jsx@{ServiceOrderCard.jsx}}
+\doxysubsubsection{\texorpdfstring{import}{import}}
+{\footnotesize\ttfamily \label{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488} 
+import \{ Fa\+Cog \} from \textquotesingle{}\mbox{\hyperlink{_box_card_8jsx_aaed10feaf2dda4314d93c83408affea1}{react}}-\/icons/fa\textquotesingle{}}
+
+\Hypertarget{_service_order_card_8jsx_aaed10feaf2dda4314d93c83408affea1}\index{ServiceOrderCard.jsx@{ServiceOrderCard.jsx}!react@{react}}
+\index{react@{react}!ServiceOrderCard.jsx@{ServiceOrderCard.jsx}}
+\doxysubsubsection{\texorpdfstring{react}{react}}
+{\footnotesize\ttfamily \label{_service_order_card_8jsx_aaed10feaf2dda4314d93c83408affea1} 
+\mbox{\hyperlink{_service_order_card_8jsx_a59be084da8908b7d77ff34b25cd84488}{import}} \mbox{\hyperlink{_add_box_modal_8jsx_a8e6a862a904cf8b07c69fae7c44a1a04}{React}} from react}
+
+\Hypertarget{_service_order_card_8jsx_a903e3889992df87aa73b822e27f57623}\index{ServiceOrderCard.jsx@{ServiceOrderCard.jsx}!ServiceOrderCard@{ServiceOrderCard}}
+\index{ServiceOrderCard@{ServiceOrderCard}!ServiceOrderCard.jsx@{ServiceOrderCard.jsx}}
+\doxysubsubsection{\texorpdfstring{ServiceOrderCard}{ServiceOrderCard}}
+{\footnotesize\ttfamily \label{_service_order_card_8jsx_a903e3889992df87aa73b822e27f57623} 
+export default Service\+Order\+Card}
+
+\Hypertarget{_service_order_card_8jsx_aad284f58dbd8eb9aa43fa1615011dd25}\index{ServiceOrderCard.jsx@{ServiceOrderCard.jsx}!statusMap@{statusMap}}
+\index{statusMap@{statusMap}!ServiceOrderCard.jsx@{ServiceOrderCard.jsx}}
+\doxysubsubsection{\texorpdfstring{statusMap}{statusMap}}
+{\footnotesize\ttfamily \label{_service_order_card_8jsx_aad284f58dbd8eb9aa43fa1615011dd25} 
+const status\+Map}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ NOT\_STARTED:\ \{\ text:\ \textcolor{stringliteral}{'Pendente'},\ className:\ \textcolor{stringliteral}{'status-\/pending'}\ \},}
+\DoxyCodeLine{\ \ IN\_PROGRESS:\ \{\ text:\ \textcolor{stringliteral}{'Em\ Andamento'},\ className:\ \textcolor{stringliteral}{'status-\/in-\/progress'}\ \},}
+\DoxyCodeLine{\ \ FINISHED:\ \{\ text:\ \textcolor{stringliteral}{'Terminado'},\ className:\ \textcolor{stringliteral}{'status-\/finished'}\ \},}
+\DoxyCodeLine{\ \ PAUSED:\ \{\ text:\ \textcolor{stringliteral}{'Pausado'},\ className:\ \textcolor{stringliteral}{'status-\/in-\/progress'}\ \},\ }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Mapeamento de status da API para texto e classes de CSS para estilização. @type \{object\}. 
+

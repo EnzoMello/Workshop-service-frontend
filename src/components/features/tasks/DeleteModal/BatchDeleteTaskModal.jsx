@@ -1,18 +1,37 @@
-// src/components/features/tasks/DeleteModal/BatchDeleteTaskModal.jsx
+/**
+ * @file BatchDeleteTaskModal.jsx
+ * @brief Modal para deletar múltiplas tarefas em uma única operação (em lote).
+ * @author Enzo Mello
+ *
+ * @description Apresenta uma lista pesquisável de todas as tarefas com checkboxes,
+ * permitindo ao usuário selecionar uma ou mais para exclusão.
+ */
+
 import React, { useState } from 'react';
 import 'components/features/technicians/AddModal/AddTechnicianModal.css';
 import 'components/features/technicians/DeleteModal/BatchDeleteModal.css';
 
+/**
+ * @brief Modal de Deleção de Tarefas em Lote.
+ * @param {object} props - Propriedades do componente.
+ * @param {Array<object>} props.tasks - A lista completa de tarefas para exibição.
+ * @param {function} props.onClose - Callback para fechar o modal.
+ * @param {function} props.onConfirm - Callback executado com a lista de IDs a serem deletados.
+ * @returns {JSX.Element} O modal de deleção em lote.
+ */
 function BatchDeleteTaskModal({ tasks, onClose, onConfirm }) {
   const [selectedIds, setSelectedIds] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [isConfirming, setIsConfirming] = useState(false);
 
+  /** @brief Filtra as tarefas com base no termo de busca. */
+
   const filteredTasks = tasks.filter(task =>
     task.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     String(task.id).toLowerCase().includes(searchTerm.toLowerCase())
   );
-
+  
+  /** @brief Adiciona ou remove um ID da lista de seleção do checkbox. */
   const handleCheckboxChange = (id) => {
     if (selectedIds.includes(id)) {
       setSelectedIds(selectedIds.filter(selectedId => selectedId !== id));
@@ -20,6 +39,8 @@ function BatchDeleteTaskModal({ tasks, onClose, onConfirm }) {
       setSelectedIds([...selectedIds, id]);
     }
   };
+
+  /** @brief Executa a função de deleção passada via props. */
 
   const executeDelete = () => { onConfirm(selectedIds); };
 

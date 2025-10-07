@@ -1,4 +1,13 @@
-// src/pages/geral/GeralPage.jsx
+/**
+ * @file GeralPage.jsx
+ * @brief Define a página "Geral", o painel principal para gerenciamento de Ordens de Serviço (OS).
+ * @author Enzo Mello
+ *
+ * @description Esta página renderiza um layout de duas colunas. A coluna da esquerda contém a lista de todas as OS.
+ * A coluna da direita exibe, por padrão, cartões de resumo (KPIs e Status dos Técnicos) e, ao selecionar uma OS,
+ * exibe os detalhes completos daquela OS. Gerencia todo o estado e as chamadas de API para esta funcionalidade.
+ */
+
 import React, { useState, useEffect, useMemo } from 'react';
 import { getAllTasks } from '../../services/taskService';
 import { getAllTechnicians } from '../../services/technicianService';
@@ -29,6 +38,11 @@ function GeralPage() {
   const [isDetailsLoading, setIsDetailsLoading] = useState(false);
   const [isCreateOsModalOpen, setIsCreateOsModalOpen] = useState(false);
 
+  /**
+   * @brief Calcula os dados para o card de "Resumo do Dia".
+   * @description Processa a lista 'osList' para extrair KPIs como total de OS, em andamento, pausadas e concluídas hoje.
+   * @type {object}
+   */
   const summaryData = useMemo(() => {
     const now = new Date();
     const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
@@ -47,7 +61,11 @@ function GeralPage() {
     };
   }, [osList]);
 
-  // Calcula os dados para o card de Status dos Técnicos
+  /**
+   * @brief Calcula o status de 'Livre' ou 'Ocupado' para cada técnico.
+   * @description Compara a lista de técnicos com as OS ativas para determinar o status de cada um.
+   * @type {Array<object>}
+   */
   const technicianStatuses = useMemo(() => {
     const busyTechnicianIds = new Set(
       osList
@@ -61,6 +79,10 @@ function GeralPage() {
     }));
   }, [osList, technicians]);
 
+  /**
+   * @brief Busca os dados iniciais da página na API.
+   * @description Utiliza Promise.all para buscar OS, tarefas, técnicos e boxes em paralelo.
+   */
   const fetchData = async () => {
     try {
       setIsLoading(true);
@@ -106,6 +128,12 @@ const refreshSelectedOsDetails = async () => {
   }
 };
 
+/**
+   * @brief Controla a seleção e desseleção de uma OS na lista.
+   * @description Se uma OS já selecionada for clicada novamente, ela é desselecionada para mostrar a visão de resumo.
+   * Caso contrário, busca e exibe os detalhes da nova OS selecionada.
+   * @param {string} osId - O ID da OS que foi clicada.
+   */
 const handleOsSelect = async (osId) => {
     if (selectedOsId === osId) {
       setSelectedOsId(null);

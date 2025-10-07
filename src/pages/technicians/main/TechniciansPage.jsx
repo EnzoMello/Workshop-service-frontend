@@ -1,4 +1,14 @@
-// src/pages/technicians/main/TechniciansPage.jsx
+
+
+/**
+ * @file TechniciansPage.jsx
+ * @brief Página principal para gerenciamento de Técnicos.
+ * @author Enzo Mello
+ *
+ * @description Esta página exibe todos os técnicos cadastrados em um layout de cards.
+ * Ela permite ao usuário adicionar novos técnicos, navegar para a página de atualização
+ * e deletar técnicos em lote através de modais.
+ */
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -8,6 +18,17 @@ import AddTechnicianModal from '../../../components/features/technicians/AddModa
 import BatchDeleteModal from '../../../components/features/technicians/DeleteModal/BatchDeleteModal';
 import './TechniciansPage.css';
 
+
+/**
+ * @file TechniciansPage.jsx
+ * @brief Página principal para gerenciamento de Técnicos.
+ * @author Enzo Mello
+ *
+ * @description Esta página exibe todos os técnicos cadastrados em um layout de cards.
+ * Ela permite ao usuário adicionar novos técnicos, navegar para a página de atualização
+ * e deletar técnicos em lote através de modais.
+ */
+
 function TechniciansPage() {
   const navigate = useNavigate();
   const [technicians, setTechnicians] = useState([]);
@@ -16,6 +37,9 @@ function TechniciansPage() {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isBatchDeleteModalOpen, setIsBatchDeleteModalOpen] = useState(false);
 
+  /**
+   * @brief Busca a lista de todos os técnicos da API e atualiza o estado do componente.
+   */
   const fetchData = async () => {
     try {
       setIsLoading(true);
@@ -29,10 +53,17 @@ function TechniciansPage() {
     }
   };
 
+  /**
+   * @brief Efeito que chama a função fetchData uma vez quando o componente é montado.
+   */
   useEffect(() => {
     fetchData();
   }, []);
 
+  /**
+   * @brief Manipula a submissão do modal de adição de técnico.
+   * @param {object} technicianData - Os dados do novo técnico a ser criado.
+   */
   const handleAddTechnician = async (technicianData) => {
     try {
       await createTechnician(technicianData);
@@ -43,6 +74,10 @@ function TechniciansPage() {
     }
   };
 
+  /**
+   * @brief Manipula a confirmação de deleção em lote de técnicos.
+   * @param {Array<string>} idsToDelete - Um array com os IDs dos técnicos a serem deletados.
+   */
   const handleConfirmBatchDelete = async (idsToDelete) => {
     try {
       const deletePromises = idsToDelete.map(id => deleteTechnician(id));

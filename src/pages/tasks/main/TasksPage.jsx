@@ -1,7 +1,15 @@
-// src/pages/tasks/main/TasksPage.jsx
+
+/**
+ * @file TasksPage.jsx
+ * @brief Página principal para o gerenciamento do Catálogo de Tarefas.
+ * @author Enzo Mello
+ *
+ * @description Esta página exibe todas as tarefas padrão que podem ser adicionadas a uma Ordem de Serviço.
+ * Permite ao usuário adicionar, deletar em lote e navegar para a página de atualização de tarefas.
+ */
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-// Não precisamos mais do 'Papa'
 import { getAllTasks, createTask, deleteTask } from 'services/taskService';
 import TaskCard from 'components/features/tasks/Card/TaskCard';
 import AddTaskModal from 'components/features/tasks/AddModal/AddTaskModal';
@@ -9,17 +17,25 @@ import BatchDeleteTaskModal from 'components/features/tasks/DeleteModal/BatchDel
 import SearchTaskModal from 'components/features/tasks/SearchModal/SearchTaskModal';
 import 'pages/technicians/main/TechniciansPage.css';
 
+/**
+ * @brief Componente principal da página de gerenciamento de tarefas.
+ * @description Gerencia o estado da lista de tarefas, o carregamento, os erros e a visibilidade dos modais.
+ * @returns {JSX.Element} A página de gerenciamento de tarefas renderizada.
+ */
+
 function TasksPage() {
   const navigate = useNavigate();
   const [tasks, setTasks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   
-  // O isUploading, para adicionar a leitura de arquivos csv foi removida para usar depois 
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
   const [isBatchDeleteModalOpen, setIsBatchDeleteModalOpen] = useState(false);
 
+  /**
+   * @brief Busca a lista de todas as tarefas da API e atualiza o estado.
+   */
   const fetchData = async () => {
     try {
       setIsLoading(true);
@@ -37,6 +53,10 @@ function TasksPage() {
     fetchData();
   }, []);
 
+  /**
+   * @brief Manipula a submissão do modal de adição de tarefa.
+   * @param {object} taskData - Os dados da nova tarefa a ser criada.
+   */
   const handleAddTask = async (taskData) => {
     try {
       await createTask(taskData);
@@ -47,6 +67,10 @@ function TasksPage() {
     }
   };
 
+  /**
+   * @brief Manipula a confirmação de deleção em lote de tarefas.
+   * @param {Array<string>} idsToDelete - Um array com os IDs das tarefas a serem deletadas.
+   */
   const handleConfirmBatchDelete = async (idsToDelete) => {
     try {
       const deletePromises = idsToDelete.map(id => deleteTask(id));
@@ -58,7 +82,6 @@ function TasksPage() {
     }
   };
 
-  // A função 'handleFileUpload' foi completamente removida
 
   if (isLoading) { return <p>Buscando tarefas no servidor...</p>; }
   if (error) { return <p style={{ color: 'red' }}>{error}</p>; }

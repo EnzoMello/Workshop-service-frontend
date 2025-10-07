@@ -1,4 +1,21 @@
-// src/components/features/dashboard/LinkTechnicianModal.jsx
+
+/**
+ * @file LinkTechnicianModal.jsx
+ * @brief Modal complexo para vincular um Técnico e um Box a uma Ordem de Serviço.
+ * @author Enzo Mello
+ *
+ * @description Apresenta duas colunas com listas pesquisáveis, uma para técnicos e outra para boxes,
+ * permitindo ao usuário selecionar um item de cada lista para a vinculação.
+ *
+ * @param {object} props - Propriedades do componente.
+ * @param {function} props.onClose - Callback para fechar o modal.
+ * @param {function} props.onConfirm - Callback executado com os IDs do técnico e do box selecionados.
+ * @param {Array<object>} [props.technicians=[]] - A lista completa de técnicos disponíveis.
+ * @param {Array<object>} [props.boxes=[]] - A lista completa de boxes disponíveis.
+ *
+ * @returns {JSX.Element} O modal de vinculação.
+ */
+
 import React, { useState, useMemo } from 'react';
 import 'components/features/technicians/AddModal/AddTechnicianModal.css';
 import './LinkTechnicianModal.css';
@@ -12,7 +29,7 @@ function LinkTechnicianModal({ onClose, onConfirm, technicians = [], boxes = [] 
   const [boxSearchTerm, setBoxSearchTerm] = useState('');
   const [selectedBoxId, setSelectedBoxId] = useState(null);
 
-  // Filtra a lista de técnicos
+  /** @brief Memoriza a lista de técnicos filtrada pelo termo de busca. */
   const filteredTechnicians = useMemo(() => 
     technicians.filter(tech => 
       tech.name.toLowerCase().includes(techSearchTerm.toLowerCase())
@@ -20,7 +37,7 @@ function LinkTechnicianModal({ onClose, onConfirm, technicians = [], boxes = [] 
     [technicians, techSearchTerm]
   );
 
-  // Filtra a lista de boxes
+  /** @brief Memoiza a lista de boxes filtrada pelo termo de busca. */
   const filteredBoxes = useMemo(() => 
     boxes.filter(box => 
       box.identifier.toLowerCase().includes(boxSearchTerm.toLowerCase())
@@ -28,6 +45,10 @@ function LinkTechnicianModal({ onClose, onConfirm, technicians = [], boxes = [] 
     [boxes, boxSearchTerm]
   );
 
+  /**
+   * @brief Manipula a submissão do formulário de vinculação.
+   * @param {React.FormEvent} event - O evento de submissão.
+   */
   const handleSubmit = (event) => {
     event.preventDefault();
     if (selectedTechId && selectedBoxId) {
