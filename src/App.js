@@ -8,16 +8,35 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Header from './components/layout/Header';
+import MobileMenu from './components/layout/MobileMenu';
+
 import DashboardPage from './pages/dashboard/DashboardPage';
+
 import TechniciansPage from './pages/technicians/main/TechniciansPage';
 import UpdateTechniciansPage from './pages/technicians/update/UpdateTechniciansPage';
+import TechnicianHomePage from './pages/tecnico/TechnicianHomePage'; 
+
 import BoxesPage from './pages/boxes/BoxesPage';
 import UpdateBoxesPage from './pages/boxes/update/UpdateBoxesPage';
+
 import TasksPage from './pages/tasks/main/TasksPage';
 import UpdateTasksPage from './pages/tasks/update/UpdateTasksPage';
+
 import GeralPage from './pages/geral/GeralPage';
 
+
 import './App.css';
+
+const MainLayout = ({ children }) => (
+  <div className="App">
+    <Header />
+    {/* Você pode ter seu menu aqui, se ele for uma barra lateral */}
+    {/* <MobileMenu /> */}
+    <main className="main-content">
+      {children}
+    </main>
+  </div>
+);
 
 /**
  * @brief Componente raiz que estrutura toda a aplicação.
@@ -38,7 +57,7 @@ function App() {
             
             {/* Rota para a página de gerenciamento geral de OS */}
             <Route path="/geral" element={<GeralPage />} />
-
+            <Route path="/pagina-tecnico" element={<TechnicianHomePage />} />
 
             {/* Rotas para o CRUD de Técnicos */}
             <Route path="/technicians" element={<TechniciansPage />} />

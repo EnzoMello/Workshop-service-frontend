@@ -1,0 +1,41 @@
+/* src/pages/tecnico/TechnicianHomePage.css */
+
+/* Define o layout de 2 colunas, exatamente como na página Geral */
+.tech-page-grid {
+  display: grid;
+  grid-template-columns: 350px 1fr; /* Coluna 1 fixa, Coluna 2 flexível */
+  gap: 24px;
+  padding: 24px;
+  height: 100vh; /* Ocupa a tela inteira */
+  background-color: #f1f5f9; /* Fundo claro padrão */
+}
+
+.tech-column {
+  height: 100%;
+  overflow-y: auto; /* Permite rolagem se o conteúdo for maior */
+  display: flex;
+  flex-direction: column;
+}
+
+.tech-column.right-content {
+  gap: 24px; /* Espaçamento entre os cards na coluna da direita, se houver mais de um */
+}
+
+/* Estilos para a mensagem de "Selecione uma OS" */
+.empty-details-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 40px;
+  text-align: center;
+  color: #94a3b8;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 2px dashed #e2e8f0;
+}
+.empty-details-message h2 {
+  color: #475569;
+  margin: 20px 0 10px 0;
+}

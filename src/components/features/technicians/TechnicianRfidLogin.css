@@ -1,0 +1,67 @@
+/* src/components/features/technicians/TechnicianRfidLogin.css */
+.tech-login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Ocupa a altura total da viewport */
+  width: 100%;
+  background-color: #f2f5f9; /* Fundo cinza claro que combina com seu sistema */
+}
+.tech-login-box {
+  background-color: #ffffff;
+  color: #333;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  text-align: center;
+  max-width: 450px;
+  width: 100%;
+}
+.tech-login-box h2 {
+  margin-top: 0;
+  color: #1e293b;
+  font-size: 1.8rem;
+}
+.tech-login-box p {
+  color: #64748b;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+.rfid-input {
+  width: calc(100% - 24px); /* Ajuste para o padding */
+  padding: 12px;
+  font-size: 1.2rem;
+  text-align: center;
+  border: 2px solid #cbd5e1; /* Borda cinza */
+  border-radius: 6px;
+  margin: 20px 0;
+  transition: border-color 0.3s ease;
+}
+.rfid-input:focus {
+  outline: none;
+  border-color: #0d6efd; /* Azul da sua paleta */
+}
+.login-button {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #0d6efd; /* Azul da sua paleta */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.login-button:hover:not(:disabled) {
+  background-color: #0b5ed7; /* Tom mais escuro de azul */
+}
+.login-button:disabled {
+  background-color: #94a3b8; /* Cinza claro para desabilitado */
+  cursor: not-allowed;
+}
+.error-message {
+  color: #dc3545; /* Vermelho padrão para erro */
+  margin-top: 15px;
+  font-weight: bold;
+}

@@ -164,19 +164,6 @@ const handleOsSelect = async (osId) => {
     };
 
 
-const handlePauseOs = async (reason) => {
-  if (!selectedOsId) return;
-  try {
-    await pauseOrderService(selectedOsId, reason);
-    fetchData(); 
-    await refreshSelectedOsDetails(); // 
-    setToastError(null);
-    setSuccessMessage("OS pausada com sucesso!");
-  } catch (error) { 
-    setToastError("Falha ao pausar a Ordem de Serviço."); 
-  }
-};
-
 const handleLinkTechnicianAndBox = async (technicianId, boxId) => {
     if (!selectedOsId || !technicianId || !boxId) return;
     try {
@@ -214,7 +201,6 @@ const handleLinkTechnicianAndBox = async (technicianId, boxId) => {
             isLoading={isDetailsLoading}
             technicians={technicians}
             boxes={boxes}
-            onPauseOs={handlePauseOs}
             onLinkTechnicianAndBox={handleLinkTechnicianAndBox}
           />
         ) : (

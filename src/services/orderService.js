@@ -73,3 +73,44 @@ export const getActiveDashboardOS = async () => {
     throw error;
   }
 };
+
+
+/**
+ * @brief Inicia uma Ordem de Serviço.
+ * @param {string} osId O ID da OS a ser iniciada.
+ * @returns {Promise<object>} A OS atualizada.
+ * @throws {Error} Lança um erro se a requisição à API falhar.
+ */
+export const startOs = async (osId) => {
+  try {
+    const response = await api.post(`/service-orders/${osId}/start`);
+    return response.data;
+  } catch (error) { throw error; }
+};
+
+/**
+ * @brief Retoma uma Ordem de Serviço que estava pausada.
+ * @param {string} osId O ID da OS a ser retomada.
+ * @returns {Promise<object>} A OS atualizada.
+ * @throws {Error} Lança um erro se a requisição à API falhar.
+ */
+export const resumeOs = async (osId) => {
+  try {
+    const response = await api.post(`/service-orders/${osId}/resume`);
+    return response.data;
+  } catch (error) { throw error; }
+};
+
+/**
+ * @brief Finaliza uma Ordem de Serviço.
+ * @param {string} osId O ID da OS a ser finalizada.
+ * @returns {Promise<object>} A OS atualizada.
+ * @throws {Error} Lança um erro se a requisição à API falhar.
+ */
+export const finishOs = async (osId) => {
+  try {
+    const response = await api.post(`/service-orders/${osId}/finish`);
+    return response.data;
+  } catch (error) { throw error; }
+};
+

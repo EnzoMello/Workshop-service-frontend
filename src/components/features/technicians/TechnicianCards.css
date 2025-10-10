@@ -1,0 +1,148 @@
+/* src/components/features/technicians/TechnicianCards.css */
+.tech-card {
+    background-color: #ffffff;
+    color: #333;
+    border-radius: 8px;
+    padding: 15px 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.2s ease-in-out;
+}
+/* Estilo para o card de resumo na fila */
+.summary-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-left: 4px solid #0d6efd; /* Azul para indicar clicável */
+}
+.summary-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+.card-info { flex-grow: 1; }
+.card-info h3 { margin: 0; font-size: 1.1rem; color: #1e293b; }
+.card-info p { margin: 5px 0 0 0; color: #64748b; font-size: 0.9rem; }
+.card-actions button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.9rem;
+    background-color: #0d6efd; /* Azul padrão para iniciar/detalhes */
+}
+.card-actions button:hover { opacity: 0.9; }
+
+/* --- Estilos do Painel de Detalhes da OS (TechnicianOsDetailsPanel) --- */
+.tech-details-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    background-color: #ffffff; /* Fundo branco do painel */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.details-section {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f1f5f9;
+}
+.details-section:last-child { border-bottom: none; padding-bottom: 0; }
+.details-section h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #1e293b;
+    font-size: 1.3rem;
+}
+.os-main-details .header-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.os-main-details .header-details h3 { margin: 0; font-size: 1.5rem; }
+
+.info-grid p {
+    margin: 5px 0;
+    color: #475569;
+}
+.info-grid strong { color: #1e293b; }
+
+/* Botões de Ação na OS */
+.tech-details-panel .card-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+.tech-details-panel .card-actions button {
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+.btn-start { background-color: #28a745; }
+.btn-pause { background-color: #ffc107; color: #333; }
+.btn-finish { background-color: #dc3545; }
+
+/* Resumo das Tarefas (similar ao DailySummaryCard) */
+.summary-tasks-section .summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    text-align: center;
+}
+.summary-tasks-section .summary-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #f8fafc;
+}
+.summary-tasks-section .summary-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+.summary-tasks-section .summary-value.green { color: #22c55e; }
+.summary-tasks-section .summary-value.yellow { color: #f59e0b; }
+.summary-tasks-section .summary-label {
+    font-size: 0.8rem;
+    color: #64748b;
+    text-transform: uppercase;
+}
+
+/* Lista de Tarefas Detalhada */
+.task-detail-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.task-detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f5f9;
+    color: #475569;
+}
+.task-detail-item:last-child { border-bottom: none; }
+.task-status {
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    background-color: #e2e8f0;
+    color: #475569;
+}
+.task-detail-item.status-COMPLETED .task-status { background-color: #dcfce7; color: #16a34a; }
+
+
+/* --- Reutilização de Badges (Certifique-se que estas classes estão disponíveis) --- */
+.status-badge { font-size: 0.8rem; font-weight: bold; padding: 5px 10px; border-radius: 15px; }
+.badge-pending { background-color: #fef3c7; color: #d97706; }
+.badge-in-progress { background-color: #dcfce7; color: #16a34a; }
+.badge-paused { background-color: #fee2e2; color: #dc2626; }
+.badge-finished { background-color: #e5e7eb; color: #4b5563; }

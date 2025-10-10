@@ -1,0 +1,17 @@
+.empty-details-placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 40px;
+  text-align: center;
+  color: #94a3b8;
+  background-color: #f8fafc;
+  border-radius: 8px;
+  border: 2px dashed #e2e8f0;
+}
+.empty-details-placeholder h2 {
+  color: #475569;
+  margin: 20px 0 10px 0;
+}

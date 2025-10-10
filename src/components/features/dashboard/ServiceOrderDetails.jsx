@@ -101,7 +101,6 @@ function ServiceOrderDetails({ selectedOsDetails, isLoading, technicians, boxes,
         </div>
         <div className="main-actions">
             <button className="btn btn-secondary" onClick={() => setIsLinkOpen(true)}><FaLink /> Vincular Técnico e Box</button>
-            <button className="btn btn-secondary" onClick={() => setIsPauseOpen(true)}><FaPauseCircle /> Pausar OS</button>
         </div>
       </div>
       

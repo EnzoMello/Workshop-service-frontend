@@ -83,14 +83,19 @@ export const updateTechnician = async (technicianData) => {
   }
 };
 
+
 /**
  * @brief Busca um técnico específico pelo seu código RFID.
  * @param {string} rfidCode - O código RFID a ser verificado.
  * @returns {Promise<object>} Os dados do técnico encontrado.
- * @throws {Error} Lança um erro se o técnico não for encontrado ou a API falhar.
+ * @throws {Error} Lança um erro (404 se não encontrado) se o RFID não corresponder a nenhum técnico.
  */
 export const getTechnicianByRfid = async (rfidCode) => {
-  // Este endpoint precisa existir no seu backend: ex: GET /api/technicians/rfid/{rfidCode}
-  const response = await api.get(`/technicians/rfid/${rfidCode}`);
-  return response.data;
+  try {
+    const response = await api.get(`/technicians/rfid/${rfidCode}`);
+    return response.data;
+  } catch (error) {
+    console.error("Erro em getTechnicianByRfid:", error.response?.data || error);
+    throw error;
+  }
 };

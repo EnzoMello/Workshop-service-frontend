@@ -22,7 +22,7 @@ const menuLinks = [
   { label: 'Gerenciar Técnicos', path: '/technicians' },
   { label: 'Gerenciar Boxes', path: '/boxes' },
   { label: 'Gerenciar Tarefas', path: '/tasks' },
-  { label: 'Página do técnico', path: '/meu-trabalho' }
+  { label: 'Página do Técnico', path: '/pagina-tecnico' }
 ];
 
 /**
