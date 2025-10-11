@@ -15,19 +15,12 @@ import './ServiceOrderCard.css';
  * @brief Mapeamento de status da API para texto e classes de CSS para estilização.
  * @type {object}
  */
-const statusClassMap = {
-  NOT_STARTED: 'status-pending',
-  IN_PROGRESS: 'status-in-progress',
-  PAUSED: 'status-in-progress', 
-  FINISHED: 'status-finished',
-};
-
-// Mapeia os status para o texto de exibição
-const statusTextMap = {
-  NOT_STARTED: 'Pendente',
-  IN_PROGRESS: 'Em Andamento',
-  PAUSED: 'Pausado',
-  FINISHED: 'Terminado',
+const statusMap = {
+  NOT_STARTED: { text: 'Pendente', className: 'status-gray' },
+  IN_PROGRESS: { text: 'Em Andamento', className: 'status-yellow' },
+  PAUSED: { text: 'Pausado', className: 'status-orange' },
+  COMPLETED: { text: 'Concluído', className: 'status-green' }, 
+  DELAYED: { text: 'Atrasado', className: 'status-red' },     
 };
 
 function ServiceOrderCard({ os, isSelected, onClick }) {
@@ -35,15 +28,8 @@ function ServiceOrderCard({ os, isSelected, onClick }) {
     return null;
   }
 
-  let statusClassName;
-
-  if (os.statusColor === 'red') {
-    statusClassName = 'status-late';
-  } else {
-    statusClassName = statusClassMap[os.status] || 'status-pending';
-  }
-
-  const statusText = statusTextMap[os.status] || os.status || 'Desconhecido';
+  // A lógica agora é mais simples e usa o mapa corrigido
+  const statusInfo = statusMap[os.status] || { text: os.status || 'Desconhecido', className: 'status-gray' };
   const cardClassName = `os-item-card ${isSelected ? 'active' : ''}`;
 
   return (
@@ -53,10 +39,10 @@ function ServiceOrderCard({ os, isSelected, onClick }) {
         <div className="os-item-info">
           <div className="os-item-name">OS-{os.osNumber}</div>
           <div className="os-item-details">
-            Status: {statusText} | Tempo Estimado: {os.totalEstimatedTimeMinutes || 'N/A'} min
+            Status: {statusInfo.text} | Tempo Estimado: {os.totalEstimatedTimeMinutes || 'N/A'} min
           </div>
         </div>
-        <div className={`os-item-status-dot ${statusClassName}`}></div>
+        <div className={`os-item-status-dot ${statusInfo.className}`}></div>
       </div>
     </button>
   );

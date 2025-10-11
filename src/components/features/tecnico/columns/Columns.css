@@ -73,9 +73,9 @@
   border-radius: 12px;
   text-transform: uppercase;
 }
-.status-NOT_STARTED { background-color: #fef3c7; color: #b45309; }
-.status-IN_PROGRESS { background-color: #dcfce7; color: #166534; }
-.status-COMPLETED { background-color: #e5e7eb; color: #4b5563; }
+.status-NOT_STARTED { background-color: #6c757d; color: #ebebeb; }
+.status-IN_PROGRESS { background-color: #ffc107; color: #ebebeb; }
+.status-COMPLETED { background-color: #28a745; color: #ebebeb; }
 .column-content-placeholder {
   padding: 20px;
   text-align: center;

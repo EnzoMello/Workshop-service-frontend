@@ -59,18 +59,22 @@
   background-color: #6c757d; 
 }
 
-.os-item-status-dot.status-pending {
+.os-item-status-dot.status-gray {
   background-color: #6c757d; 
 }
 
-.os-item-status-dot.status-in-progress {
-  background-color: #fd7e14; 
-}
-
-.os-item-status-dot.status-finished {
+.os-item-status-dot.status-green {
   background-color: #28a745; 
 }
 
-.os-item-status-dot.status-late {
-  background-color: #dc3545; 
+.os-item-status-dot.status-yellow {
+  background-color: #ffc107; 
+}
+
+.os-item-status-dot.status-red {
+  background-color: #980110; 
+}
+
+.os-item-status-dot.status-orange {
+  background-color: #ef552a; 
 }
