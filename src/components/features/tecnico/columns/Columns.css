@@ -7,11 +7,41 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 .column-header {
-  padding: 12px 16px;
-  font-weight: bold;
-  color: #334155;
-  background-color: #f1f5f9;
+  background-color: #f8fafc; 
+  padding: 15px 20px;
   border-bottom: 1px solid #e2e8f0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #334155;
+  text-align: center; 
+  position: relative; 
+  display: flex; 
+  align-items: center;
+  justify-content: center; /* Centraliza o texto */
+}
+
+
+
+/* Estilo para o botão "Voltar" */
+.column-back-btn {
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 1.2rem; 
+  cursor: pointer;
+  display: flex; 
+  align-items: center;
+  padding: 8px; 
+  border-radius: 4px;
+
+  position: absolute; 
+  left: 15px; 
+  top: 50%; 
+  transform: translateY(-50%); 
+}
+.column-back-btn:hover {
+  background-color: #e2e8f0;
+  color: #334155;
 }
 .column-content {
   overflow-y: auto;

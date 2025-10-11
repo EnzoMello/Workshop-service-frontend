@@ -15,7 +15,6 @@
   border-color: #cbd5e1;
 }
 
-/* Estilo para o cartão SELECIONADO */
 .os-item-card.active {
   background: #dbeafe;
   border-color: #3b82f6; 
@@ -42,7 +41,7 @@
   font-weight: 600;
   font-size: 14px;
   color: #1e293b;
-  text-transform: uppercase; /* TÍTULO EM MAIÚSCULO */
+  text-transform: uppercase; 
 }
 
 .os-item-details {
@@ -51,13 +50,27 @@
 }
 
 .os-item-status-dot {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   flex-shrink: 0;
+  transition: background-color 0.3s ease;
+  
+  background-color: #6c757d; 
 }
 
-/* Cores das bolinhas */
-.os-item-status-dot.status-pending { background-color: #868e96; }
-.os-item-status-dot.status-in_progress { background-color: #fd7e14; }
-.os-item-status-dot.status-finished { background-color: #28a745; }
+.os-item-status-dot.status-pending {
+  background-color: #6c757d; 
+}
+
+.os-item-status-dot.status-in-progress {
+  background-color: #fd7e14; 
+}
+
+.os-item-status-dot.status-finished {
+  background-color: #28a745; 
+}
+
+.os-item-status-dot.status-late {
+  background-color: #dc3545; 
+}

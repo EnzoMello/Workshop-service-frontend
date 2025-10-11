@@ -14,25 +14,25 @@
  */
 
 import React, { useMemo } from 'react';
-import { FaClipboardList, FaPlusCircle } from 'react-icons/fa';
+import { FaClipboardList, FaPlus } from 'react-icons/fa';
 import ServiceOrderCard from './cards/ServiceOrderCard';
 import './ServiceOrderList.css';
 
 /// Recebe as props da DashboardPage
-function ServiceOrderList({ orderServices, selectedOsId, onOsSelect, onAddOsClick }) {
+function ServiceOrderList({ orderServices, selectedOsId, onOsSelect, onAddOsClick, showAddButton = true }) {
 
   /// Lógica para ordenar a lista de OS com base no status
   const sortedOs = useMemo(() => {
-    /// Define a prioridade de cada status
+    // Define a prioridade de cada status
     const order = {
       IN_PROGRESS: 1,
       PAUSED: 2,
       NOT_STARTED: 3,
       FINISHED: 4,
     };
-    /// Cria uma cópia do array e o ordena
+    // Cria uma cópia do array e o ordena
     return [...(orderServices || [])].sort((a, b) => {
-      const orderA = order[a.status] || 99; /// Se o status for desconhecido, joga para o final
+      const orderA = order[a.status] || 99; // Se o status for desconhecido, joga para o final
       const orderB = order[b.status] || 99;
       return orderA - orderB;
     });
@@ -40,12 +40,13 @@ function ServiceOrderList({ orderServices, selectedOsId, onOsSelect, onAddOsClic
 
   return (
     <div className="dashboard-card">
-      {/* Cabeçalho escuro da coluna */}
       <div className="card-header">
         <h2 className="card-title"><FaClipboardList /> Ordens de Serviço</h2>
-        <button className="add-os-btn" onClick={onAddOsClick}>
-          <FaPlusCircle /> Adicionar OS
-        </button>
+         {showAddButton && (
+          <button className="add-os-btn" onClick={onAddOsClick}>
+            <FaPlus /> Adicionar OS
+          </button>
+        )}
       </div>
 
       {/* Conteúdo com a lista de cartões */}
@@ -60,7 +61,7 @@ function ServiceOrderList({ orderServices, selectedOsId, onOsSelect, onAddOsClic
             />
           ))}
         </div>
-        {/* Mensagem exibida se a lista estiver vazia */}
+        
         {sortedOs.length === 0 && <p style={{textAlign: 'center', color: '#666', marginTop: '20px'}}>Nenhuma OS encontrada.</p>}
       </div>
     </div>

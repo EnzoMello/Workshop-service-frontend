@@ -8,7 +8,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Header from './components/layout/Header';
-import MobileMenu from './components/layout/MobileMenu';
 
 import DashboardPage from './pages/dashboard/DashboardPage';
 
@@ -27,16 +26,6 @@ import GeralPage from './pages/geral/GeralPage';
 
 import './App.css';
 
-const MainLayout = ({ children }) => (
-  <div className="App">
-    <Header />
-    {/* Você pode ter seu menu aqui, se ele for uma barra lateral */}
-    {/* <MobileMenu /> */}
-    <main className="main-content">
-      {children}
-    </main>
-  </div>
-);
 
 /**
  * @brief Componente raiz que estrutura toda a aplicação.

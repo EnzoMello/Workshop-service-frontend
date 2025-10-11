@@ -109,6 +109,8 @@ function TechnicianHomePage() {
     try {
       await selectTask(taskId);
       setToastMessage(`Tarefa "${selectedTaskDetails.taskName}" apontada por ${authenticatedTech.name}.`);
+      await fetchQueue();
+      await handleTaskSelect(taskId);
       await refreshData();
     } catch (error) {
       console.error("Erro ao apontar tarefa:", error);
@@ -121,9 +123,15 @@ function TechnicianHomePage() {
   };
 
   const handleConfirmPause = async (reason) => {
-    await pauseTask(taskToPauseId, reason);
-    setIsPauseModalOpen(false);
-    await refreshData();
+    try {
+      await pauseTask(taskToPauseId, reason);
+      setIsPauseModalOpen(false);
+      setToastMessage(`Tarefa pausada.`);
+      await fetchQueue();
+      await handleTaskSelect(taskToPauseId);
+    } catch (error) {
+      console.error("Erro ao pausar tarefa:", error);
+    }
   };
 
 
@@ -131,9 +139,21 @@ function TechnicianHomePage() {
     await completeTask(taskId);
     setSelectedTaskId(null);
     setSelectedTaskDetails(null);
-    if (selectedOsDetails) {
-      await handleOsSelect(selectedOsDetails.id);
+    setToastMessage(`Tarefa ${selectedTaskDetails.taskName} foi finalizada com sucesso!`); 
+    await fetchQueue(); 
+    setSelectedTaskId(null);
+    setSelectedTaskDetails(null);
+      // Atualiza a coluna de tarefas da OS atual
+    if (selectedOsId) {
+      await handleOsSelect(selectedOsId);
     }
+  };
+
+  const handleResumeTask = async (taskId) => {
+      await selectTask(taskId);
+      setToastMessage(`Tarefa "${selectedTaskDetails.taskName}" foi REAPONTADA com sucesso.`);
+      await fetchQueue();
+      await handleTaskSelect(taskId);
   };
 
   const renderRightColumn = () => {
@@ -145,6 +165,7 @@ function TechnicianHomePage() {
           onSelect={handleSelectTask}
           onPause={handlePauseTask}
           onComplete={handleCompleteTask}
+          onResume={handleResumeTask}
         />
       );
     }
@@ -180,6 +201,7 @@ function TechnicianHomePage() {
             orderServices={osList}
             selectedOsId={selectedOsId}
             onOsSelect={handleOsSelect}
+            showAddButton={false}
           />
         </div>
         
