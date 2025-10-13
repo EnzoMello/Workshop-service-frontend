@@ -87,20 +87,26 @@ function ServiceOrderDetails({ selectedOsDetails, isLoading, technicians, boxes,
         <div className="meter-info-section">
             <div className="info-row"><span className="info-label">Técnico Vinculado:</span><span className="info-value">{selectedOsDetails.technicianName || 'Nenhum'}</span></div>
             <div className="info-row"><span className="info-label">Box Vinculado:</span><span className="info-value">{selectedOsDetails.boxName || 'Nenhum'}</span></div>
-            <div className="info-row"><span className="info-label">Início:</span><span className="info-value">{selectedOsDetails.startTime ? new Date(selectedOsDetails.startTime).toLocaleString('pt-BR') : 'Não iniciado'}</span></div>
-             <div className="info-row"><span className="info-label">Fim:</span><span className="info-value">{selectedOsDetails.endTime ? new Date(selectedOsDetails.endTime).toLocaleString('pt-BR') : 'Não finalizado'}</span></div>
              <div className="info-row"><span className="info-label">Motivo da Pausa:</span><span className="info-value">{selectedOsDetails.pauseReason || 'Nenhum'}</span></div>
         </div>
         <div className="sub-task-board">
           <h3 className="sub-task-title">Tarefas da OS</h3>
           <div className="sub-task-list">
-            {selectedOsDetails.taskNames?.length > 0 ? (
-              selectedOsDetails.taskNames.map((name, index) => (<SubTaskCard key={index} subTask={{ name: name, completed: false }} />))
-            ) : (<p className="no-sub-tasks">Nenhuma tarefa vinculada.</p>)}
-          </div>
+            {selectedOsDetails.task?.length > 0 ? (
+              selectedOsDetails.task.map(task => (
+                <SubTaskCard key={task.id} subTask={task} />
+              ))
+              
+            ) : (
+              <p className="no-sub-tasks">Nenhuma tarefa vinculada.</p>
+            )}
+        </div>
         </div>
         <div className="main-actions">
-            <button className="btn btn-secondary" onClick={() => setIsLinkOpen(true)}><FaLink /> Vincular Técnico e Box</button>
+            <button className="btn btn-secondary" onClick={() => setIsLinkOpen(true)} 
+              disabled={!!(selectedOsDetails.technicianName && selectedOsDetails.boxName)}
+              >
+                <FaLink /> Vincular Técnico e Box</button>
         </div>
       </div>
       

@@ -141,8 +141,8 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  overflow-y: auto; /* A barra de rolagem aparecerá aqui se a lista for grande */
-  flex: 1; /* Faz a lista crescer para preencher o .sub-task-board */
+  overflow-y: auto; 
+  flex: 1; 
   margin-bottom: 15px;
   padding-right: 5px;
 }
@@ -186,7 +186,6 @@
   width: 100%;
 }
 
-/* --- MENSAGEM DE PLACEHOLDER --- */
 .no-order-selected {
   text-align: center;
   padding: 50px;
@@ -196,4 +195,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.main-actions button:disabled {
+  background-color: #e9ecef;
+  color: #adb5bd;
+  cursor: not-allowed;
+  border-color: #dee2e6;
+}
+
+.main-actions button:disabled:hover {
+  background-color: #e9ecef; /* Impede mudança de cor no hover */
 }

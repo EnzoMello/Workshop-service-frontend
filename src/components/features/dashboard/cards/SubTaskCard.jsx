@@ -15,6 +15,9 @@ function SubTaskCard({ subTask }) {
   return (
     <div className="sub-task-card">
       <span className="sub-task-name">{subTask.name}</span>
+      <span className="sub-task-time">{subTask.estimatedTimeMinutes} min</span>
+
+
     </div>
   );
 }
