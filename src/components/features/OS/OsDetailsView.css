@@ -1,4 +1,4 @@
-/* src/components/features/dashboard/OsDetailsView.css */
+/* src/components/features/OS/OsDetailsView.css */
 
 .os-details-view {
   display: flex;
@@ -28,37 +28,173 @@
   transform: scale(1.05);
 }
 
-
 .details-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start; 
   align-items: center;
   padding-bottom: 12px;
-  border-bottom: 1px solid #091320;
+  border-bottom: 1px solid #e2e8f0;
   margin-bottom: 20px;
 }
+
 .details-header h3 {
   margin: 0;
   font-size: 1.5rem;
   color: #1e293b;
+  font-weight: 800;
 }
+
 .details-body {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
+
+.current-task-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-left-width: 6px;
+  border-left-style: solid;
+  transition: all 0.3s ease;
+}
+
+.status-border-GREEN { border-left-color: #22c55e; background-color: #f0fdf4; }
+.status-border-YELLOW { border-left-color: #f59e0b; background-color: #fffbeb; }
+.status-border-RED { border-left-color: #ef4444; background-color: #fef2f2; }
+.status-border-GRAY { border-left-color: #94a3b8; background-color: #f8fafc; }
+.status-border-ALERT_SEQUENTIAL { border-left-color: #ef4444; background-color: #fee2e2; }
+
+/* Indicador (Texto acima do nome da tarefa) */
+.live-indicator {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pulse-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.bg-GREEN { background-color: #22c55e; box-shadow: 0 0 0 rgba(34, 197, 94, 0.4); }
+.bg-YELLOW { background-color: #f59e0b; }
+.bg-RED { background-color: #ef4444; }
+.bg-GRAY { background-color: #cbd5e1; }
+
+.pulse-dot.animating {
+  animation: pulse 2s infinite;
+}
+
+/* Título da Tarefa */
+.live-task-name {
+  margin: 0 0 16px 0;
+  font-size: 1.3rem;
+  color: #0f172a;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+
+.live-timer-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #334155;
+  background: rgba(255,255,255,0.7);
+  padding: 8px 12px;
+  border-radius: 6px;
+  width: fit-content;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.live-timer-total {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  font-weight: normal;
+  margin-left: 4px;
+}
+
+.no-task-alert {
+  padding: 20px;
+  background-color: #f1f5f9;
+  border-radius: 8px;
+  text-align: center;
+  color: #64748b;
+  border: 1px dashed #cbd5e1;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
 .info-row {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 0.95rem;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
 }
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
 .info-row .label {
   color: #64748b;
-  font-weight: 500;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
-/* Estilos dos badges de status */
-.status-badge { padding: 4px 12px; border-radius: 16px; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; }
-.badge-in-progress { background-color: #dcfce7; color: #16a34a; }
-.badge-pending { background-color: #fef3c7; color: #d97706; }
-.badge-paused { background-color: #fee2e2; color: #dc2626; }
-.badge-finished { background-color: #e5e7eb; color: #4b5563; }
+
+.info-row span:last-child {
+  color: #1e293b;
+  font-weight: 500;
+  text-align: right;
+}
+
+/* Estilo especial para motivo de pausa */
+.pause-alert {
+  background-color: #fffbeb;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #fcd34d;
+  margin-top: 5px;
+}
+
+.pause-alert .label {
+  color: #b45309;
+}
+
+.pause-alert span:last-child {
+  color: #92400e;
+  font-weight: bold;
+}
+
+/* Keyframes da Animação Pulse */
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}

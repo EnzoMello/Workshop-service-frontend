@@ -10,6 +10,7 @@
  */
 
 import React from 'react';
+import { FaCar } from 'react-icons/fa';
 import './DashboardBoxCard.css';
 
 /**
@@ -21,30 +22,48 @@ import './DashboardBoxCard.css';
  * @returns {JSX.Element} O card interativo do box.
  */
 
-function DashboardBoxCard({ box, onBoxClick, trafficLightPosition = 'right' }) {
-  const statusColor = box.statusColor; 
+function DashboardBoxCard({ box, onBoxClick }) {
+  const statusColor = box.statusColor || 'GRAY'; 
+  const showCarIcon = box.carPresent === true;
   
-  // Define a classe de posicionamento e a de cor para a borda
-  const positionClass = `position-${trafficLightPosition}`;
-  const statusColorClass = `status-${statusColor}`;
-  
-  const cardClasses = `dashboard-box-card ${statusColorClass} ${positionClass} ${onBoxClick ? 'clickable' : ''}`;
+  const cardClasses = `dashboard-box-card status-${statusColor} ${onBoxClick ? 'clickable' : ''}`;
 
   return (
     <div className={cardClasses} onClick={onBoxClick}>
-      {/*Novo container para o semáforo */}
-      {statusColor !== 'available' && (
-        <div className="traffic-light">
-          <span className={`light red ${statusColor === 'red' ? 'active' : ''}`}></span>
-          <span className={`light yellow ${statusColor === 'yellow' ? 'active' : ''}`}></span>
-          <span className={`light green ${statusColor === 'green' ? 'active' : ''}`}></span>
-        </div>
-      )}
+      
+      <div className="traffic-light">
+        <span className={`light red ${statusColor === 'RED' ? 'active' : ''}`}></span>
+        <span className={`light yellow ${statusColor === 'YELLOW' ? 'active' : ''}`}></span>
+        <span className={`light green ${statusColor === 'GREEN' ? 'active' : ''}`}></span>
+      </div>
 
       <div className="box-card-content">
-        <span className="dashboard-box-name">{box.name}</span>
-        {box.orderServiceNumber && (
-          <span className="dashboard-box-os-number">OS-{box.orderServiceNumber}</span>
+        <div className="box-title-row">
+          <span className="dashboard-box-name">
+            {box.name || box.boxIdentifier}
+          </span>
+          
+          
+          {showCarIcon && (
+            <FaCar 
+              className="car-icon-indicator" 
+              title="Sensor: Veículo Detectado no Box" 
+            />
+          )}
+        </div>
+
+        {statusColor === 'ALERT_SEQUENTIAL' ? (
+          <span className="dashboard-box-os-number alerta-texto">
+            ALERTA: VEÍCULO S/ OS
+          </span>
+        ) : box.osNumber ? (
+          <span className="dashboard-box-os-number">
+            OS-{box.osNumber}
+          </span>
+        ) : (
+          <span className="dashboard-box-os-number">
+            Disponível
+          </span>
         )}
       </div>
     </div>

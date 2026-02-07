@@ -87,7 +87,6 @@ function ServiceOrderDetails({ selectedOsDetails, isLoading, technicians, boxes,
         <div className="meter-info-section">
             <div className="info-row"><span className="info-label">Técnico Vinculado:</span><span className="info-value">{selectedOsDetails.technicianName || 'Nenhum'}</span></div>
             <div className="info-row"><span className="info-label">Box Vinculado:</span><span className="info-value">{selectedOsDetails.boxName || 'Nenhum'}</span></div>
-             <div className="info-row"><span className="info-label">Motivo da Pausa:</span><span className="info-value">{selectedOsDetails.pauseReason || 'Nenhum'}</span></div>
         </div>
         <div className="sub-task-board">
           <h3 className="sub-task-title">Tarefas da OS</h3>

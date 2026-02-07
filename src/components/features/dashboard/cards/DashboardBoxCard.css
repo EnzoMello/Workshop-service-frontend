@@ -1,18 +1,22 @@
+/* src/components/features/dashboard/cards/DashboardBoxCard.css */
 
 .dashboard-box-card {
   border: 2px solid #d1d5db;
   border-radius: 6px;
-  padding: 8px; 
+  padding: 8px;
   background-color: #f0effb;
   transition: all 0.2s ease-in-out;
-  display: flex; 
-  align-items: center; 
-  gap: 8px; 
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px; 
+  position: relative;
 }
 
 .box-card-content {
-  flex-grow: 1; 
+  flex-grow: 1;
   text-align: center;
+  z-index: 2; 
 }
 
 .dashboard-box-name {
@@ -24,52 +28,99 @@
 
 .dashboard-box-os-number {
   font-size: 0.75rem;
-  color: #6b7280;
+  color: #0e172d;
   display: block;
   margin-top: 2px;
 }
 
+/*  CLASSES DE STATUS  */
+.status-GREEN { border-color: #22c55e; }
+.status-YELLOW { border-color: #f59e0b; }
+.status-RED { border-color: #ef4444; }
+.status-GRAY { border-color: #d1d5db; opacity: 0.8; }
+
+/*  SEMÁFORO  */
 .traffic-light {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  padding-right: 6px;
+  border-right: 1px solid rgba(0,0,0,0.05);
 }
 
 .light {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background-color: #dedede; 
-  transition: all 0.2s ease-in-out;
+  background-color: #e5e7eb; /* Cor apagada base */
+  transition: background-color 0.2s;
 }
 
-.light.red.active {
-  background-color: #ef4444;
-  box-shadow: 0 0 8px #ef4444;
+/* Cores ativas fixas */
+.light.green.active { background-color: #22c55e; box-shadow: 0 0 4px #22c55e; }
+.light.yellow.active { background-color: #f59e0b; box-shadow: 0 0 4px #f59e0b; }
+.light.red.active { background-color: #ef4444; box-shadow: 0 0 4px #ef4444; }
+
+
+@keyframes giroflex-card {
+  0%, 100% { border-color: #ef4444; background-color: #fee2e2; }
+  50% { border-color: #ffffff; background-color: #ef4444; }
 }
 
-.light.yellow.active {
-  background-color: #f59e0b;
-  box-shadow: 0 0 8px #f59e0b;
+.status-ALERT_SEQUENTIAL {
+  animation: giroflex-card 1s infinite ease-in-out;
+  border-width: 3px;
 }
 
-.light.green.active {
-  background-color: #22c55e;
-  box-shadow: 0 0 8px #22c55e;
+.alerta-texto {
+  color: #b91c1c;
+  font-weight: 900;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+.status-ALERT_SEQUENTIAL .alerta-texto {
+  color: inherit; /* Segue a cor do fundo na animação */
 }
 
-.dashboard-box-card.position-left {
-  flex-direction: row-reverse; 
-}
+/* Animação Sequencial das Bolinhas */
+@keyframes blink-green { 0%, 33% { background-color: #22c55e; box-shadow: 0 0 5px #22c55e;} 34%, 100% { background-color: #e5e7eb; } }
+@keyframes blink-yellow { 0%, 33% { background-color: #e5e7eb; } 34%, 66% { background-color: #f59e0b; box-shadow: 0 0 5px #f59e0b;} 67%, 100% { background-color: #e5e7eb; } }
+@keyframes blink-red { 0%, 66% { background-color: #e5e7eb; } 67%, 100% { background-color: #ef4444; box-shadow: 0 0 5px #ef4444;} }
 
-.dashboard-box-card.status-green { border-color: #28a745; }
-.dashboard-box-card.status-yellow { border-color: #f59e0b; }
-.dashboard-box-card.status-red { border-color: #dc3545; }
-.dashboard-box-card.status-gray { border-color: #6c757d; }
-.dashboard-box-card.status-available { border-color: #d1d5db; }
+/* Aplica a animação nas bolinhas APENAS quando o status é ALERT_SEQUENTIAL */
+.status-ALERT_SEQUENTIAL .light.green { animation: blink-green 0.6s infinite; }
+.status-ALERT_SEQUENTIAL .light.yellow { animation: blink-yellow 0.6s infinite; }
+.status-ALERT_SEQUENTIAL .light.red { animation: blink-red 0.6s infinite; }
 
-.dashboard-box-card.clickable:hover {
+.clickable:hover {
   cursor: pointer;
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/*ícone do carro */
+
+.box-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; 
+}
+
+.car-icon-indicator {
+  font-size: 1.1rem;      
+  color: #ea580c;         
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1)); 
+  animation: car-pop-in 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Animação suave quando o carro é detectado */
+@keyframes car-pop-in {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.status-ALERT_SEQUENTIAL .car-icon-indicator {
+  color: #ffffff;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
 }
