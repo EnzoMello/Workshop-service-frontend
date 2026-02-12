@@ -1,7 +1,6 @@
 /**
  * @file useWebSocket.js
  * @brief Fornece um hook customizado do React para gerenciar a conexão WebSocket do dashboard.
- * @author Enzo Mello
  *
  * @description Este hook abstrai toda a complexidade de conexão e gerenciamento de
  * inscrições (subscriptions) com um servidor WebSocket usando StompJS sobre SockJS.
@@ -16,9 +15,8 @@ const WS_URL = "http://localhost:8080/ws";
 /**
  * @brief Hook customizado que gerencia a conexão com o WebSocket e mantém o estado dos dados em tempo real.
  * @description Este hook utiliza StompJS e SockJS para se conectar ao servidor.
- * 
- *
- * @param {Array<object>} [initialData=[]] - A lista inicial de dados a ser exibida. Cada objeto deve conter 'orderServiceId' para a inscrição no tópico específico.
+ * *
+ * @param {Array<object>} - A lista inicial de dados a ser exibida. Cada objeto deve conter 'orderServiceId' para a inscrição no tópico específico.
  * @returns {Array<object>} A lista de dados (OS ativas) que é atualizada em tempo real pelo WebSocket.
  */
 export const useWebSocket = (initialData = []) => {
@@ -50,10 +48,13 @@ export const useWebSocket = (initialData = []) => {
      */
     const updateCard = (updatedDto) => {
       setData(currentData => {
-        const cardExists = currentData.some(item => item.orderServiceId === updatedDto.orderServiceId);
+        // Busca pelo Box (chave fixa)
+        const cardExists = currentData.some(item => item.boxIdentifier === updatedDto.boxIdentifier);
+        
         if (cardExists) {
           return currentData.map(item =>
-            item.orderServiceId === updatedDto.orderServiceId ? { ...item, ...updatedDto } : item
+            // Substitui o objeto inteiro para garantir que estados antigos de alerta sejam limpos
+            item.boxIdentifier === updatedDto.boxIdentifier ? updatedDto : item
           );
         } else {
           return [...currentData, updatedDto];
@@ -67,7 +68,8 @@ export const useWebSocket = (initialData = []) => {
      * @param {string} osId - O ID da Ordem de Serviço para a qual se inscrever.
      */
     const subscribeToOs = (osId) => {
-      if (client.active && !subscriptionsRef.current.has(osId)) {
+      // Proteção: Só inscreve se tiver um ID válido (evita erro quando chega alerta com id null)
+      if (client.active && osId && !subscriptionsRef.current.has(osId)) {
         const subscription = client.subscribe(`/topic/dashboard/${osId}`, (message) => {
           try {
             const dto = JSON.parse(message.body);
@@ -85,18 +87,23 @@ export const useWebSocket = (initialData = []) => {
     client.onConnect = () => {
       console.log('✅ Conectado ao WebSocket!');
 
-      
       client.subscribe('/topic/dashboard', (message) => {
         try {
           const dto = JSON.parse(message.body);
           console.log("📩 Broadcast recebido (nova OS/update geral):", dto);
+          
           updateCard(dto);
-          subscribeToOs(dto.orderServiceId);
+          
+          // Só tenta inscrever no tópico específico se houver um ID de OS válido
+          if (dto.orderServiceId) {
+            subscribeToOs(dto.orderServiceId);
+          }
         } catch (e) { console.error("Erro no broadcast:", e); }
       });
 
-
-      initialData.forEach(os => subscribeToOs(os.orderServiceId));
+      initialData.forEach(os => {
+        if(os.orderServiceId) subscribeToOs(os.orderServiceId);
+      });
     };
 
     client.activate();
